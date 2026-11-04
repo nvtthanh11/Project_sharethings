@@ -1,97 +1,122 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Điều khoản Dịch vụ — ShareThings / ReplyFlow</title>
-<meta name="description" content="Điều khoản sử dụng dịch vụ của ShareThings và ReplyFlow, quy định quyền và trách nhiệm của khách hàng khi sử dụng giải pháp AI tự động hóa.">
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<title>Điều khoản sử dụng website ShareThings — ShareThings</title>
+<meta name="description" content="Áp dụng cho việc truy cập website ShareThings. Mỗi sản phẩm có điều khoản dịch vụ riêng.">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('st-theme');if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <link rel="stylesheet" href="style.css">
+<script src="site.js" defer></script>
 </head>
-<body>
+<body data-product="hub">
+
+<div class="top-banner">
+  <div class="wrap">
+    <div class="status-indicator"><span class="dot"></span>Hỗ trợ 24/7 qua Zalo &amp; Telegram</div>
+    <div class="top-banner-links">
+      <a href="https://zalo.me/0908674036" target="_blank" rel="noopener">Zalo / Hotline: <strong>0908674036</strong></a>
+      <a href="https://t.me/nvtthanh11" target="_blank" rel="noopener">Telegram: <strong>@nvtthanh11</strong></a>
+    </div>
+  </div>
+</div>
 
 <header class="site-header">
   <div class="wrap">
-    <a href="index.html" class="brand">
-      <img src="assets/logo-64.png" alt="ShareThings logo">
-      <span>ShareThings</span>
+    <a class="brand" href="index.html">
+      <img src="assets/logo-64.png" alt="ShareThings" width="32" height="32">
+      <span class="brand-name">ShareThings</span>
+      <span class="brand-badge">Hub</span>
     </a>
-    <nav class="site-nav">
-      <a href="index.html">Trang chủ</a>
-      <a href="replyflow.html">ReplyFlow</a>
-      <a href="vidflow.html">VidFlow</a>
-      <a href="privacy.html">Chính sách bảo mật</a>
-      <a href="data-deletion.html">Xóa dữ liệu</a>
+    <nav class="site-nav" aria-label="Điều hướng chính">
+        <a href="index.html#apps">Sản phẩm</a>
+        <a href="index.html#testimonials">Đánh giá</a>
+        <a href="index.html#articles">Chia sẻ</a>
+        <a href="replyflow.html">ReplyFlow</a>
+        <a href="vidflow.html">VidFlow</a>
     </nav>
+    <div class="header-actions">
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Đổi giao diện sáng/tối" title="Đổi giao diện sáng/tối">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.5M12 20v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M1.5 12H4M20 12h2.5M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+      </button>
+      <a class="btn-nav" href="replyflow.html#checkout">Dùng thử 2.000đ</a>
+    </div>
   </div>
 </header>
 
-<section>
+<main>
+
+<section class="legal-head">
   <div class="wrap">
-    <div class="section-head" style="margin-bottom: 20px;">
-      <span class="eyebrow-sm">Pháp lý & Thỏa thuận</span>
-      <h1 class="section-title">Điều Khoản Dịch Vụ (Terms of Service)</h1>
-      <p class="section-sub">Áp dụng cho mọi khách hàng đăng ký, cài đặt hoặc sử dụng các ứng dụng trong hệ sinh thái ShareThings.</p>
-    </div>
-
-    <div class="legal-content">
-      <h2>1. Chấp thuận các điều khoản</h2>
-      <p>Bằng việc đăng ký tài khoản, quét mã thanh toán VietQR, cài đặt phần mềm hoặc kích hoạt License Key trên hệ sinh thái <strong>ShareThings</strong> (bao gồm <strong>ReplyFlow</strong> và <strong>VidFlow</strong>), bạn ("Khách hàng" hoặc "Bên sử dụng") đồng ý chịu sự ràng buộc của bản Điều khoản Dịch vụ này cùng Chính sách Quyền riêng tư của chúng tôi.</p>
-
-      <h2>2. Mô tả dịch vụ</h2>
-      <p>ShareThings cung cấp các giải pháp công nghệ và phần mềm tự động hóa kinh doanh trên nền tảng AI:</p>
-      <ul>
-        <li><strong>ReplyFlow:</strong> Phần mềm trợ lý AI trực Fanpage Facebook 24/7, tự động trả lời tin nhắn, bình luận, hỗ trợ đối chiếu biên lai chuyển khoản và phân loại khách hàng tiềm năng.</li>
-        <li><strong>VidFlow:</strong> Giải pháp tự động hóa lên kịch bản và đăng tải video đa kênh trên các nền tảng mạng xã hội.</li>
-      </ul>
-
-      <h2>3. Quy tắc sử dụng được chấp nhận & Nghiêm cấm hành vi</h2>
-      <p>Khách hàng cam kết tuân thủ nghiêm túc các quy định sau:</p>
-      <ul>
-        <li><strong>Tuân thủ luật pháp Việt Nam:</strong> Tuyệt đối không sử dụng bot để bán hàng cấm, vũ khí, chất kích thích, cờ bạc, nội dung đồi trụy hoặc các hành vi vi phạm pháp luật hiện hành.</li>
-        <li><strong>Tuân thủ Chính sách Nền tảng Meta (Facebook Platform Policy):</strong> Không lợi dụng bot để spam tin nhắn hàng loạt, không gửi tin nhắn quảng cáo quấy rối khách hàng vi phạm Luật Tin Nhắn 24 Giờ của Meta.</li>
-        <li><strong>Không gian lận, lừa đảo:</strong> Không cấu hình bot mạo danh các tổ chức ngân hàng, cơ quan nhà nước nhằm chiếm đoạt tài sản.</li>
-      </ul>
-      <p><em>Nếu phát hiện khách hàng có dấu hiệu vi phạm pháp luật hoặc spam phá hoại, chúng tôi có quyền đơn phương tạm dừng hoặc thu hồi License bản quyền mà không cần báo trước và không hoàn tiền.</em></p>
-
-      <h2>4. Chính sách Bản quyền & Khóa theo Fanpage (DRM)</h2>
-      <ul>
-        <li>Mọi mã nguồn, thuật toán AI, cơ chế phòng chống nghẽn quota và giao diện người dùng thuộc quyền sở hữu trí tuệ duy nhất của <strong>ShareThings</strong>.</li>
-        <li>Với phiên bản bán đứt (On-Premise), mỗi License Key được cấp chỉ có hiệu lực với đúng <strong>01 Fanpage ID</strong> duy nhất được chỉ định lúc mua.</li>
-        <li>Khách hàng <strong>nghiêm cấm</strong>: Dịch ngược mã nguồn (Decompile), bẻ khóa (Crack), sao chép app để chạy trên Fanpage khác mà chưa mua thêm License, hoặc bán lại cho bên thứ ba.</li>
-      </ul>
-
-      <h2>5. Chính sách Thanh toán & Kích hoạt Tự động</h2>
-      <ul>
-        <li>Hệ thống áp dụng thanh toán chuyển khoản tự động qua mã VietQR chuẩn Napas.</li>
-        <li>Khách hàng có trách nhiệm kiểm tra đúng cú pháp nội dung chuyển tiền (VD: <code>BOT &lt;PAGE_ID&gt;</code>) để hệ thống nhận diện và kích hoạt tức thì trong 3 giây.</li>
-        <li>Trường hợp khách hàng chuyển thiếu tiền hoặc sai nội dung, hệ thống sẽ lưu trạng thái chờ duyệt và hỗ trợ kích hoạt thủ công qua email/Telegram hỗ trợ trong 24h.</li>
-      </ul>
-
-      <h2>6. Giới hạn trách nhiệm (Disclaimers)</h2>
-      <ul>
-        <li>ShareThings cung cấp phần mềm theo nguyên tắc "nguyên trạng" (As-Is). Chúng tôi không chịu trách nhiệm đối với các rủi ro phát sinh từ việc Fanpage của khách hàng bị Meta hạn chế tính năng do nội dung bài chạy quảng cáo của chính khách hàng.</li>
-        <li>Chúng tôi không chịu trách nhiệm trong trường hợp khách hàng tự ý để lộ Token Fanpage hoặc API Key ra bên ngoài.</li>
-      </ul>
-
-      <h2>7. Sửa đổi điều khoản</h2>
-      <p>Chúng tôi có thể cập nhật bản Điều khoản này khi có thay đổi về quy định kỹ thuật của Facebook hoặc pháp luật Việt Nam. Bản cập nhật mới nhất sẽ luôn được niêm yết công khai tại đường dẫn này.</p>
-
-      <h2>8. Liên hệ hỗ trợ</h2>
-      <p>Nếu bạn có bất kỳ câu hỏi nào về Điều khoản Dịch vụ, vui lòng liên hệ: <a href="mailto:nvtthanh11@gmail.com">nvtthanh11@gmail.com</a>.</p>
-    </div>
+    <span class="eyebrow-sm">Pháp lý — ShareThings</span>
+    <h1 class="section-title">Điều khoản sử dụng website ShareThings</h1>
+    <p class="section-sub">Áp dụng cho việc truy cập website ShareThings. Mỗi sản phẩm có điều khoản dịch vụ riêng.</p>
+    <p class="legal-meta">Cập nhật lần cuối: 04/11/2026</p>
   </div>
 </section>
+<div class="wrap">
+  <article class="legal-box"><h2>1. Phạm vi</h2><p>Điều khoản này áp dụng cho nội dung trên website ShareThings. Điều khoản sử dụng sản phẩm xem tại: <a href="replyflow-terms.html">ReplyFlow</a>, <a href="vidflow-terms.html">VidFlow</a>.</p><h2>2. Nội dung</h2><p>Bài viết và thông tin trên website mang tính tham khảo. Nghiêm cấm sao chép nội dung, hình ảnh, thương hiệu cho mục đích thương mại khi chưa được đồng ý.</p><h2>3. Liên kết ngoài</h2><p>Website có thể chứa liên kết tới trang của bên thứ ba; chúng tôi không chịu trách nhiệm về nội dung của các trang đó.</p><h2>4. Luật áp dụng</h2><p>Điều khoản được điều chỉnh bởi pháp luật Việt Nam.</p><h2>5. Liên hệ</h2><ul>
+<li><strong>Đơn vị vận hành:</strong> Nguyễn Vũ Trường Thành (cá nhân kinh doanh)</li>
+<li><strong>Zalo / Điện thoại:</strong> <a href="https://zalo.me/0908674036" target="_blank" rel="noopener">0908674036</a></li>
+<li><strong>Telegram:</strong> <a href="https://t.me/nvtthanh11" target="_blank" rel="noopener">@nvtthanh11</a></li>
+<li><strong>Email:</strong> <a href="mailto:nvtthanh11@gmail.com">nvtthanh11@gmail.com</a></li>
+<li><strong>Địa chỉ:</strong> TP. Hồ Chí Minh, Việt Nam</li>
+</ul></article>
+</div>
+
+</main>
 
 <footer class="site-footer">
   <div class="wrap">
-    <div class="footer-bottom">
-      <span>&copy; 2026 ShareThings Ecosystem. Tuân thủ Chính sách Nền tảng Meta.</span>
-      <div>
-        <a href="terms.html">Điều khoản dịch vụ</a> &bull; 
-        <a href="privacy.html">Chính sách bảo mật</a> &bull; 
-        <a href="data-deletion.html">Yêu cầu xóa dữ liệu</a>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a class="brand" href="index.html">
+          <img src="assets/logo-64.png" alt="ShareThings" width="32" height="32">
+          <span class="brand-name">ShareThings</span>
+        </a>
+        <p>Nơi chia sẻ các ứng dụng và công cụ tự động hóa hữu ích cho người bán hàng và đội ngũ nội dung.</p>
+        <div class="trust-badges">
+          <span class="badge-pill">Thanh toán VietQR</span>
+          <span class="badge-pill">Tuân thủ NĐ 13/2023/NĐ-CP</span>
+        </div>
       </div>
+      <div class="footer-col">
+        <h4>Sản phẩm</h4>
+        <ul>
+          <li><a href="replyflow.html">ReplyFlow</a></li>
+          <li><a href="vidflow.html">VidFlow</a></li>
+          <li><a href="index.html">ShareThings Hub</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Pháp lý</h4>
+        <ul>
+            <li><a href="privacy.html">Chính sách bảo mật</a></li>
+            <li><a href="terms.html">Điều khoản sử dụng</a></li>
+            <li><a href="data-deletion.html">Yêu cầu xóa dữ liệu</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Liên hệ</h4>
+        <ul>
+          <li><span class="k">Zalo:</span><a href="https://zalo.me/0908674036" target="_blank" rel="noopener">0908674036</a></li>
+          <li><span class="k">Telegram:</span><a href="https://t.me/nvtthanh11" target="_blank" rel="noopener">@nvtthanh11</a></li>
+          <li><span class="k">Email:</span><a href="mailto:nvtthanh11@gmail.com">nvtthanh11@gmail.com</a></li>
+          <li><span class="k">Khu vực:</span>TP. Hồ Chí Minh</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 ShareThings. Bảo lưu mọi quyền.</span>
+      <nav aria-label="Pháp lý">
+        <a href="privacy.html">Chính sách bảo mật</a>
+        <a href="terms.html">Điều khoản sử dụng</a>
+        <a href="data-deletion.html">Yêu cầu xóa dữ liệu</a>
+      </nav>
     </div>
   </div>
 </footer>

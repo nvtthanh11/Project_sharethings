@@ -1,93 +1,122 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hướng Dẫn Xóa Dữ Liệu Facebook — ReplyFlow AI</title>
-<meta name="description" content="Hướng dẫn chi tiết quy trình yêu cầu gỡ bỏ và xóa toàn bộ dữ liệu người dùng khỏi ứng dụng ReplyFlow AI trên Facebook.">
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<title>Hướng dẫn xóa dữ liệu ReplyFlow — ReplyFlow</title>
+<meta name="description" content="Quy trình yêu cầu xóa dữ liệu người dùng theo yêu cầu của Meta và Nghị định 13/2023/NĐ-CP.">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('st-theme');if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <link rel="stylesheet" href="style.css">
+<script src="site.js" defer></script>
 </head>
-<body>
+<body data-product="replyflow">
 
 <div class="top-banner">
   <div class="wrap">
-    <div class="status-indicator"><span class="dot"></span> Facebook User Data Deletion Instructions URL (Meta App Review Compliance)</div>
+    <div class="status-indicator"><span class="dot"></span>Hỗ trợ 24/7 qua Zalo &amp; Telegram</div>
     <div class="top-banner-links">
-      <a href="tel:0908674036">Hotline/Zalo: 0908674036</a>
-      <a href="https://t.me/nvtthanh11" target="_blank">Telegram: @nvtthanh11</a>
+      <a href="https://zalo.me/0908674036" target="_blank" rel="noopener">Zalo / Hotline: <strong>0908674036</strong></a>
+      <a href="https://t.me/nvtthanh11" target="_blank" rel="noopener">Telegram: <strong>@nvtthanh11</strong></a>
     </div>
   </div>
 </div>
 
 <header class="site-header">
   <div class="wrap">
-    <div class="brand">
-      <a href="replyflow.html" style="display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none;">
-        <img src="assets/logo-64.png" alt="ReplyFlow logo">
-        <span>ReplyFlow <span class="brand-badge">Xóa Dữ Liệu</span></span>
-      </a>
-    </div>
-    <nav class="site-nav">
-      <a href="replyflow.html">← Về ReplyFlow</a>
-      <a href="replyflow-privacy.html">Chính sách bảo mật</a>
-      <a href="replyflow-terms.html">Điều khoản dịch vụ</a>
-      <a href="index.html">ShareThings Hub</a>
+    <a class="brand" href="replyflow.html">
+      <img src="assets/logo-64.png" alt="ReplyFlow" width="32" height="32">
+      <span class="brand-name">ReplyFlow</span>
+      <span class="brand-badge">Fanpage AI</span>
+    </a>
+    <nav class="site-nav" aria-label="Điều hướng chính">
+        <a href="index.html">← ShareThings</a>
+        <a href="replyflow.html#features">Tính năng</a>
+        <a href="replyflow.html#testimonials">Đánh giá</a>
+        <a href="replyflow.html#pricing">Bảng giá</a>
+        <a href="replyflow.html#faq">Hỏi đáp</a>
     </nav>
+    <div class="header-actions">
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Đổi giao diện sáng/tối" title="Đổi giao diện sáng/tối">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.5M12 20v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M1.5 12H4M20 12h2.5M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+      </button>
+      <a class="btn-nav" href="replyflow.html#checkout">Kích hoạt 2.000đ</a>
+    </div>
   </div>
 </header>
 
-<section>
+<main>
+
+<section class="legal-head">
   <div class="wrap">
-    <div class="section-head" style="text-align: left; max-width: 100%;">
-      <span class="eyebrow-sm">Quy Chuẩn Bắt Buộc Của Meta</span>
-      <h1 class="section-title">Hướng Dẫn Yêu Cầu Xóa Dữ Liệu Người Dùng — ReplyFlow AI</h1>
-      <p class="section-sub">Quy trình thực hiện quyền xóa dữ liệu cá nhân (Right to Erasure) theo chính sách của Facebook và pháp luật Việt Nam.</p>
-    </div>
-
-    <div class="legal-box">
-      <h2>1. Cam Kết Quyền Xóa Dữ Liệu</h2>
-      <p>
-        Theo Chính sách Nền tảng của Meta (Facebook Platform Policy) và Nghị định số 13/2023/NĐ-CP, người dùng có quyền yêu cầu xóa bất kỳ dữ liệu nào phát sinh từ quá trình tương tác với ứng dụng ReplyFlow AI.
-      </p>
-
-      <h2>2. Cách 1: Tự Gỡ Bỏ Ứng Dụng Khỏi Facebook (Khuyên Dùng)</h2>
-      <p>Bạn có thể tự tay gỡ bỏ quyền truy cập của ReplyFlow trực tiếp trong tài khoản Facebook cá nhân hoặc Trình quản lý Trang:</p>
-      <ul>
-        <li><strong>Bước 1:</strong> Đăng nhập Facebook cá nhân của bạn.</li>
-        <li><strong>Bước 2:</strong> Vào <strong>Cài đặt &amp; quyền riêng tư</strong> &gt; chọn <strong>Cài đặt</strong>.</li>
-        <li><strong>Bước 3:</strong> Cuộn xuống mục <strong>Tiện ích tích hợp cho doanh nghiệp</strong> (Business Integrations).</li>
-        <li><strong>Bước 4:</strong> Tìm kiếm ứng dụng <strong>ReplyFlow</strong> &gt; Bấm nút <strong>Gỡ</strong> (Remove).</li>
-        <li><strong>Bước 5:</strong> Đánh dấu chọn <em>"Xóa tất cả bài viết, video hoặc sự kiện mà ReplyFlow đã thay mặt bạn đăng"</em> &gt; Xác nhận Gỡ.</li>
-      </ul>
-      <p>Sau khi gỡ, toàn bộ kết nối Webhook giữa Fanpage và máy chủ ReplyFlow sẽ lập tức chấm dứt hoàn toàn.</p>
-
-      <h2>3. Cách 2: Gửi Yêu Cầu Xóa Dữ Liệu Thủ Công Qua Email Hoặc Zalo</h2>
-      <p>Nếu bạn muốn xóa toàn bộ lịch sử log hội thoại, bản ghi OCR và cấu hình Fanpage được lưu trữ trong cơ sở dữ liệu của chúng tôi:</p>
-      <ul>
-        <li><strong>Gửi email về:</strong> <a href="mailto:nvtthanh11@gmail.com">nvtthanh11@gmail.com</a></li>
-        <li><strong>Hoặc nhắn Zalo / Hotline:</strong> <a href="tel:0908674036">0908674036</a> / Telegram: <a href="https://t.me/nvtthanh11" target="_blank">@nvtthanh11</a></li>
-        <li><strong>Nội dung cung cấp:</strong> Fanpage ID của bạn và yêu cầu xóa toàn bộ dữ liệu.</li>
-        <li><strong>Thời gian giải quyết:</strong> Đội ngũ quản trị sẽ thực hiện lệnh xóa vĩnh viễn (Hard Delete) khỏi database và gửi email xác nhận kèm Mã Xác Nhận Xóa Dữ Liệu (Confirmation Code) trong vòng <strong>24 giờ làm việc</strong>.</li>
-      </ul>
-
-      <h2>4. Cơ Chế Xóa Tự Động Định Kỳ</h2>
-      <p>
-        - Các tập tin hình ảnh biên lai ngân hàng sau khi được bóc tách OCR sẽ tự động bị xóa khỏi bộ nhớ tạm sau 48 giờ.<br>
-        - Dữ liệu lịch sử chat cũ hơn 90 ngày được định kỳ thanh lọc để bảo vệ quyền riêng tư cho khách hàng.
-      </p>
-    </div>
+    <span class="eyebrow-sm">Pháp lý — ReplyFlow</span>
+    <h1 class="section-title">Hướng dẫn xóa dữ liệu ReplyFlow</h1>
+    <p class="section-sub">Quy trình yêu cầu xóa dữ liệu người dùng theo yêu cầu của Meta và Nghị định 13/2023/NĐ-CP.</p>
+    <p class="legal-meta">Cập nhật lần cuối: 04/11/2026</p>
   </div>
 </section>
+<div class="wrap">
+  <article class="legal-box"><h2>1. Gỡ ứng dụng khỏi Facebook</h2><ol><li>Mở Facebook, vào <strong>Cài đặt &amp; quyền riêng tư → Cài đặt</strong>.</li><li>Chọn <strong>Tiện ích tích hợp cho doanh nghiệp</strong>.</li><li>Tìm <strong>ReplyFlow</strong> và bấm <strong>Gỡ</strong>.</li></ol><p>Sau khi gỡ, ReplyFlow ngừng nhận tin nhắn mới từ Fanpage ngay lập tức.</p><h2>2. Yêu cầu xóa toàn bộ dữ liệu</h2><p>Gửi yêu cầu qua email <a href="mailto:nvtthanh11@gmail.com">nvtthanh11@gmail.com</a>, Zalo <a href="https://zalo.me/0908674036" target="_blank" rel="noopener">0908674036</a> hoặc Telegram <a href="https://t.me/nvtthanh11" target="_blank" rel="noopener">@nvtthanh11</a> với nội dung:</p><ul><li><strong>Chủ Fanpage:</strong> Page ID và yêu cầu xóa dữ liệu.</li><li><strong>Khách hàng đã nhắn tin với một Fanpage:</strong> tên Fanpage và tên hiển thị Facebook của bạn.</li></ul><h2>3. Thời gian xử lý</h2><p>Dữ liệu được xóa vĩnh viễn trong vòng <strong>72 giờ</strong> kể từ khi xác minh yêu cầu. Bạn sẽ nhận được mã xác nhận để tra cứu tình trạng. Một số thông tin giao dịch thanh toán có thể được lưu thêm theo thời hạn pháp luật về kế toán, thuế yêu cầu.</p><h2>4. Dữ liệu bị xóa</h2><ul><li>Lịch sử tin nhắn và bình luận đã lưu.</li><li>Thông tin đơn hàng, ảnh khách gửi.</li><li>Thông tin kết nối Fanpage và cấu hình.</li></ul><h2>5. Liên hệ</h2><ul>
+<li><strong>Đơn vị vận hành:</strong> Nguyễn Vũ Trường Thành (cá nhân kinh doanh)</li>
+<li><strong>Zalo / Điện thoại:</strong> <a href="https://zalo.me/0908674036" target="_blank" rel="noopener">0908674036</a></li>
+<li><strong>Telegram:</strong> <a href="https://t.me/nvtthanh11" target="_blank" rel="noopener">@nvtthanh11</a></li>
+<li><strong>Email:</strong> <a href="mailto:nvtthanh11@gmail.com">nvtthanh11@gmail.com</a></li>
+<li><strong>Địa chỉ:</strong> TP. Hồ Chí Minh, Việt Nam</li>
+</ul></article>
+</div>
+
+</main>
 
 <footer class="site-footer">
   <div class="wrap">
-    <div class="footer-bottom">
-      <span>&copy; 2026 ReplyFlow by ShareThings. Bản quyền được bảo hộ.</span>
-      <div>
-        <a href="replyflow-privacy.html" style="margin-right:14px;">Chính sách bảo mật riêng</a>
-        <a href="replyflow-terms.html">Điều khoản riêng</a>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a class="brand" href="replyflow.html">
+          <img src="assets/logo-64.png" alt="ReplyFlow" width="32" height="32">
+          <span class="brand-name">ReplyFlow</span>
+        </a>
+        <p>Trợ lý bán hàng và chăm sóc khách hàng tự động cho Facebook Fanpage, hoạt động 24/7.</p>
+        <div class="trust-badges">
+          <span class="badge-pill">Thanh toán VietQR</span>
+          <span class="badge-pill">Tuân thủ NĐ 13/2023/NĐ-CP</span>
+        </div>
       </div>
+      <div class="footer-col">
+        <h4>Sản phẩm</h4>
+        <ul>
+          <li><a href="replyflow.html">ReplyFlow</a></li>
+          <li><a href="vidflow.html">VidFlow</a></li>
+          <li><a href="index.html">ShareThings Hub</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Pháp lý</h4>
+        <ul>
+            <li><a href="replyflow-privacy.html">Chính sách bảo mật</a></li>
+            <li><a href="replyflow-terms.html">Điều khoản dịch vụ</a></li>
+            <li><a href="replyflow-data-deletion.html">Yêu cầu xóa dữ liệu</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Liên hệ</h4>
+        <ul>
+          <li><span class="k">Zalo:</span><a href="https://zalo.me/0908674036" target="_blank" rel="noopener">0908674036</a></li>
+          <li><span class="k">Telegram:</span><a href="https://t.me/nvtthanh11" target="_blank" rel="noopener">@nvtthanh11</a></li>
+          <li><span class="k">Email:</span><a href="mailto:nvtthanh11@gmail.com">nvtthanh11@gmail.com</a></li>
+          <li><span class="k">Khu vực:</span>TP. Hồ Chí Minh</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 ReplyFlow by ShareThings. Bảo lưu mọi quyền.</span>
+      <nav aria-label="Pháp lý">
+        <a href="replyflow-privacy.html">Chính sách bảo mật</a>
+        <a href="replyflow-terms.html">Điều khoản dịch vụ</a>
+        <a href="replyflow-data-deletion.html">Yêu cầu xóa dữ liệu</a>
+      </nav>
     </div>
   </div>
 </footer>

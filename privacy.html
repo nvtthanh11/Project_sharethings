@@ -1,108 +1,122 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chính sách Quyền riêng tư — ShareThings / ReplyFlow</title>
-<meta name="description" content="Chính sách bảo mật thông tin và quyền riêng tư của ShareThings và ReplyFlow, tuân thủ chính sách nền tảng Meta và Nghị định 13/2023/NĐ-CP.">
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<title>Chính sách bảo mật website ShareThings — ShareThings</title>
+<meta name="description" content="Áp dụng cho việc truy cập website ShareThings. Mỗi sản phẩm có chính sách bảo mật riêng.">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('st-theme');if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <link rel="stylesheet" href="style.css">
+<script src="site.js" defer></script>
 </head>
-<body>
+<body data-product="hub">
+
+<div class="top-banner">
+  <div class="wrap">
+    <div class="status-indicator"><span class="dot"></span>Hỗ trợ 24/7 qua Zalo &amp; Telegram</div>
+    <div class="top-banner-links">
+      <a href="https://zalo.me/0908674036" target="_blank" rel="noopener">Zalo / Hotline: <strong>0908674036</strong></a>
+      <a href="https://t.me/nvtthanh11" target="_blank" rel="noopener">Telegram: <strong>@nvtthanh11</strong></a>
+    </div>
+  </div>
+</div>
 
 <header class="site-header">
   <div class="wrap">
-    <a href="index.html" class="brand">
-      <img src="assets/logo-64.png" alt="ShareThings logo">
-      <span>ShareThings</span>
+    <a class="brand" href="index.html">
+      <img src="assets/logo-64.png" alt="ShareThings" width="32" height="32">
+      <span class="brand-name">ShareThings</span>
+      <span class="brand-badge">Hub</span>
     </a>
-    <nav class="site-nav">
-      <a href="index.html">Trang chủ</a>
-      <a href="replyflow.html">ReplyFlow</a>
-      <a href="vidflow.html">VidFlow</a>
-      <a href="terms.html">Điều khoản dịch vụ</a>
-      <a href="data-deletion.html">Xóa dữ liệu</a>
+    <nav class="site-nav" aria-label="Điều hướng chính">
+        <a href="index.html#apps">Sản phẩm</a>
+        <a href="index.html#testimonials">Đánh giá</a>
+        <a href="index.html#articles">Chia sẻ</a>
+        <a href="replyflow.html">ReplyFlow</a>
+        <a href="vidflow.html">VidFlow</a>
     </nav>
+    <div class="header-actions">
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Đổi giao diện sáng/tối" title="Đổi giao diện sáng/tối">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.5M12 20v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M1.5 12H4M20 12h2.5M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+      </button>
+      <a class="btn-nav" href="replyflow.html#checkout">Dùng thử 2.000đ</a>
+    </div>
   </div>
 </header>
 
-<section>
+<main>
+
+<section class="legal-head">
   <div class="wrap">
-    <div class="section-head" style="margin-bottom: 20px;">
-      <span class="eyebrow-sm">Pháp lý & Bảo mật</span>
-      <h1 class="section-title">Chính Sách Quyền Riêng Tư (Privacy Policy)</h1>
-      <p class="section-sub">Có hiệu lực từ ngày 01 tháng 11 năm 2026. Tuân thủ Chính sách Nền tảng Meta và Nghị định 13/2023/NĐ-CP về Bảo vệ Dữ liệu Cá nhân.</p>
-    </div>
-
-    <div class="legal-content">
-      <h2>1. Giới thiệu tổng quan</h2>
-      <p>Hệ sinh thái <strong>ShareThings</strong> (bao gồm ứng dụng hỗ trợ bán hàng <strong>ReplyFlow</strong> và công cụ sản xuất video <strong>VidFlow</strong>, dưới đây gọi chung là "Chúng tôi") cam kết bảo vệ tuyệt đối quyền riêng tư và dữ liệu cá nhân của người dùng, khách hàng của shop và các bên liên quan khi sử dụng dịch vụ của chúng tôi.</p>
-      <p>Chính sách này giải thích rõ ràng cách chúng tôi tiếp nhận, xử lý, lưu trữ và bảo vệ dữ liệu khi kết nối với nền tảng Meta (Facebook Graph API & Messenger API).</p>
-
-      <h2>2. Dữ liệu chúng tôi thu thập khi bạn kết nối Facebook</h2>
-      <p>Khi bạn cấp quyền cho ReplyFlow kết nối với Fanpage Meta của bạn, hệ thống chỉ tiếp nhận các dữ liệu kỹ thuật tối thiểu cần thiết để phục vụ tác vụ CSKH tự động:</p>
-      <ul>
-        <li><strong>Page-Scoped User ID (PSID):</strong> Chuỗi số định danh người dùng trong phạm vi Fanpage (Meta cấp riêng cho từng trang, không phải ID Facebook cá nhân thực).</li>
-        <li><strong>Nội dung tin nhắn & Bình luận:</strong> Văn bản câu hỏi của khách hàng, ảnh chụp gửi qua Messenger để AI phân tích và trả lời câu hỏi sản phẩm/đơn hàng.</li>
-        <li><strong>Tên hiển thị công khai trên Facebook:</strong> Được dùng để xưng hô lịch sự trong hội thoại (VD: "Chào bạn Nam, shop tư vấn ạ").</li>
-        <li><strong>Mã định danh Fanpage (Page ID) & Mã truy cập trang (Page Access Token):</strong> Được lưu trữ mã hóa để gửi tin nhắn phản hồi thay mặt Fanpage theo cấu hình của chủ shop.</li>
-      </ul>
-      <p><strong>Chúng tôi TUYỆT ĐỐI KHÔNG thu thập:</strong> Mật khẩu tài khoản Facebook cá nhân, số CMND/CCCD, danh sách bạn bè, thông tin thẻ tín dụng của khách mua hàng, hay bất kỳ dữ liệu nhạy cảm nào ngoài phạm vi tin nhắn Fanpage.</p>
-
-      <h2>3. Mục đích sử dụng dữ liệu</h2>
-      <p>Toàn bộ dữ liệu được thu thập chỉ phục vụ các mục đích sau:</p>
-      <ul>
-        <li>Tự động hóa trả lời tin nhắn Messenger và bình luận Fanpage theo kịch bản và dữ liệu riêng của shop.</li>
-        <li>Hỗ trợ chốt đơn hàng, kiểm tra thông tin biên lai chuyển khoản (OCR) nhằm phòng chống gian lận thương mại.</li>
-        <li>Gửi thông báo Lead tiềm năng và tóm tắt đơn hàng về kênh quản trị Telegram riêng của chủ shop.</li>
-        <li>Tuân thủ Luật 24 giờ của Meta: Không gửi tin nhắn spam sau 24h kể từ lần tương tác cuối của khách.</li>
-      </ul>
-
-      <h2>4. Cam kết không chia sẻ dữ liệu cho bên thứ ba</h2>
-      <p>Chúng tôi cam kết:</p>
-      <ul>
-        <li><strong>KHÔNG</strong> bán, cho thuê, thương mại hóa hay trao đổi dữ liệu khách hàng cho bất kỳ công ty quảng cáo hoặc bên thứ ba nào.</li>
-        <li><strong>KHÔNG</strong> sử dụng dữ liệu của Shop này để đào tạo AI phục vụ cho đối thủ hoặc Shop khác. Dữ liệu của mỗi Shop được phân tách và cô lập hoàn toàn (Multi-Tenant Architecture).</li>
-        <li>Chỉ chia sẻ dữ liệu cho cơ quan có thẩm quyền khi có yêu cầu bằng văn bản đúng quy định của Pháp luật Việt Nam.</li>
-      </ul>
-
-      <h2>5. Lưu trữ và Bảo mật dữ liệu (Data Security)</h2>
-      <p>Hệ thống áp dụng các tiêu chuẩn an ninh kỹ thuật cao nhất:</p>
-      <ul>
-        <li><strong>Mã hóa đường truyền:</strong> 100% dữ liệu truyền tải giữa Meta, Máy chủ và Trình duyệt đều được mã hóa bằng chuẩn TLS/HTTPS 256-bit.</li>
-        <li><strong>Mã hóa lưu trữ:</strong> Mã truy cập (Tokens) và API Keys được mã hóa dạng nhị phân trong cơ sở dữ liệu.</li>
-        <li><strong>Thời gian lưu trữ:</strong> Lịch sử chat được lưu trữ tạm thời tối đa 50 - 100 tin nhắn gần nhất để AI duy trì mạch hội thoại. Tin nhắn xử lý sự kiện trùng lặp sẽ tự động dọn sạch sau 7 ngày.</li>
-      </ul>
-
-      <h2>6. Quyền của người dùng & Hướng dẫn Xóa dữ liệu (Data Deletion)</h2>
-      <p>Bất kỳ người dùng nào tương tác với Fanpage có quyền yêu cầu xóa toàn bộ lịch sử tin nhắn và dữ liệu cá nhân của mình:</p>
-      <ul>
-        <li>Chủ shop có thể dùng lệnh <code>/resetthanh@123</code> ngay trong khung chat để xóa sạch trí nhớ AI về khách hàng đó.</li>
-        <li>Người dùng Facebook có thể gỡ quyền ứng dụng bất kỳ lúc nào trong phần Cài đặt Facebook cá nhân.</li>
-        <li>Xem hướng dẫn chi tiết từng bước xóa dữ liệu tại: <a href="data-deletion.html" style="font-weight: bold; text-decoration: underline;">Trang Hướng Dẫn Xóa Dữ Liệu</a>.</li>
-      </ul>
-
-      <h2>7. Thông tin liên hệ giải quyết khiếu nại</h2>
-      <p>Mọi thắc mắc, phản ánh hoặc yêu cầu liên quan đến chính sách quyền riêng tư, vui lòng liên hệ:</p>
-      <ul>
-        <li><strong>Bộ phận Bảo mật ShareThings / ReplyFlow</strong></li>
-        <li><strong>Email:</strong> <a href="mailto:nvtthanh11@gmail.com">nvtthanh11@gmail.com</a></li>
-        <li><strong>Địa chỉ kỹ thuật:</strong> TP. Hồ Chí Minh, Việt Nam</li>
-        <li><strong>Thời gian xử lý yêu cầu:</strong> Trong vòng 24 đến 48 giờ làm việc.</li>
-      </ul>
-    </div>
+    <span class="eyebrow-sm">Pháp lý — ShareThings</span>
+    <h1 class="section-title">Chính sách bảo mật website ShareThings</h1>
+    <p class="section-sub">Áp dụng cho việc truy cập website ShareThings. Mỗi sản phẩm có chính sách bảo mật riêng.</p>
+    <p class="legal-meta">Cập nhật lần cuối: 04/11/2026</p>
   </div>
 </section>
+<div class="wrap">
+  <article class="legal-box"><h2>1. Phạm vi</h2><p>Chính sách này chỉ áp dụng cho trang giới thiệu ShareThings. Khi sử dụng sản phẩm, vui lòng xem chính sách riêng: <a href="replyflow-privacy.html">ReplyFlow</a>, <a href="vidflow-privacy.html">VidFlow</a>.</p><h2>2. Dữ liệu thu thập</h2><ul><li>Website không yêu cầu đăng ký tài khoản và không dùng cookie quảng cáo.</li><li>Lựa chọn giao diện sáng/tối được lưu trên trình duyệt của bạn (localStorage), không gửi về máy chủ.</li><li>Thông tin bạn chủ động gửi qua biểu mẫu, Zalo, Telegram hoặc email chỉ dùng để liên hệ tư vấn.</li></ul><h2>3. Dịch vụ bên thứ ba</h2><p>Website có thể tải ảnh mã QR từ dịch vụ VietQR và gửi biểu mẫu qua dịch vụ FormSubmit; các dịch vụ này có chính sách riêng.</p><h2>4. Quyền của bạn</h2><p>Bạn có thể yêu cầu xem hoặc xóa thông tin liên hệ đã gửi bằng cách email tới <a href="mailto:nvtthanh11@gmail.com">nvtthanh11@gmail.com</a>.</p><h2>5. Liên hệ</h2><ul>
+<li><strong>Đơn vị vận hành:</strong> Nguyễn Vũ Trường Thành (cá nhân kinh doanh)</li>
+<li><strong>Zalo / Điện thoại:</strong> <a href="https://zalo.me/0908674036" target="_blank" rel="noopener">0908674036</a></li>
+<li><strong>Telegram:</strong> <a href="https://t.me/nvtthanh11" target="_blank" rel="noopener">@nvtthanh11</a></li>
+<li><strong>Email:</strong> <a href="mailto:nvtthanh11@gmail.com">nvtthanh11@gmail.com</a></li>
+<li><strong>Địa chỉ:</strong> TP. Hồ Chí Minh, Việt Nam</li>
+</ul></article>
+</div>
+
+</main>
 
 <footer class="site-footer">
   <div class="wrap">
-    <div class="footer-bottom">
-      <span>&copy; 2026 ShareThings Ecosystem. Tuân thủ Chính sách Nền tảng Meta.</span>
-      <div>
-        <a href="terms.html">Điều khoản dịch vụ</a> &bull; 
-        <a href="privacy.html">Chính sách bảo mật</a> &bull; 
-        <a href="data-deletion.html">Yêu cầu xóa dữ liệu</a>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a class="brand" href="index.html">
+          <img src="assets/logo-64.png" alt="ShareThings" width="32" height="32">
+          <span class="brand-name">ShareThings</span>
+        </a>
+        <p>Nơi chia sẻ các ứng dụng và công cụ tự động hóa hữu ích cho người bán hàng và đội ngũ nội dung.</p>
+        <div class="trust-badges">
+          <span class="badge-pill">Thanh toán VietQR</span>
+          <span class="badge-pill">Tuân thủ NĐ 13/2023/NĐ-CP</span>
+        </div>
       </div>
+      <div class="footer-col">
+        <h4>Sản phẩm</h4>
+        <ul>
+          <li><a href="replyflow.html">ReplyFlow</a></li>
+          <li><a href="vidflow.html">VidFlow</a></li>
+          <li><a href="index.html">ShareThings Hub</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Pháp lý</h4>
+        <ul>
+            <li><a href="privacy.html">Chính sách bảo mật</a></li>
+            <li><a href="terms.html">Điều khoản sử dụng</a></li>
+            <li><a href="data-deletion.html">Yêu cầu xóa dữ liệu</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Liên hệ</h4>
+        <ul>
+          <li><span class="k">Zalo:</span><a href="https://zalo.me/0908674036" target="_blank" rel="noopener">0908674036</a></li>
+          <li><span class="k">Telegram:</span><a href="https://t.me/nvtthanh11" target="_blank" rel="noopener">@nvtthanh11</a></li>
+          <li><span class="k">Email:</span><a href="mailto:nvtthanh11@gmail.com">nvtthanh11@gmail.com</a></li>
+          <li><span class="k">Khu vực:</span>TP. Hồ Chí Minh</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 ShareThings. Bảo lưu mọi quyền.</span>
+      <nav aria-label="Pháp lý">
+        <a href="privacy.html">Chính sách bảo mật</a>
+        <a href="terms.html">Điều khoản sử dụng</a>
+        <a href="data-deletion.html">Yêu cầu xóa dữ liệu</a>
+      </nav>
     </div>
   </div>
 </footer>

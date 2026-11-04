@@ -1,446 +1,234 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ShareThings — Nền Tảng Ứng Dụng AI &amp; Tự Động Hóa Thông Minh</title>
-<meta name="description" content="ShareThings là không gian hội tụ các giải pháp AI tự động hóa: ReplyFlow (AI Sales Fanpage 2k/tháng), VidFlow (Tự động sản xuất video) và các công cụ thực chiến.">
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<title>ShareThings — Ứng dụng & công cụ tự động hóa</title>
+<meta name="description" content="ShareThings chia sẻ các ứng dụng tự động hóa: ReplyFlow (trợ lý bán hàng Fanpage) và VidFlow (tự động làm video).">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="assets/favicon.ico">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('st-theme');if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <link rel="stylesheet" href="style.css">
+<script src="site.js" defer></script>
 </head>
-<body>
+<body data-product="hub">
 
-<!-- Top Status Banner -->
 <div class="top-banner">
   <div class="wrap">
-    <div class="status-indicator">
-      <span class="dot"></span>
-      <span>Hạ tầng ShareThings: <strong>Tất cả hệ thống đang trực tuyến (99.98% Uptime)</strong></span>
-    </div>
+    <div class="status-indicator"><span class="dot"></span>Hỗ trợ 24/7 qua Zalo &amp; Telegram</div>
     <div class="top-banner-links">
-      <a href="tel:0908674036">Hotline / Zalo: <strong>0908674036</strong></a>
-      <a href="https://t.me/nvtthanh11" target="_blank">Telegram: <strong>@nvtthanh11</strong></a>
-      <a href="replyflow-privacy.html">Bảo mật ReplyFlow</a>
-      <a href="vidflow-privacy.html">Bảo mật VidFlow</a>
+      <a href="https://zalo.me/0908674036" target="_blank" rel="noopener">Zalo / Hotline: <strong>0908674036</strong></a>
+      <a href="https://t.me/nvtthanh11" target="_blank" rel="noopener">Telegram: <strong>@nvtthanh11</strong></a>
     </div>
   </div>
 </div>
 
-<!-- Header -->
 <header class="site-header">
   <div class="wrap">
-    <div class="brand">
-      <a href="index.html" style="display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none;">
-        <img src="assets/logo-64.png" alt="ShareThings logo">
-        <span>ShareThings <span class="brand-badge">Ecosystem</span></span>
-      </a>
-    </div>
-    <nav class="site-nav">
-      <a href="#apps">Ứng dụng AI</a>
-      <a href="replyflow.html">ReplyFlow (Fanpage AI)</a>
-      <a href="vidflow.html">VidFlow (Auto Video)</a>
-      <a href="#testimonials">Đánh giá</a>
-      <a href="#articles">Kiến thức</a>
-      <a href="replyflow.html#checkout" class="btn-nav">Trải nghiệm 2k</a>
+    <a class="brand" href="index.html">
+      <img src="assets/logo-64.png" alt="ShareThings" width="32" height="32">
+      <span class="brand-name">ShareThings</span>
+      <span class="brand-badge">Hub</span>
+    </a>
+    <nav class="site-nav" aria-label="Điều hướng chính">
+        <a href="index.html#apps">Sản phẩm</a>
+        <a href="index.html#testimonials">Đánh giá</a>
+        <a href="index.html#articles">Chia sẻ</a>
+        <a href="replyflow.html">ReplyFlow</a>
+        <a href="vidflow.html">VidFlow</a>
     </nav>
+    <div class="header-actions">
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Đổi giao diện sáng/tối" title="Đổi giao diện sáng/tối">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.5M12 20v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M1.5 12H4M20 12h2.5M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+      </button>
+      <a class="btn-nav" href="replyflow.html#checkout">Dùng thử 2.000đ</a>
+    </div>
   </div>
 </header>
 
-<!-- Hero Section -->
+<main>
+
 <section class="hero">
   <div class="wrap">
-    <div class="eyebrow">Nền Tảng Công Nghệ &amp; Tự Động Hóa Thực Chiến</div>
-    <h1>Đột Phá Hiệu Suất Với <span class="text-highlight">Hệ Sinh Thái Ứng Dụng AI</span> Độc Lập</h1>
-    <p class="lead">
-      ShareThings phát triển và chia sẻ các giải pháp tự động hóa chuyên sâu. Từ trợ lý AI chốt đơn Facebook Fanpage 24/7 đến cỗ máy tự động sản xuất video đa kênh mà không cần đội ngũ dựng phim.
-    </p>
-
+    <span class="eyebrow">Ứng dụng &amp; công cụ tự động hóa</span>
+    <h1>Chia sẻ những công cụ giúp bạn <span class="text-highlight">làm ít hơn, bán nhiều hơn</span></h1>
+    <p class="lead">ShareThings tập hợp các ứng dụng tự động hóa thực tế cho người bán hàng online và đội ngũ nội dung — từ trợ lý trả lời Fanpage 24/7 đến hệ thống làm video tự động.</p>
     <div class="hero-ctas">
-      <a class="btn-primary" href="#apps">Khám phá các sản phẩm AI</a>
-      <a class="btn-secondary" href="https://t.me/nvtthanh11" target="_blank">Liên hệ Telegram @nvtthanh11</a>
-      <a class="btn-outline" href="replyflow.html#checkout">Dùng thử ReplyFlow chỉ 2.000đ</a>
+      <a class="btn-primary" href="#apps">Xem các sản phẩm</a>
+      <a class="btn-secondary" href="#articles">Đọc bài chia sẻ</a>
     </div>
-
-    <!-- Trust Stats Bar -->
     <div class="stats-bar">
-      <div class="stat-item">
-        <div class="num">2+</div>
-        <div class="label">Hệ thống AI chủ lực đang chạy thực tế</div>
-      </div>
-      <div class="stat-item">
-        <div class="num">51+</div>
-        <div class="label">Tính năng nghiệp vụ tự động hóa</div>
-      </div>
-      <div class="stat-item">
-        <div class="num">24/7</div>
-        <div class="label">Tự vận hành liên tục không gián đoạn</div>
-      </div>
-      <div class="stat-item">
-        <div class="num">100%</div>
-        <div class="label">Chính sách bảo mật riêng cho từng app</div>
-      </div>
+      <div class="stat-item"><div class="num">2</div><div class="label">Sản phẩm đang vận hành</div></div>
+      <div class="stat-item"><div class="num">24/7</div><div class="label">Tự động, không nghỉ</div></div>
+      <div class="stat-item"><div class="num">2.000đ</div><div class="label">Dùng thử ReplyFlow</div></div>
+      <div class="stat-item"><div class="num">Riêng</div><div class="label">Chính sách cho từng sản phẩm</div></div>
     </div>
   </div>
 </section>
 
-<!-- Featured Apps Section -->
 <section class="alt" id="apps">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow-sm">Danh Mục Ứng Dụng</span>
-      <h2 class="section-title">Các Giải Pháp Công Nghệ Trong Hệ Sinh Thái</h2>
-      <p class="section-sub">Mỗi sản phẩm đều có kiến trúc chuyên sâu, chính sách bảo mật và điều khoản dịch vụ riêng biệt.</p>
+      <span class="eyebrow-sm">Sản phẩm</span>
+      <h2 class="section-title">Các ứng dụng trong hệ sinh thái</h2>
+      <p class="section-sub">Mỗi sản phẩm có trang giới thiệu, chính sách bảo mật và điều khoản riêng.</p>
     </div>
-
     <div class="grid-2">
-      <!-- ReplyFlow Card -->
-      <div class="card" style="display:flex;flex-direction:column;justify-content:space-between;">
-        <div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
-            <span class="badge-pill" style="color:var(--success);border-color:rgba(16,185,129,0.3);">● Đang Vận Hành Thực Tế</span>
-            <span style="font-size:12px;color:var(--accent);font-weight:600;">Dùng thử: 2.000đ / tháng</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
-            <img src="assets/logo-64.png" alt="ReplyFlow" style="width:42px;height:42px;border-radius:8px;">
-            <div>
-              <h3 style="margin:0;font-size:22px;">ReplyFlow AI</h3>
-              <span style="font-size:13px;color:var(--text-muted);">Trợ Lý Bán Hàng &amp; CSKH Fanpage Toàn Diện</span>
-            </div>
-          </div>
-          <p>
-            Tự động hóa 100% quy trình chốt đơn Facebook: Tư vấn thông minh qua Gemini 2.5 Flash, bóc tách bill ngân hàng OCR chính xác 99.8%, ẩn SĐT bình luận trong 0.1s chống đối thủ cướp khách, và remarketing bám đuổi đơn dở dang.
-          </p>
-          <ul class="feature-list">
-            <li>51 tính năng nghiệp vụ sâu cho shop online</li>
-            <li>Đọc bill chuyển khoản OCR trong 2 giây</li>
-            <li>Smart Key Router: Tối ưu chi phí Gemini API 0đ</li>
-            <li>Kích hoạt tự động qua VietQR với gói dùng thử chỉ 2.000đ</li>
-            <li>Chính sách bảo mật riêng tuân thủ Meta Policy v22.0</li>
-          </ul>
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
+          <span class="tag-pill ok">● Đang mở bán</span><span class="tag-pill">Từ 2.000đ</span>
         </div>
-        <div style="margin-top:24px;display:flex;gap:10px;">
-          <a href="replyflow.html" class="btn-primary" style="flex:1;">Xem 51 tính năng &amp; Kích hoạt 2k →</a>
-          <a href="replyflow-privacy.html" class="btn-outline" style="padding:11px 14px;">Bảo mật</a>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <img src="assets/logo-64.png" alt="" width="44" height="44" style="border-radius:10px;">
+          <div><h3 style="margin:0;">ReplyFlow</h3><span style="font-size:14px;color:var(--text-dim);">Trợ lý bán hàng cho Fanpage</span></div>
+        </div>
+        <p>Tự trả lời và chốt đơn 24/7, ẩn số điện thoại trong bình luận để giữ khách, tự xác nhận chuyển khoản và nhắc khéo khách chưa chốt.</p>
+        <ul class="feature-list">
+          <li>Tư vấn như nhân viên bán hàng thật</li>
+          <li>Giữ khách không bị đối thủ hớt mất</li>
+          <li>Kích hoạt tự động qua VietQR</li>
+        </ul>
+        <div class="card-foot">
+          <a class="btn-primary" href="replyflow.html">Xem ReplyFlow →</a>
+          <a class="btn-outline" href="replyflow-privacy.html">Chính sách</a>
         </div>
       </div>
-
-      <!-- VidFlow Card -->
-      <div class="card" style="display:flex;flex-direction:column;justify-content:space-between;">
-        <div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
-            <span class="badge-pill" style="color:#a78bfa;border-color:rgba(167,139,250,0.3);">● Dành Cho Agency &amp; Doanh Nghiệp</span>
-            <span style="font-size:12px;color:var(--text-muted);font-weight:600;">Multi-Channel Engine</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
-            <img src="assets/vidflow/logo-64.png" alt="VidFlow" style="width:42px;height:42px;border-radius:8px;">
-            <div>
-              <h3 style="margin:0;font-size:22px;">VidFlow</h3>
-              <span style="font-size:13px;color:var(--text-muted);">Hệ Thống Tự Động Sản Xuất &amp; Đăng Video</span>
-            </div>
-          </div>
-          <p>
-            Giải phóng hoàn toàn đội ngũ dựng phim: Tự động quét xu hướng nóng trên YouTube &amp; Google News, tạo kịch bản AI đa giọng văn, dựng video ngắn &amp; dài (10-15 phút), tự đăng lên Facebook, YouTube, TikTok theo lịch định sẵn.
-          </p>
-          <ul class="feature-list">
-            <li>Trend Engine quét tin tức và chấm điểm xu hướng tự động</li>
-            <li>Dựng video từ tài liệu PDF / Slide giới thiệu sản phẩm</li>
-            <li>Kiểm duyệt chất lượng từng khung hình tự động</li>
-            <li>Tích hợp API chính thức không lo rủi ro bản quyền</li>
-            <li>Worker chạy ngầm 24/7 tự khởi động lại khi gặp sự cố</li>
-          </ul>
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
+          <span class="tag-pill ok">● Đang vận hành</span><span class="tag-pill">Cho agency</span>
         </div>
-        <div style="margin-top:24px;display:flex;gap:10px;">
-          <a href="vidflow.html" class="btn-secondary" style="flex:1;">Khám phá VidFlow →</a>
-          <a href="vidflow-privacy.html" class="btn-outline" style="padding:11px 14px;">Bảo mật</a>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <img src="assets/vidflow/logo-64.png" alt="" width="44" height="44" style="border-radius:10px;">
+          <div><h3 style="margin:0;">VidFlow</h3><span style="font-size:14px;color:var(--text-dim);">Tự động làm &amp; đăng video</span></div>
+        </div>
+        <p>Tự tìm chủ đề, viết kịch bản, dựng video ngắn và dài rồi đăng đúng lịch lên Facebook, YouTube, TikTok cho nhiều kênh cùng lúc.</p>
+        <ul class="feature-list">
+          <li>Video ngắn &amp; dài 10–15 phút</li>
+          <li>Đăng đúng giờ cho từng kênh</li>
+          <li>Theo dõi hiệu quả sau khi đăng</li>
+        </ul>
+        <div class="card-foot">
+          <a class="btn-secondary" href="vidflow.html">Xem VidFlow →</a>
+          <a class="btn-outline" href="vidflow-privacy.html">Chính sách</a>
         </div>
       </div>
     </div>
-
-    <!-- Future Labs -->
-    <div style="margin-top:24px;">
-      <div class="card" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;background:#090d16;">
-        <div style="display:flex;align-items:center;gap:14px;">
-          <div class="icon-box" style="margin-bottom:0;">💡</div>
-          <div>
-            <h4 style="font-size:16px;color:#fff;margin-bottom:3px;">ShareThings Labs: Dự Án Đang Nghiên Cứu</h4>
-            <p style="font-size:13px;color:var(--text-muted);margin:0;">BabyGuard AI (Trợ lý chăm sóc giấc ngủ &amp; giám sát nôi bé thông minh) đang được thử nghiệm nội bộ.</p>
-          </div>
-        </div>
-        <span class="badge-pill" style="color:var(--warning);border-color:rgba(245,158,11,0.3);">R&amp;D Pipeline</span>
+    <div class="card" style="margin-top:22px;flex-direction:row;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <div class="icon-box" style="margin:0;">💡</div>
+        <div><h3 style="margin:0 0 2px;">ShareThings Labs</h3><p style="margin:0;">BabyGuard — trợ lý theo dõi giấc ngủ cho bé — đang thử nghiệm nội bộ.</p></div>
       </div>
+      <span class="tag-pill soon">Sắp ra mắt</span>
     </div>
   </div>
 </section>
 
-<!-- Testimonials Section -->
 <section id="testimonials">
+  <!-- LƯU Ý: Các đánh giá dưới đây là NỘI DUNG MẪU. Hãy thay bằng phản hồi thật của khách (có sự đồng ý) trước khi chạy quảng cáo. -->
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow-sm">Uy Tín &amp; Đánh Giá</span>
-      <h2 class="section-title">Nhận Xét Từ Người Dùng Thực Tế</h2>
-      <p class="section-sub">Trải nghiệm thực tế từ các chủ shop online và đối tác ứng dụng công nghệ.</p>
+      <span class="eyebrow-sm">Đánh giá khách hàng</span>
+      <h2 class="section-title">Người dùng nói gì</h2>
+      <p class="section-sub">Phản hồi từ người dùng các sản phẩm trong hệ sinh thái.</p>
     </div>
-
     <div class="grid-3">
       <div class="testimonial-card">
-        <div>
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">
-            "Bot ReplyFlow phản hồi cực nhanh, ban đêm khách gửi tin nhắn hay hỏi giá là tự chốt đơn luôn. Tháng đầu thử gói 2.000đ mà thấy hiệu quả vượt ngoài mong đợi."
-          </p>
-        </div>
+        <div class="testimonial-stars" aria-label="5 sao">★★★★★</div>
+        <p class="testimonial-quote">“Đăng ký thử ReplyFlow 2.000đ cho vui, ai ngờ tháng đầu đã có thêm khá nhiều đơn ban đêm. Gia hạn liền.”</p>
         <div class="testimonial-author">
           <div class="author-avatar">MH</div>
-          <div class="author-meta">
-            <strong>Mai Hương</strong>
-            <span>Thời Trang Mai Hương Boutique</span>
-          </div>
+          <div class="author-meta"><strong>Chị Mai H.</strong><span>Shop thời trang — dùng ReplyFlow</span></div>
         </div>
       </div>
-
       <div class="testimonial-card">
-        <div>
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">
-            "Cái hay nhất là tính năng giấu số điện thoại bình luận 0.1s. Đối thủ cùng ngành không thể quét cướp khách của bên mình được nữa."
-          </p>
-        </div>
+        <div class="testimonial-stars" aria-label="5 sao">★★★★★</div>
+        <p class="testimonial-quote">“Bình luận có số điện thoại được ẩn liền và khách được nhắn riêng. Đỡ lo bị hớt khách.”</p>
         <div class="testimonial-author">
           <div class="author-avatar">QB</div>
-          <div class="author-meta">
-            <strong>Quốc Bảo</strong>
-            <span>Phụ Kiện Điện Thoại Bảo An</span>
-          </div>
+          <div class="author-meta"><strong>Anh Quốc B.</strong><span>Shop phụ kiện — dùng ReplyFlow</span></div>
         </div>
       </div>
-
       <div class="testimonial-card">
-        <div>
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">
-            "Bên mình dùng VidFlow để lên kịch bản và đăng video review tin tức hàng ngày. Tối ưu được thời gian và chi phí cho cả team content."
-          </p>
-        </div>
+        <div class="testimonial-stars" aria-label="5 sao">★★★★★</div>
+        <p class="testimonial-quote">“Đội mình dùng VidFlow cho các kênh tin tức, lịch đăng đều và tiết kiệm nhân sự dựng.”</p>
         <div class="testimonial-author">
           <div class="author-avatar">TL</div>
-          <div class="author-meta">
-            <strong>Thu Thảo</strong>
-            <span>Thảo Lê Digital Media</span>
-          </div>
+          <div class="author-meta"><strong>Chị Thảo L.</strong><span>Agency nội dung — dùng VidFlow</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Technical Articles / Knowledge -->
 <section class="alt" id="articles">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow-sm">Kiến Thức Thực Chiến</span>
-      <h2 class="section-title">Kinh Nghiệm Vận Hành &amp; Tối Ưu Tự Động Hóa</h2>
-      <p class="section-sub">Những chia sẻ chuyên sâu giúp bạn khai thác sức mạnh AI mà không tốn chi phí vô ích.</p>
+      <span class="eyebrow-sm">Chia sẻ</span>
+      <h2 class="section-title">Kinh nghiệm bán hàng &amp; làm nội dung</h2>
+      <p class="section-sub">Những ghi chép ngắn từ quá trình vận hành thực tế.</p>
     </div>
-
     <div class="grid-3">
-      <div class="card">
-        <span style="font-size:12px;color:var(--accent);font-weight:600;text-transform:uppercase;">Gemini Key Router</span>
-        <h3 style="margin-top:8px;">Tối Ưu Quota Gemini Miễn Phí 1,200 RPD Không Bao Giờ Nghẽn</h3>
-        <p>Cách thiết lập luân phiên Free Key Pool cho tác vụ nền và ưu tiên Paid Key cho Inbox để bot luôn phản hồi dưới 1 giây mà chi phí bằng 0.</p>
-      </div>
-
-      <div class="card">
-        <span style="font-size:12px;color:var(--accent);font-weight:600;text-transform:uppercase;">Bảo Vệ Đơn Hàng</span>
-        <h3 style="margin-top:8px;">Ẩn Số Điện Thoại Trong 0.1 Giây Chống Cướp Khách Fanpage</h3>
-        <p>Tại sao gọi AI để quét bình luận lại chậm và tốn token? Khám phá cách kết hợp Regex Engine siêu tốc xử lý trong 0.1s trước khi gọi bot.</p>
-      </div>
-
-      <div class="card">
-        <span style="font-size:12px;color:var(--accent);font-weight:600;text-transform:uppercase;">Meta Policy v22</span>
-        <h3 style="margin-top:8px;">Quy Chuẩn Tin Nhắn 24h: Remarketing Hợp Lệ Không Sợ Khóa Page</h3>
-        <p>Hiểu rõ các thẻ Message Tags, One-Time Notification (OTN) và chính sách Meta để gửi tin chăm sóc khách cũ đúng luật 100%.</p>
-      </div>
+      <div class="card"><span class="eyebrow-sm">Fanpage</span><h3>Giữ khách dưới bài quảng cáo: vì sao nên ẩn số điện thoại?</h3><p>Khách để lại số điện thoại công khai là cơ hội cho đối thủ. Cách xử lý đơn giản giúp bạn giữ trọn khách tiềm năng.</p></div>
+      <div class="card"><span class="eyebrow-sm">Chăm sóc khách</span><h3>Nhắn tin chăm sóc lại khách sao cho đúng quy định Facebook</h3><p>Những lưu ý về thời gian và cách nhắn để vừa không làm phiền khách, vừa không ảnh hưởng đến Fanpage.</p></div>
+      <div class="card"><span class="eyebrow-sm">Nội dung</span><h3>Đăng video đều mỗi ngày cho nhiều kênh mà không tăng nhân sự</h3><p>Chia nhỏ quy trình và tự động hóa những khâu lặp lại để đội ngũ tập trung vào ý tưởng.</p></div>
     </div>
   </div>
 </section>
 
-<!-- Compliance & Security Section -->
-<section>
-  <div class="wrap">
-    <div class="card" style="border-left:3px solid var(--accent);background:#090d16;padding:34px;">
-      <h3 style="font-size:20px;color:#fff;margin-bottom:10px;">Cam Kết Bảo Mật Riêng Biệt &amp; Tuân Thủ Pháp Luật</h3>
-      <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:18px;">
-        Mỗi phần mềm trong hệ sinh thái ShareThings đều sở hữu văn bản chính sách bảo mật và điều khoản dịch vụ độc lập, đáp ứng nghiêm ngặt <strong>Chính sách Nền tảng Meta (Meta Platform Terms)</strong> và <strong>Nghị định 13/2023/NĐ-CP của Chính phủ Việt Nam</strong>.
-      </p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;">
-        <a href="replyflow-privacy.html" class="btn-outline" style="font-size:12.5px;padding:8px 14px;">Bảo mật riêng ReplyFlow</a>
-        <a href="replyflow-terms.html" class="btn-outline" style="font-size:12.5px;padding:8px 14px;">Điều khoản riêng ReplyFlow</a>
-        <a href="vidflow-privacy.html" class="btn-outline" style="font-size:12.5px;padding:8px 14px;">Bảo mật riêng VidFlow</a>
-        <a href="vidflow-terms.html" class="btn-outline" style="font-size:12.5px;padding:8px 14px;">Điều khoản riêng VidFlow</a>
-      </div>
-    </div>
-  </div>
-</section>
+</main>
 
-<!-- Footer -->
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-col">
-        <div class="brand" style="margin-bottom:14px;">
-          <img src="assets/logo-64.png" alt="ShareThings">
-          <span>ShareThings Hub</span>
-        </div>
-        <p style="font-size:13.5px;color:var(--text-muted);line-height:1.6;margin-bottom:14px;">
-          Cổng chia sẻ giải pháp phần mềm tự động hóa và ứng dụng trí tuệ nhân tạo thực chiến.
-        </p>
+        <a class="brand" href="index.html">
+          <img src="assets/logo-64.png" alt="ShareThings" width="32" height="32">
+          <span class="brand-name">ShareThings</span>
+        </a>
+        <p>Nơi chia sẻ các ứng dụng và công cụ tự động hóa hữu ích cho người bán hàng và đội ngũ nội dung.</p>
         <div class="trust-badges">
-          <span class="badge-pill">SSL 256-Bit</span>
-          <span class="badge-pill">Meta API Compliant</span>
-          <span class="badge-pill">NĐ 13/2023/NĐ-CP</span>
+          <span class="badge-pill">Thanh toán VietQR</span>
+          <span class="badge-pill">Tuân thủ NĐ 13/2023/NĐ-CP</span>
         </div>
       </div>
-
       <div class="footer-col">
         <h4>Sản phẩm</h4>
         <ul>
-          <li><a href="replyflow.html">ReplyFlow (AI Sales Fanpage)</a></li>
-          <li><a href="vidflow.html">VidFlow (AI Auto Video)</a></li>
-          <li><a href="#apps">ShareThings Labs</a></li>
+          <li><a href="replyflow.html">ReplyFlow</a></li>
+          <li><a href="vidflow.html">VidFlow</a></li>
+          <li><a href="index.html">ShareThings Hub</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
-        <h4>Pháp lý riêng từng phần mềm</h4>
+        <h4>Pháp lý</h4>
         <ul>
-          <li><a href="replyflow-privacy.html">Bảo mật ReplyFlow</a></li>
-          <li><a href="replyflow-terms.html">Điều khoản ReplyFlow</a></li>
-          <li><a href="replyflow-data-deletion.html">Xóa dữ liệu Facebook</a></li>
-          <li><a href="vidflow-privacy.html">Bảo mật VidFlow</a></li>
-          <li><a href="vidflow-terms.html">Điều khoản VidFlow</a></li>
+            <li><a href="privacy.html">Chính sách bảo mật</a></li>
+            <li><a href="terms.html">Điều khoản sử dụng</a></li>
+            <li><a href="data-deletion.html">Yêu cầu xóa dữ liệu</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
-        <h4>Thông tin liên hệ</h4>
+        <h4>Liên hệ</h4>
         <ul>
-          <li>Hotline / Zalo: <a href="tel:0908674036">0908674036</a></li>
-          <li>Telegram: <a href="https://t.me/nvtthanh11" target="_blank">@nvtthanh11</a></li>
-          <li>Email: <a href="mailto:nvtthanh11@gmail.com">nvtthanh11@gmail.com</a></li>
-          <li>TP. Hồ Chí Minh, Việt Nam</li>
+          <li><span class="k">Zalo:</span><a href="https://zalo.me/0908674036" target="_blank" rel="noopener">0908674036</a></li>
+          <li><span class="k">Telegram:</span><a href="https://t.me/nvtthanh11" target="_blank" rel="noopener">@nvtthanh11</a></li>
+          <li><span class="k">Email:</span><a href="mailto:nvtthanh11@gmail.com">nvtthanh11@gmail.com</a></li>
+          <li><span class="k">Khu vực:</span>TP. Hồ Chí Minh</li>
         </ul>
       </div>
     </div>
-
     <div class="footer-bottom">
-      <span>&copy; 2026 ShareThings Ecosystem. Tất cả các quyền được bảo lưu.</span>
-      <div>
-        <a href="replyflow-privacy.html" style="margin-right:16px;">Bảo mật ReplyFlow</a>
-        <a href="vidflow-privacy.html" style="margin-right:16px;">Bảo mật VidFlow</a>
-        <a href="privacy.html">Bảo mật chung</a>
-      </div>
+      <span>&copy; 2026 ShareThings. Bảo lưu mọi quyền.</span>
+      <nav aria-label="Pháp lý">
+        <a href="privacy.html">Chính sách bảo mật</a>
+        <a href="terms.html">Điều khoản sử dụng</a>
+        <a href="data-deletion.html">Yêu cầu xóa dữ liệu</a>
+      </nav>
     </div>
   </div>
 </footer>
-
-<!-- Floating AI Chatbot Widget -->
-<button class="chatbot-trigger" id="chatTrigger" onclick="toggleChat()" title="Trợ lý trực tuyến 24/7">
-  <span class="online-dot"></span>
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-  </svg>
-</button>
-
-<div class="chat-window" id="chatWindow">
-  <div class="chat-header">
-    <div class="chat-header-info">
-      <div class="chat-avatar">🤖</div>
-      <div>
-        <strong>Trợ Lý AI ShareThings</strong>
-        <span>Trực tuyến 24/7</span>
-      </div>
-    </div>
-    <button class="chat-close-btn" onclick="toggleChat()">✕</button>
-  </div>
-
-  <div class="chat-body" id="chatBody">
-    <div class="chat-msg bot">
-      Xin chào anh/chị! Em là Trợ lý AI ShareThings. Anh/chị đang quan tâm đến giải pháp ReplyFlow AI (Sales Fanpage) hay VidFlow (Sản xuất video) ạ?
-    </div>
-    <div class="chat-quick-actions">
-      <button class="chat-pill-btn" onclick="chatAction('replyflow')">⚡ Dùng thử ReplyFlow chỉ 2.000đ</button>
-      <button class="chat-pill-btn" onclick="chatAction('zalo')">📞 Hotline / Zalo: 0908674036</button>
-      <button class="chat-pill-btn" onclick="chatAction('telegram')">✈️ Hỗ trợ Telegram: @nvtthanh11</button>
-      <button class="chat-pill-btn" onclick="chatAction('privacy')">🛡️ Chính sách bảo mật riêng từng app</button>
-    </div>
-  </div>
-
-  <div class="chat-footer">
-    <input type="text" id="chatInput" class="chat-input" placeholder="Nhập câu hỏi của bạn..." onkeypress="handleKeyPress(event)">
-    <button class="chat-send-btn" onclick="sendMessage()">Gửi</button>
-  </div>
-</div>
-
-<script>
-  function toggleChat() {
-    var win = document.getElementById('chatWindow');
-    win.classList.toggle('open');
-  }
-
-  function chatAction(action) {
-    if (action === 'replyflow') {
-      window.location.href = 'replyflow.html#checkout';
-    } else if (action === 'zalo') {
-      window.open('https://zalo.me/0908674036', '_blank');
-    } else if (action === 'telegram') {
-      window.open('https://t.me/nvtthanh11', '_blank');
-    } else if (action === 'privacy') {
-      window.location.href = 'replyflow-privacy.html';
-    }
-  }
-
-  function handleKeyPress(e) {
-    if (e.key === 'Enter') { sendMessage(); }
-  }
-
-  function appendBotMsg(txt) {
-    var body = document.getElementById('chatBody');
-    var div = document.createElement('div');
-    div.className = 'chat-msg bot';
-    div.innerText = txt;
-    body.appendChild(div);
-    body.scrollTop = body.scrollHeight;
-  }
-
-  function appendUserMsg(txt) {
-    var body = document.getElementById('chatBody');
-    var div = document.createElement('div');
-    div.className = 'chat-msg user';
-    div.innerText = txt;
-    body.appendChild(div);
-    body.scrollTop = body.scrollHeight;
-  }
-
-  function sendMessage() {
-    var inp = document.getElementById('chatInput');
-    var msg = inp.value.trim();
-    if (!msg) return;
-    appendUserMsg(msg);
-    inp.value = '';
-
-    setTimeout(function() {
-      var lower = msg.toLowerCase();
-      if (lower.includes('replyflow') || lower.includes('bot') || lower.includes('fanpage')) {
-        appendBotMsg('Dạ ReplyFlow hỗ trợ tự động trả lời tin nhắn, đọc bill OCR và ẩn SĐT bình luận 0.1s. Đang có gói dùng thử chỉ 2.000đ/tháng tại replyflow.html anh/chị nhé!');
-      } else if (lower.includes('vidflow') || lower.includes('video')) {
-        appendBotMsg('Dạ VidFlow là hệ thống tự động tìm trend, viết script và dựng video ngắn/dài đa kênh (YouTube, Facebook, TikTok). Anh/chị xem chi tiết tại vidflow.html nhé!');
-      } else {
-        appendBotMsg('Dạ anh/chị có thể gọi hoặc nhắn Zalo: 0908674036 hoặc Telegram: @nvtthanh11 để em hỗ trợ tư vấn và cài đặt trực tiếp ngay ạ!');
-      }
-    }, 600);
-  }
-</script>
 
 </body>
 </html>
