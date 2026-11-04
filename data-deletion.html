@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hướng dẫn Xóa Dữ liệu Người dùng — ShareThings / ReplyFlow</title>
+<meta name="description" content="Hướng dẫn chi tiết quy trình yêu cầu xóa dữ liệu người dùng trên Facebook đối với ứng dụng ReplyFlow và hệ sinh thái ShareThings theo tiêu chuẩn Meta.">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <img src="assets/logo-64.png" alt="ShareThings logo">
+      <span>ShareThings</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">Trang chủ</a>
+      <a href="replyflow.html">ReplyFlow</a>
+      <a href="vidflow.html">VidFlow</a>
+      <a href="privacy.html">Chính sách bảo mật</a>
+      <a href="terms.html">Điều khoản dịch vụ</a>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom: 20px;">
+      <span class="eyebrow-sm">Meta Compliance</span>
+      <h1 class="section-title">Hướng Dẫn Xóa Dữ Liệu Người Dùng (Data Deletion Instructions)</h1>
+      <p class="section-sub">Trang này cung cấp quy trình minh bạch để người dùng Facebook yêu cầu xóa dữ liệu theo tiêu chuẩn Facebook Platform Policy.</p>
+    </div>
+
+    <div class="legal-content">
+      <h2>1. Cam kết tôn trọng quyền dữ liệu</h2>
+      <p>Ứng dụng <strong>ReplyFlow</strong> thuộc hệ sinh thái <strong>ShareThings</strong> tôn trọng tối đa quyền kiểm soát dữ liệu cá nhân của người dùng. Nếu bạn đã từng nhắn tin hoặc tương tác với Fanpage có tích hợp bot của chúng tôi, bạn có toàn quyền yêu cầu xóa bỏ vĩnh viễn toàn bộ lịch sử trò chuyện và thông tin liên quan khỏi hệ thống.</p>
+
+      <h2>2. Cách 1: Tự động gỡ quyền ứng dụng trên Facebook (Khuyên dùng)</h2>
+      <p>Theo tiêu chuẩn bảo mật của Meta, bạn có thể chủ động gỡ bỏ quyền truy cập của ứng dụng bằng các bước sau:</p>
+      <ul>
+        <li><strong>Bước 1:</strong> Đăng nhập vào tài khoản Facebook cá nhân của bạn.</li>
+        <li><strong>Bước 2:</strong> Vào mục <strong>Cài đặt & Quyền riêng tư (Settings & Privacy)</strong> &rarr; Chọn <strong>Cài đặt (Settings)</strong>.</li>
+        <li><strong>Bước 3:</strong> Cuộn xuống mục <strong>Bảo mật (Security)</strong> và chọn <strong>Ứng dụng và trang web (Apps and Websites)</strong>.</li>
+        <li><strong>Bước 4:</strong> Tìm kiếm ứng dụng <strong>ReplyFlow</strong> hoặc <strong>ShareThings</strong> trong danh sách.</li>
+        <li><strong>Bước 5:</strong> Bấm vào nút <strong>Gỡ (Remove)</strong>.</li>
+        <li><strong>Bước 6:</strong> Tích chọn ô <em>"Xóa các bài viết, video hoặc sự kiện mà ứng dụng đã đăng thay mặt bạn"</em> &rarr; Bấm <strong>Gỡ (Remove)</strong> lần cuối để xác nhận.</li>
+      </ul>
+      <p>Khi bạn thực hiện thao tác này, Facebook sẽ tự động gửi một thông báo Webhook (Data Deletion Request) đến máy chủ của chúng tôi để thanh lọc các dữ liệu định danh của bạn.</p>
+
+      <h2>3. Cách 2: Yêu cầu xóa dữ liệu trực tiếp qua Email</h2>
+      <p>Nếu bạn muốn chúng tôi rà soát và xóa thủ công ngay lập tức toàn bộ thông tin chat, đơn hàng nháp hoặc số điện thoại khỏi cơ sở dữ liệu, vui lòng gửi email theo mẫu sau:</p>
+      <ul>
+        <li><strong>Gửi tới:</strong> <a href="mailto:nvtthanh11@gmail.com">nvtthanh11@gmail.com</a></li>
+        <li><strong>Tiêu đề:</strong> <code>[Yêu Cầu Xóa Dữ Liệu Facebook] - Tên của bạn</code></li>
+        <li><strong>Nội dung email cung cấp:</strong>
+          <ul>
+            <li>Link Fanpage mà bạn đã từng nhắn tin.</li>
+            <li>Tên Facebook hiển thị của bạn hoặc thời gian bạn nhắn tin.</li>
+            <li>Số điện thoại (nếu có để lại trong tin nhắn cần xóa).</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h2>4. Thời gian xử lý & Mã xác nhận theo dõi</h2>
+      <ul>
+        <li>Sau khi tiếp nhận yêu cầu, đội ngũ kỹ thuật sẽ thực hiện lệnh xóa triệt để khỏi hệ thống cơ sở dữ liệu trong vòng <strong>24 đến 48 giờ làm việc</strong>.</li>
+        <li>Chúng tôi sẽ gửi lại cho bạn một email xác nhận kèm <strong>Mã số xác nhận xóa dữ liệu (Confirmation Code)</strong> để lưu vết tuân thủ theo đúng yêu cầu kiểm định của Meta.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>&copy; 2026 ShareThings Ecosystem. Tuân thủ Chính sách Nền tảng Meta.</span>
+      <div>
+        <a href="terms.html">Điều khoản dịch vụ</a> &bull; 
+        <a href="privacy.html">Chính sách bảo mật</a> &bull; 
+        <a href="data-deletion.html">Yêu cầu xóa dữ liệu</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
