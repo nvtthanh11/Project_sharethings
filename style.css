@@ -342,7 +342,197 @@ footer.site-footer { background: var(--footer-bg); border-top: 1px solid var(--b
 .footer-bottom nav { display: flex; gap: 20px; flex-wrap: wrap; }
 .footer-bottom a { color: var(--text-muted); }
 
-/* ---------- Chat widget ---------- */
+/* ---------- Interactive Chat Demo Mockup ---------- */
+.chat-demo-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 16px;
+  padding: 32px;
+  margin: 32px 0 16px;
+  box-shadow: var(--shadow);
+}
+.chat-mockup {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+.mockup-header {
+  background: var(--surface-2);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+.mockup-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mockup-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #3b82f6;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 13px;
+}
+.mockup-body {
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 14px;
+  max-height: 420px;
+  overflow-y: auto;
+}
+.bubble {
+  max-width: 82%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  line-height: 1.5;
+}
+.bubble.buyer {
+  align-self: flex-start;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-bottom-left-radius: 4px;
+}
+.bubble.bot {
+  align-self: flex-end;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-fg);
+  border-bottom-right-radius: 4px;
+}
+.bubble .badge-time {
+  font-size: 11px;
+  opacity: 0.7;
+  display: block;
+  margin-top: 4px;
+  text-align: right;
+}
+.bubble .hidden-phone {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--danger);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+.bubble.verified {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: var(--text);
+}
+
+/* ---------- Comparison Matrix Table ---------- */
+.comparison-section {
+  margin: 48px 0;
+  overflow-x: auto;
+}
+.compare-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+  font-size: 14.5px;
+}
+.compare-table th, .compare-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.compare-table th {
+  background: var(--surface-2);
+  font-weight: 700;
+  color: var(--text);
+}
+.compare-table th.highlight-col, .compare-table td.highlight-col {
+  background: var(--accent-soft);
+  font-weight: 600;
+}
+.compare-table tr:last-child td {
+  border-bottom: none;
+}
+.compare-table .category-row th {
+  background: var(--bg-alt);
+  color: var(--accent);
+  text-transform: uppercase;
+  font-size: 12.5px;
+  letter-spacing: 0.05em;
+}
+.check-yes {
+  color: var(--success);
+  font-weight: bold;
+}
+.check-no {
+  color: var(--text-dim);
+}
+
+/* ---------- How It Works 3-Steps ---------- */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 36px 0;
+}
+.step-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 24px;
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.step-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+.step-num {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+/* ---------- Deployment Options Box ---------- */
+.deploy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 32px 0;
+}
+.deploy-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 24px;
+}
+.deploy-card.featured {
+  border: 2px solid var(--accent);
+  background: var(--surface-2);
+}
+
+@media (max-width: 960px) {
+  .chat-demo-container { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .deploy-grid { grid-template-columns: 1fr; }
+}
 .chatbot-trigger {
   position: fixed; right: 24px; bottom: 24px; z-index: 999;
   width: 56px; height: 56px; border-radius: 50%; cursor: pointer; border: 1px solid var(--border);
