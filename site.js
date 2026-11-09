@@ -38,7 +38,7 @@
       welcome: 'Xin chào anh/chị 👋 Em là trợ lý tự động của ReplyFlow. Anh/chị muốn tìm hiểu điều gì ạ?',
       quick: [
         ['Bảng giá các gói', 'gia goi'],
-        ['Dùng thử 2.000đ', 'dung thu'],
+        ['Dùng thử 19.000đ', 'dung thu'],
         ['Cách lấy Page ID', 'page id'],
         ['Có an toàn cho Fanpage?', 'an toan'],
         ['Gặp tư vấn viên', 'lien he']
@@ -49,8 +49,8 @@
         { k: ['xin chao', 'hello', 'chao ', 'alo', 'hi '], a: 'Dạ em chào anh/chị ạ! ReplyFlow giúp Fanpage tự trả lời khách 24/7, tự ẩn số điện thoại trong bình luận và tự xác nhận chuyển khoản. Anh/chị đang bán ngành hàng gì để em tư vấn kỹ hơn ạ?' },
         { k: ['ruby', 'diamond', 'kim cuong', 'ban dut', 'tron doi', 'vinh vien', 'goi cao'], a: 'Dạ hiện tại cả 3 gói VIP, RUBY và DIAMOND (bản quyền trọn đời) đều đã mở đăng ký chính thức.\n• Gói RUBY: có thêm tính năng học lịch sử chat cũ, cá nhân hóa cách tư vấn theo từng khách và xuất hồ sơ Excel.\n• Gói DIAMOND: bản quyền trọn đời cho 1 Fanpage, đồng bộ website và kỹ thuật viên hỗ trợ 1-1.\nAnh/chị nhắn Telegram ' + CONTACT.telegramName + ' hoặc Zalo ' + CONTACT.phone + ' để được kích hoạt ngay nhé.' },
         { k: ['gia han', '10k', '10.000', '10000', 'het han'], a: 'Dạ sau tháng dùng thử, phí duy trì gói VIP là 10.000đ/tháng.\nAnh/chị chọn "Gia hạn 1 tháng — 10.000đ" ở mục Kích hoạt, nhập Page ID rồi quét QR. Thời gian sẽ được cộng dồn vào hạn đang còn, không bị mất ngày ạ.' },
-        { k: ['dung thu', '2k', '2.000', '2000', 'trial', 'thu nghiem'], a: 'Dạ gói VIP có tháng đầu dùng thử chỉ 2.000đ (mức chuyển tối thiểu để hệ thống ghi nhận).\n• Dùng đầy đủ tính năng gói VIP trong 30 ngày\n• Mỗi Fanpage được dùng thử 1 lần\n• Sau đó 10.000đ/tháng, không tự trừ tiền — anh/chị chủ động gia hạn khi muốn dùng tiếp.' },
-        { k: ['gia', 'bao nhieu', 'phi', 'chi phi', 'bang gia', 'goi', 'tien'], a: 'Dạ ReplyFlow hiện mở bán đầy đủ cả 3 gói:\n• VIP: tháng đầu 2.000đ, sau đó 10.000đ/tháng\n• RUBY: gói tăng trưởng (học lịch sử chat cũ & cá nhân hóa theo từng khách)\n• DIAMOND: gói toàn diện (bản quyền trọn đời 1 Fanpage)\nAnh/chị kéo xuống mục "Bảng giá" để xem chi tiết quyền lợi từng gói ạ.' },
+        { k: ['dung thu', '19k', '19.000', '2000', 'trial', 'thu nghiem'], a: 'Dạ gói VIP có tháng đầu dùng thử chỉ 19.000đ (mức chuyển tối thiểu để hệ thống ghi nhận).\n• Dùng đầy đủ tính năng gói VIP trong 30 ngày\n• Mỗi Fanpage được dùng thử 1 lần\n• Sau đó 10.000đ/tháng, không tự trừ tiền — anh/chị chủ động gia hạn khi muốn dùng tiếp.' },
+        { k: ['gia', 'bao nhieu', 'phi', 'chi phi', 'bang gia', 'goi', 'tien'], a: 'Dạ ReplyFlow hiện mở bán đầy đủ cả 3 gói:\n• VIP: tháng đầu 19.000đ, sau đó 10.000đ/tháng\n• RUBY: gói tăng trưởng (học lịch sử chat cũ & cá nhân hóa theo từng khách)\n• DIAMOND: gói toàn diện (bản quyền trọn đời 1 Fanpage)\nAnh/chị kéo xuống mục "Bảng giá" để xem chi tiết quyền lợi từng gói ạ.' },
         { k: ['page id', 'id trang', 'lay id', 'fanpage id', 'id page', 'id cua trang'], a: 'Cách lấy Page ID:\n1. Mở Fanpage trên Facebook\n2. Bấm "Giới thiệu" → "Tính minh bạch của Trang"\n3. Sao chép dãy số "ID Trang"\nSau đó dán vào ô Page ID ở mục Kích hoạt là hệ thống tự tạo mã QR đúng nội dung ạ.' },
         { k: ['chua kich hoat', 'chua thay', 'khong kich hoat', 'loi', 'khong duoc', 'chuyen roi'], a: 'Dạ anh/chị vui lòng kiểm tra lại nội dung chuyển khoản đã ghi đúng dãy số Page ID của Fanpage (ví dụ: 100234567890123) chưa ạ.\nNếu đã đúng mà sau 5 phút vẫn chưa kích hoạt, anh/chị gửi ảnh giao dịch qua Zalo ' + CONTACT.phone + ' hoặc Telegram ' + CONTACT.telegramName + ', bên em xử lý ngay ạ.' },
         { k: ['kich hoat', 'bao lau', 'chuyen khoan', 'thanh toan', 'qr', 'nap'], a: 'Dạ quy trình rất đơn giản:\n1. Nhập Page ID\n2. Chọn gói\n3. Quét mã QR bằng app ngân hàng (đã điền sẵn số tiền và nội dung)\nHệ thống tự kích hoạt trong vài giây sau khi nhận tiền ạ.' },
@@ -85,7 +85,7 @@
         { k: ['gia', 'chi phi', 'bao nhieu', 'phi'], a: 'Dạ chi phí VidFlow phụ thuộc số kênh và số video mỗi ngày. Anh/chị nhắn Telegram ' + CONTACT.telegramName + ' hoặc Zalo ' + CONTACT.phone + ' để nhận báo giá phù hợp ạ.' },
         { k: ['demo', 'xem thu', 'dung thu', 'lich'], a: 'Dạ bên em demo trực tiếp trên kênh mẫu, không cần cam kết trước. Anh/chị nhắn Telegram ' + CONTACT.telegramName + ' hoặc Zalo ' + CONTACT.phone + ' để đặt lịch ạ.', action: 'contact' },
         { k: ['ban quyen', 'copyright', 'vi pham'], a: 'Dạ video thành phẩm thuộc quyền sở hữu của anh/chị. VidFlow ưu tiên tư liệu hợp lệ và có bước kiểm tra chất lượng trước khi đăng ạ. Chi tiết xem tại "Điều khoản VidFlow".' },
-        { k: ['ban hang', 'fanpage', 'replyflow', 'tra loi tin nhan'], a: 'Dạ nếu anh/chị cần trợ lý tự trả lời tin nhắn Fanpage, bên em có ReplyFlow — đang có gói dùng thử 2.000đ ở trang replyflow.html ạ.' },
+        { k: ['ban hang', 'fanpage', 'replyflow', 'tra loi tin nhan'], a: 'Dạ nếu anh/chị cần trợ lý tự trả lời tin nhắn Fanpage, bên em có ReplyFlow — đang có gói dùng thử 19.000đ ở trang replyflow.html ạ.' },
         { k: ['lien he', 'nguoi that', 'tu van', 'zalo', 'telegram', 'hotline'], a: CONTACT_LINE, action: 'contact' }
       ]
     },
@@ -99,10 +99,10 @@
         ['Liên hệ', 'lien he']
       ],
       intents: [
-        { k: ['replyflow', 'fanpage', 'tin nhan', 'ban hang', 'chot don'], a: 'Dạ ReplyFlow giúp Fanpage tự trả lời khách 24/7, ẩn số điện thoại trong bình luận và xác nhận chuyển khoản. Đang có gói dùng thử 2.000đ — anh/chị xem tại trang ReplyFlow ạ.', action: 'go:replyflow.html' },
+        { k: ['replyflow', 'fanpage', 'tin nhan', 'ban hang', 'chot don'], a: 'Dạ ReplyFlow giúp Fanpage tự trả lời khách 24/7, ẩn số điện thoại trong bình luận và xác nhận chuyển khoản. Đang có gói dùng thử 19.000đ — anh/chị xem tại trang ReplyFlow ạ.', action: 'go:replyflow.html' },
         { k: ['vidflow', 'video', 'youtube', 'tiktok'], a: 'Dạ VidFlow tự làm và đăng video cho nhiều kênh Facebook, YouTube, TikTok. Anh/chị xem chi tiết tại trang VidFlow ạ.', action: 'go:vidflow.html' },
         { k: ['babyguard', 'em be', 'camera'], a: 'Dạ BabyGuard đang trong giai đoạn thử nghiệm nội bộ, bên em sẽ thông báo khi ra mắt ạ.' },
-        { k: ['gia', 'bao nhieu', 'chi phi'], a: 'Dạ ReplyFlow có gói VIP chỉ 2.000đ tháng đầu, sau đó 10.000đ/tháng. VidFlow báo giá theo số kênh. Anh/chị quan tâm sản phẩm nào ạ?' },
+        { k: ['gia', 'bao nhieu', 'chi phi'], a: 'Dạ ReplyFlow có gói VIP chỉ 19.000đ tháng đầu, sau đó 10.000đ/tháng. VidFlow báo giá theo số kênh. Anh/chị quan tâm sản phẩm nào ạ?' },
         { k: ['lien he', 'zalo', 'telegram', 'hotline', 'tu van'], a: CONTACT_LINE, action: 'contact' }
       ]
     }
