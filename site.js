@@ -182,17 +182,50 @@
 
     function ask(display, query) {
       user(display);
-      var res = findAnswer(kb, query || display);
-      setTimeout(function () {
-        bot(res.a);
-        if (res.action === 'contact') contactButtons();
-        if (res.action && res.action.indexOf('go:') === 0) {
-          var wrap = el('div', 'chat-quick-actions');
-          var a = el('a', 'chat-pill-btn', 'Mở trang →');
-          a.href = res.action.slice(3);
-          wrap.appendChild(a); body.appendChild(wrap); scroll();
+      var textToSearch = query || display;
+      var res = findAnswer(kb, textToSearch);
+
+      // Nếu có sẵn trong kịch bản: trả lời ngay lập tức trong 0.25 giây
+      if (res && res.action !== 'contact') {
+        setTimeout(function () {
+          bot(res.a);
+          if (res.action && res.action.indexOf('go:') === 0) {
+            var wrap = el('div', 'chat-quick-actions');
+            var a = el('a', 'chat-pill-btn', 'Mở trang →');
+            a.href = res.action.slice(3);
+            wrap.appendChild(a); body.appendChild(wrap); scroll();
+          }
+        }, 250);
+        return;
+      }
+
+      // Nếu nằm ngoài kịch bản: Gọi API Gemini AI thông minh qua máy chủ (Bảo mật 100%, không lộ API key)
+      var typingEl = el('div', 'chat-msg bot', 'Đang suy nghĩ câu trả lời...');
+      typingEl.style.opacity = '0.7';
+      typingEl.style.fontStyle = 'italic';
+      body.appendChild(typingEl);
+      scroll();
+
+      fetch('https://bot.sharethings.top/api/webchat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: textToSearch })
+      })
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        if (typingEl && typingEl.parentNode) typingEl.parentNode.removeChild(typingEl);
+        if (data && data.reply) {
+          bot(data.reply);
+        } else {
+          bot(res.a);
+          contactButtons();
         }
-      }, 350);
+      })
+      .catch(function(){
+        if (typingEl && typingEl.parentNode) typingEl.parentNode.removeChild(typingEl);
+        bot(res.a);
+        contactButtons();
+      });
     }
 
     form.addEventListener('submit', function (e) {
