@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hướng Dẫn Cài Đặt &amp; Sử Dụng ReplyFlow AI (Cloud VIP/RUBY &amp; Self-Hosted DIAMOND)</title>
+<meta name="description" content="Hướng dẫn từng bước kích hoạt, cài đặt và vận hành trợ lý AI ReplyFlow cho khách gói Cloud (VIP/RUBY) và khách mua đứt Self-Hosted (DIAMOND Windows/macOS).">
+<meta name="color-scheme" content="dark light">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; img-src 'self' https: data: blob:; media-src 'self' https: data: blob:; connect-src 'self' https: wss:;">
+
+<link rel="icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('st-theme');if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="stylesheet" href="style.css">
+<script src="site.js" defer></script>
+</head>
+<body data-product="replyflow">
+
+<div class="top-banner">
+  <div class="wrap">
+    <div class="status-indicator"><span class="dot"></span>Hỗ trợ cài đặt 1-1 qua UltraViewer / Zalo / Telegram</div>
+    <div class="top-banner-links">
+      <a href="https://zalo.me/0908674036" target="_blank" rel="noopener">Zalo / Hotline: <strong>0908674036</strong></a>
+      <a href="https://t.me/nvtthanh11" target="_blank" rel="noopener">Telegram: <strong>@nvtthanh11</strong></a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="replyflow">
+      <img src="assets/logo-64.png" alt="ReplyFlow" width="32" height="32">
+      <span class="brand-name">ReplyFlow</span>
+      <span class="brand-badge">Hướng Dẫn</span>
+    </a>
+    <nav class="site-nav" aria-label="Điều hướng hướng dẫn">
+      <a href="replyflow">← ReplyFlow</a>
+      <a href="#cloud-guide">Gói VIP / RUBY</a>
+      <a href="#diamond-guide">Gói DIAMOND (Self-Hosted)</a>
+      <a href="#vietqr-sepay">VietQR &amp; SePay</a>
+      <a href="#troubleshoot">Xử lý lỗi</a>
+    </nav>
+    <div class="header-actions">
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Đổi giao diện sáng/tối" title="Đổi giao diện sáng/tối">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.5M12 20v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M1.5 12H4M20 12h2.5M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+      </button>
+      <a class="btn-nav" href="replyflow#checkout">Kích hoạt ngay</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="legal-head">
+  <div class="wrap">
+    <span class="eyebrow">Tài liệu chính thức dành cho khách hàng</span>
+    <h1 class="section-title">Hướng Dẫn Cài Đặt &amp; Vận Hành ReplyFlow AI</h1>
+    <p class="legal-meta">Cập nhật: 11/11/2026 &nbsp;|&nbsp; Chọn đúng lộ trình theo gói bạn đã đăng ký bên dưới.</p>
+
+    <div class="deploy-grid" style="margin-bottom:0;">
+      <div class="deploy-card">
+        <span class="eyebrow-sm">Lộ trình 1 • Không cần cài đặt</span>
+        <h3 style="margin:6px 0 8px;">Khách gói Cloud (VIP &amp; RUBY)</h3>
+        <p style="color:var(--text-muted);font-size:14.5px;margin-bottom:14px;">Hệ thống chạy sẵn 24/7 trên máy chủ Cloud của ReplyFlow. Bạn chỉ cần đăng nhập trang quản trị, nạp bảng giá và bật VietQR/SePay trong 5–10 phút.</p>
+        <a class="btn-primary" href="#cloud-guide">Xem hướng dẫn VIP / RUBY ↓</a>
+      </div>
+      <div class="deploy-card featured">
+        <span class="eyebrow-sm">Lộ trình 2 • Cài trên máy riêng</span>
+        <h3 style="margin:6px 0 8px;">Khách gói DIAMOND (Bán đứt 1.999k)</h3>
+        <p style="color:var(--text-muted);font-size:14.5px;margin-bottom:14px;">Cài độc lập trên Windows (bản đóng gói) hoặc macOS / Ubuntu VPS (mã nguồn). Tự làm chủ PostgreSQL, file cấu hình, Webhook và kho tri thức RAG.</p>
+        <a class="btn-primary" href="#diamond-guide">Xem hướng dẫn cài đặt DIAMOND ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <!-- PHẦN 1: GÓI CLOUD VIP / RUBY -->
+  <article class="legal-box" id="cloud-guide">
+    <h2>Phần 1: Hướng Dẫn Cho Khách Gói Cloud (VIP &amp; RUBY)</h2>
+    <p>Khi mua gói <strong>VIP (19.000đ tháng đầu / 10.000đ gia hạn)</strong> hoặc <strong>RUBY (299.000đ/tháng)</strong>, quý khách <strong>không phải cài đặt bất kỳ phần mềm nào</strong> trên máy tính.</p>
+
+    <h3>Bước 1.1 — Kích hoạt &amp; chuẩn bị 3 thông tin kết nối</h3>
+    <ol>
+      <li><strong>Lấy Page ID Fanpage:</strong> Mở Fanpage → <em>Giới thiệu</em> → <em>Tính minh bạch của Trang</em> → sao chép dãy số <code>ID Trang</code>.</li>
+      <li><strong>Thanh toán kích hoạt:</strong> Vào <a href="replyflow#checkout">cổng thanh toán ReplyFlow</a>, nhập Page ID, chọn gói và quét mã VietQR để hệ thống mở khóa tự động.</li>
+      <li><strong>Lấy Telegram Chat ID nhận đơn:</strong> Mở Telegram, tìm bot <code>@userinfobot</code> → bấm <strong>Start</strong> → sao chép số <code>Id</code>. Đồng thời bấm <strong>Start</strong> vào Bot Telegram thông báo của ReplyFlow do kỹ thuật gửi link.</li>
+      <li><strong>Lấy Google Gemini API Key miễn phí:</strong> Truy cập <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">aistudio.google.com/app/apikey</a> → <strong>Create API key</strong> → sao chép chuỗi <code>AIzaSy...</code>.</li>
+      <li><strong>Kết nối Fanpage (không cần mật khẩu Facebook cá nhân):</strong> Bạn chỉ cần thêm tài khoản kỹ thuật vào quyền quản lý Trang trong 3 phút để gắn <em>Page Access Token</em> dài hạn &amp; Webhook (xong có thể tự gỡ/hạ quyền bất cứ lúc nào).</li>
+    </ol>
+
+    <h3>Bước 1.2 — Đăng nhập Dashboard quản trị Shop</h3>
+    <p>Truy cập đường dẫn quản trị được bàn giao (mặc định <code>https://bot.sharethings.top/login</code>), nhập <strong>Page ID</strong> và <strong>Secret Key</strong> để vào Dashboard gồm các tab chính:</p>
+    <ul>
+      <li><strong>Hệ thống &amp; Kết nối:</strong> Dán <code>Telegram ID nhận đơn</code>, kiểm tra <code>Facebook Page Token</code>, giữ nguyên <code>Mã Bản Quyền (License Key)</code>, dán key Gemini vào ô <code>Gemini Free Pool</code> (mỗi dòng 1 key). Công tắc <em>Cho phép tác vụ nền mượn VIP Key</em> nên giữ <strong>TẮT</strong> để tránh tốn phí key trả tiền.</li>
+      <li><strong>Thông tin Shop:</strong> Điền Tên Shop, Hotline/Zalo, Địa chỉ, mục <code>Danh mục Sản phẩm (Cơ bản)</code> ghi rõ tên món + size + giá chính xác (AI không tự bịa giá nếu chưa được ghi), và cài đặt VietQR / SePay ở Phần 3 bên dưới.</li>
+      <li><strong>Kịch Bản AI:</strong> Giữ nguyên khung bảo vệ ở <em>Kịch Bản Cốt Lõi</em>; tự viết giọng điệu bán hàng, chính sách đổi trả, giờ làm việc ở <em>Kịch Bản Giao Tiếp</em>. Gói RUBY có thêm khung <em>Trí Nhớ Khách Hàng</em> phân loại 6 nhóm tâm lý.</li>
+      <li><strong>Duyệt Đơn Nháp:</strong> Theo dõi các đơn AI vừa chốt (<code>pending</code>, <code>pending_payment</code>, <code>partial_paid</code>, <code>paid_verified</code>, <code>paid_ocr_unverified</code>), bấm duyệt và xuất Excel báo cáo.</li>
+    </ul>
+    <p><strong>Lưu ý:</strong> Sau khi chỉnh bất kỳ ô nào, luôn kéo xuống cuối trang bấm nút <strong>LƯU CẤU HÌNH HỆ THỐNG</strong>.</p>
+  </article>
+
+  <!-- PHẦN 2: GÓI DIAMOND SELF-HOSTED -->
+  <article class="legal-box" id="diamond-guide">
+    <h2>Phần 2: Hướng Dẫn Cài Đặt Gói DIAMOND (Bán Đứt Self-Hosted 1.999k)</h2>
+    <p>Gói <strong>DIAMOND</strong> cho phép cài toàn bộ hệ thống chạy trực tiếp trên máy tính Windows, Mac hoặc máy chủ VPS riêng của shop, tự nắm 100% cơ sở dữ liệu khách hàng.</p>
+
+    <h3>2.1. Yêu cầu môi trường</h3>
+    <ul>
+      <li><strong>Hệ điều hành:</strong> Windows 10/11 (64-bit), macOS (Apple Silicon / Intel) hoặc Ubuntu 20.04+.</li>
+      <li><strong>RAM &amp; Ổ cứng:</strong> Tối thiểu RAM 8 GB (khuyên dùng 16 GB nếu bật thêm Ollama Local AI), ổ trống tối thiểu 10 GB.</li>
+      <li><strong>Cơ sở dữ liệu bắt buộc:</strong> <strong>PostgreSQL 14 trở lên</strong> chạy ở cổng mặc định <code>5432</code>.</li>
+    </ul>
+
+    <h3>2.2. Cài đặt trên WINDOWS (Dùng gói <code>ReplyFlow_Client.zip</code>)</h3>
+    <ol>
+      <li><strong>Giải nén:</strong> Giải nén vào thư mục ngắn, không dấu tiếng Việt (VD: <code>D:\ReplyFlow_Client</code>).</li>
+      <li><strong>Cài PostgreSQL &amp; tạo DB <code>m4_ai_sales</code>:</strong>
+        Tải PostgreSQL tại <a href="https://www.postgresql.org/download/windows/" target="_blank" rel="noopener">postgresql.org/download/windows</a>, cài đặt giữ cổng <code>5432</code> và ghi nhớ mật khẩu user <code>postgres</code>. Sau đó mở <strong>pgAdmin 4</strong> → chuột phải vào <em>Databases → Create → Database...</em> → đặt tên đúng là <code>m4_ai_sales</code> → bấm <em>Save</em>.
+      </li>
+      <li><strong>Tạo file cấu hình <code>secrets\.env</code>:</strong>
+        Vào thư mục <code>D:\ReplyFlow_Client\secrets\</code>, sao chép file <code>.env.example</code> thành <code>.env</code> (chú ý không để dính đuôi <code>.env.txt</code>). Mở bằng Notepad và điền các biến chính:
+        <br><code>PGHOST=localhost</code>, <code>PGPORT=5432</code>, <code>PGDATABASE=m4_ai_sales</code>, <code>PGUSER=postgres</code>, <code>PGPASSWORD=&lt;mat_khau_cua_ban&gt;</code>
+        <br><code>APP_PORT=5001</code>, <code>FLASK_SECRET_KEY=&lt;chuoi_dai_ngau_nhien&gt;</code>, <code>MASTER_ADMIN_KEY=&lt;mat_khau_master_tu_dat&gt;</code>
+        <br><code>PUBLIC_BASE_URL=https://&lt;domain_hoac_ngrok_cua_ban&gt;</code>, <code>LOCAL_AI_ENABLED=0</code> (nếu chỉ dùng Gemini Cloud).
+      </li>
+      <li><strong>Khởi chạy:</strong> Bấm đúp vào <code>ReplyFlow_AI.exe</code> (nếu Windows Defender hỏi, chọn <em>More info → Run anyway</em>). Lần chạy đầu hệ thống tự tạo đủ <strong>20 bảng PostgreSQL</strong> và mở cổng <code>5001</code>. Luôn giữ cửa sổ này mở khi bot hoạt động.</li>
+    </ol>
+
+    <h3>2.3. Cài đặt trên macOS / Linux / Ubuntu VPS (Từ Source Code)</h3>
+    <ol>
+      <li>Cài Python 3.10–3.11 và PostgreSQL (macOS: <code>brew install postgresql@16 &amp;&amp; brew services start postgresql@16</code>).</li>
+      <li>Cài thư viện: <code>pip3 install -r requirements.txt</code> (nếu muốn OCR ảnh bill cục bộ thêm <code>pip3 install paddleocr paddlepaddle</code>).</li>
+      <li>Điền file <code>secrets/.env</code> tương tự mục Windows (thêm <code>LICENSE_SALT</code> nếu tự phát hành key).</li>
+      <li>Khởi tạo DB &amp; kiểm tra trước khi chạy: <code>./setup_local_postgres_mac.sh</code> rồi chạy <code>python3 preflight_check.py</code>.</li>
+      <li>Chạy server: <code>./start_server.sh</code> (hoặc <code>./start_production.sh</code> sau khi cài <code>gunicorn</code>).</li>
+    </ol>
+
+    <h3>2.4. Mở HTTPS cho Webhook &amp; Tạo Shop lần đầu</h3>
+    <ol>
+      <li><strong>Mở đường dẫn HTTPS trỏ về <code>http://127.0.0.1:5001</code>:</strong>
+        <ul>
+          <li><em>Cloudflare Tunnel (khuyên dùng):</em> Cài <code>cloudflared</code> với tên miền riêng → cố định vĩnh viễn URL dạng <code>https://bot.tenmienshop.com</code>, đặt <code>AUTO_NGROK=0</code>.</li>
+          <li><em>Ngrok (nhanh trong 2 phút):</em> Điền <code>NGROK_AUTHTOKEN=...</code> và <code>AUTO_NGROK=1</code> trong <code>secrets/.env</code> để phần mềm tự lấy URL <code>https://...ngrok-free.app</code> khi bật.</li>
+        </ul>
+      </li>
+      <li><strong>Tạo Shop trên máy của bạn:</strong> Mở <code>http://127.0.0.1:5001/master_login</code>, nhập <code>MASTER_ADMIN_KEY</code> đã tự đặt → tạo shop với <code>Page ID</code>, <code>Secret Key</code>, gói <code>DIAMOND</code>, hạn <code>2099-12-31</code>.</li>
+      <li><strong>Cấu hình Meta Developer Webhook:</strong> Tại <em>Messenger → Settings → Webhooks</em> trên <a href="https://developers.facebook.com" target="_blank" rel="noopener">developers.facebook.com</a>, dán Callback URL <code>https://&lt;ten-mien-cua-ban&gt;/webhook</code>, Verify Token <code>TranhVeTay123</code>, tick nhận <code>messages</code>, <code>messaging_postbacks</code>, <code>feed</code> rồi Subscribe vào Fanpage.</li>
+      <li><strong>Nạp tri thức độc quyền DIAMOND:</strong> Đăng nhập <code>/login</code> → tab <em>Hệ thống &amp; Kết nối</em> để nhập <code>Mã Bản Quyền (License Key)</code>, tải file bảng giá/tài liệu (<code>.xlsx</code>, <code>.csv</code>, <code>.pdf</code>, <code>.docx</code>, <code>.txt</code>) hoặc nhập <em>Link Website</em> bấm <strong>Đồng Bộ Ngay</strong>.</li>
+    </ol>
+  </article>
+
+  <!-- PHẦN 3: VIETQR + SEPAY + OCR CẢNH BÁO -->
+  <article class="legal-box" id="vietqr-sepay">
+    <h2>Phần 3: Cấu Hình VietQR Động, SePay 100% &amp; Lưu Ý OCR Dự Phòng</h2>
+    <ol>
+      <li>Tại Dashboard <code>/admin</code> → tab <strong>Thông tin Shop</strong> → kéo tới mục <strong>VietQR TỰ ĐỘNG + ĐỐI SOÁT SePay</strong>.</li>
+      <li>Điền <strong>Mã ngân hàng</strong> (<code>MB</code>, <code>VCB</code>, <code>TCB</code>, <code>ACB</code>...), <strong>Số tài khoản</strong> và <strong>Tên chủ tài khoản (không dấu)</strong>.</li>
+      <li>Tick <strong>Tự gửi VietQR khi khách chốt chuyển khoản</strong>: Khi khách đồng ý chuyển khoản và đã có đủ SĐT + địa chỉ + tổng tiền đơn rõ ràng, AI sẽ tạo mã đơn <code>DH&lt;id&gt;</code> và gửi ảnh mã QR đúng số tiền thẳng vào Messenger.</li>
+      <li><strong>Bật SePay đối soát tiền thật 100%:</strong>
+        <ul>
+          <li>Tick <strong>Đã kết nối SePay (đối soát tiền về tự động)</strong> rồi bấm <strong>Lưu</strong> để hệ thống tự tạo chuỗi <code>API Key SePay của shop</code> (<code>rf_...</code>).</li>
+          <li>Vào <a href="https://my.sepay.vn" target="_blank" rel="noopener">my.sepay.vn</a> → mục <em>Webhooks → Thêm Webhook</em> → dán đúng <strong>Webhook URL</strong> (<code>https://.../api/shop_sepay_webhook/&lt;PAGE_ID&gt;</code>), chọn xác thực kiểu <strong>API Key</strong> và dán đúng key <code>rf_...</code>.</li>
+          <li>Khi tiền vào thật: SePay báo ngay để đơn chuyển sang <strong>Đã nhận tiền (xác thực)</strong> (<code>paid_verified</code>). Nếu khách chuyển thiếu, đơn tự báo <strong>Chuyển THIẾU tiền</strong> (<code>partial_paid</code>) và nhắc khách bù phần còn lại.</li>
+        </ul>
+      </li>
+      <li><strong>Cảnh báo khi shop CHƯA dùng SePay:</strong> Hệ thống dùng AI OCR đọc ảnh chụp bill ở chế độ dự phòng và gắn trạng thái <strong>Bill OCR - CẦN CHECK TK</strong> (<code>paid_ocr_unverified</code>). Vì ảnh chụp vẫn có nguy cơ chỉnh sửa, chủ shop <strong>bắt buộc kiểm tra app ngân hàng thật trước khi giao hàng</strong>.</li>
+    </ol>
+  </article>
+
+  <!-- PHẦN 4: XỬ LÝ LỖI -->
+  <article class="legal-box" id="troubleshoot">
+    <h2>Phần 4: Kiểm Tra &amp; Xử Lý Sự Cố Thường Gặp</h2>
+    <ul>
+      <li><strong>Bot không trả lời một khách cụ thể:</strong> Nếu nhân viên thật của shop vừa nhắn trực tiếp cho khách đó trên Fanpage, bot tự nhường quyền trong 60 phút để tránh nhắn chồng chéo.</li>
+      <li><strong>Khách nói chưa thấy tin nhắn VietQR:</strong> Kiểm tra đã điền đủ <em>Mã ngân hàng + Số tài khoản</em> chưa, và AI chỉ sinh QR khi trong tin nhắn/giỏ hàng đã có đủ SĐT + địa chỉ + đơn giá sản phẩm hợp lệ (&gt; 0đ).</li>
+      <li><strong>Lỗi kết nối Database trên bản tự cài (DIAMOND):</strong> Đảm bảo dịch vụ PostgreSQL đang chạy cổng <code>5432</code>, đã tạo database tên <code>m4_ai_sales</code> và file cấu hình nằm đúng tên <code>secrets/.env</code> (không bị thừa đuôi <code>.txt</code> trên Windows).</li>
+      <li><strong>Cần hỗ trợ cài đặt 1-1:</strong> Liên hệ trực tiếp Zalo <a href="https://zalo.me/0908674036" target="_blank" rel="noopener">0908674036</a> hoặc Telegram <a href="https://t.me/nvtthanh11" target="_blank" rel="noopener">@nvtthanh11</a> để kỹ thuật viên hỗ trợ qua UltraViewer / TeamViewer / AnyDesk.</li>
+    </ul>
+  </article>
+
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a class="brand" href="replyflow">
+          <img src="assets/logo-64.png" alt="ReplyFlow" width="32" height="32">
+          <span class="brand-name">ReplyFlow</span>
+        </a>
+        <p>Trợ lý bán hàng và chăm sóc khách hàng tự động trên Facebook Fanpage, vận hành liên tục&nbsp;24/7.</p>
+        <div class="trust-badges">
+          <span class="badge-pill">VietQR &amp; SePay</span>
+          <span class="badge-pill">Tuân thủ NĐ 13/2023/NĐ-CP</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Sản phẩm &amp; Tài liệu</h4>
+        <ul>
+          <li><a href="replyflow">ReplyFlow</a></li>
+          <li><a href="replyflow-huong-dan">Hướng dẫn cài đặt</a></li>
+          <li><a href="vidflow">VidFlow</a></li>
+          <li><a href="/">ShareThings Hub</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Pháp lý</h4>
+        <ul>
+          <li><a href="replyflow-privacy">Chính sách bảo mật</a></li>
+          <li><a href="replyflow-terms">Điều khoản dịch vụ</a></li>
+          <li><a href="replyflow-data-deletion">Yêu cầu xóa dữ liệu</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Liên hệ</h4>
+        <ul>
+          <li><span class="k">Zalo:</span><a href="https://zalo.me/0908674036" target="_blank" rel="noopener">0908674036</a></li>
+          <li><span class="k">Telegram:</span><a href="https://t.me/nvtthanh11" target="_blank" rel="noopener">@nvtthanh11</a></li>
+          <li><span class="k">Email:</span><a href="mailto:nvtthanh11@gmail.com">nvtthanh11@gmail.com</a></li>
+          <li><span class="k">Khu vực:</span>TP.&nbsp;Hồ&nbsp;Chí&nbsp;Minh</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 ReplyFlow by ShareThings. Bảo lưu mọi quyền.</span>
+      <nav aria-label="Pháp lý">
+        <a href="replyflow-huong-dan">Hướng dẫn</a>
+        <a href="replyflow-privacy">Chính sách bảo mật</a>
+        <a href="replyflow-terms">Điều khoản dịch vụ</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
