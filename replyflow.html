@@ -139,7 +139,7 @@
         <ul class="feature-list" style="margin-bottom:24px;">
           <li><strong>Chốt đơn lúc 2h sáng:</strong> Trả lời ngay trong 1-2 giây khi khách còn nóng lòng mua.</li>
           <li><strong>Ẩn số điện thoại tức thì:</strong> Chặn 100% đối thủ cướp khách dưới bài quảng cáo.</li>
-          <li><strong>Thị giác máy tính (AI OCR):</strong> Soi bill chuyển khoản chuẩn xác từng số tiền, chống ảnh giả.</li>
+          <li><strong>VietQR động &amp; Đối soát SePay 100%:</strong> Tự sinh mã QR đúng số tiền <code>DHxxx</code> khi chốt đơn, tự động báo tiền về thật (hoặc AI OCR đọc bill dự phòng kèm cảnh báo kiểm tra STK).</li>
           <li><strong>Nhường quyền người thật:</strong> Tự ngắt ngay khi nhân viên shop trực tiếp bấm trả lời.</li>
         </ul>
         <a class="btn-primary" href="#checkout">Kích hoạt thử ngay cho Fanpage →</a>
@@ -157,11 +157,11 @@
         </div>
         <div class="mockup-body">
           <div class="bubble buyer">
-            Shop ơi mẫu váy hoa nhí còn size M không ạ? Mình 519kg mặc vừa không shop?
+            Shop ơi mẫu váy hoa nhí còn size M không ạ? Mình 52kg mặc vừa không shop?
             <span class="badge-time">02:14 AM</span>
           </div>
           <div class="bubble bot">
-            Dạ em chào chị! Mẫu váy hoa nhí bên em chất lụa Hàn mềm mát dáng xòe nhẹ, chị 519kg mặc size M là vừa xinh tôn dáng luôn ạ 🥰
+            Dạ em chào chị! Mẫu váy hoa nhí bên em chất lụa Hàn mềm mát dáng xòe nhẹ, chị 52kg mặc size M là vừa xinh tôn dáng luôn ạ 🥰
             <br><br>Hôm nay shop đang hỗ trợ freeship toàn quốc, chị cho em xin địa chỉ và SĐT để em đóng gói gửi sớm mai cho chị nhé!
             <span class="badge-time">02:14 AM</span>
           </div>
@@ -170,7 +170,7 @@
             <span class="badge-time">02:15 AM</span>
           </div>
           <div class="bubble bot">
-            Dạ shop đã lưu thông tin của chị ạ! Mã đơn #89201. Tổng thanh toán là 350.000đ. Chị thanh toán nhận hàng hay chuyển khoản trước để nhận quà kèm ạ?
+            Dạ shop đã lưu thông tin của chị ạ! Mã đơn #89201 (DH89201). Tổng thanh toán là 350.000đ. Chị nhận hàng thanh toán hay chuyển khoản để em gửi mã VietQR đúng số tiền (tự động xác nhận ngay khi tiền về) ạ?
             <span class="badge-time">02:15 AM</span>
           </div>
           <div class="bubble buyer">
@@ -395,12 +395,18 @@
             <td style="text-align:center;"><span class="check-yes">✓</span> Có</td>
           </tr>
 
-          <tr class="category-row"><th colspan="4">3. Nhận diện hóa đơn & Thanh toán (AI OCR)</th></tr>
+          <tr class="category-row"><th colspan="4">3. VietQR Động, SePay Đối Soát &amp; AI OCR Dự Phòng</th></tr>
           <tr>
-            <td>Quét & Đọc ảnh bill chuyển khoản</td>
-            <td style="text-align:center;">Cơ bản</td>
-            <td style="text-align:center;" class="highlight-col"><span class="check-yes">✓</span> Siêu tốc (Đa ngân hàng)</td>
-            <td style="text-align:center;"><span class="check-yes">✓</span> Phát hiện bill Photoshop</td>
+            <td>Tự sinh VietQR động đúng tiền (<code>DHxxx</code>) &amp; Đối soát SePay tiền thật 100%</td>
+            <td style="text-align:center;">Thủ công / OCR cơ bản</td>
+            <td style="text-align:center;" class="highlight-col"><span class="check-yes">✓</span> Tự sinh QR + SePay 100%</td>
+            <td style="text-align:center;"><span class="check-yes">✓</span> Full Tự động + Webhook riêng</td>
+          </tr>
+          <tr>
+            <td>AI OCR đọc ảnh bill dự phòng (khi chưa gắn SePay)</td>
+            <td style="text-align:center;">Cảnh báo cơ bản</td>
+            <td style="text-align:center;" class="highlight-col"><span class="check-yes">✓</span> AI OCR + Cảnh báo đối chiếu STK</td>
+            <td style="text-align:center;"><span class="check-yes">✓</span> AI OCR + Cảnh báo &amp; Log bảo mật</td>
           </tr>
           <tr>
             <td>Tự động báo xác nhận đơn ngay cho khách</td>
