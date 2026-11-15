@@ -154,6 +154,47 @@
       <li><strong>Cấu hình Meta Developer Webhook:</strong> Tại <em>Messenger → Settings → Webhooks</em> trên <a href="https://developers.facebook.com" target="_blank" rel="noopener">developers.facebook.com</a>, dán Callback URL <code>https://&lt;ten-mien-cua-ban&gt;/webhook</code>, Verify Token <code>TranhVeTay123</code>, tick nhận <code>messages</code>, <code>messaging_postbacks</code>, <code>feed</code> rồi Subscribe vào Fanpage.</li>
       <li><strong>Nạp tri thức độc quyền DIAMOND:</strong> Đăng nhập <code>/login</code> → tab <em>Hệ thống &amp; Kết nối</em> để nhập <code>Mã Bản Quyền (License Key)</code>, tải file bảng giá/tài liệu (<code>.xlsx</code>, <code>.csv</code>, <code>.pdf</code>, <code>.docx</code>, <code>.txt</code>) hoặc nhập <em>Link Website</em> bấm <strong>Đồng Bộ Ngay</strong>.</li>
     </ol>
+
+    <h3>2.5. Hướng Dẫn Vượt Cảnh Báo Bảo Mật (Windows Defender &amp; macOS Gatekeeper)</h3>
+    <div style="background:rgba(99,179,237,0.06);border-left:4px solid var(--accent);padding:14px 18px;border-radius:6px;margin:12px 0 16px;">
+      <p style="margin:0 0 8px;font-weight:600;color:var(--text);">🛡️ Vì sao hệ điều hành hiện cảnh báo khi mở lần đầu?</p>
+      <p style="margin:0;font-size:14px;color:var(--text-muted);line-height:1.6;">ReplyFlow AI là phần mềm quản lý nội bộ chuyên dụng được biên dịch độc lập, không gửi dữ liệu khách hàng lên máy chủ bên thứ ba nên chưa mua chứng chỉ thương mại đắt đỏ của Microsoft/Apple. Phần mềm <strong>hoàn toàn sạch mã độc 100%</strong>. Bạn chỉ cần xác nhận 1 lần duy nhất khi mở lần đầu:</p>
+    </div>
+    <ul>
+      <li><strong>Trên WINDOWS (Microsoft Defender SmartScreen):</strong> Khi mở file thấy màn hình xanh <em>"Windows protected your PC"</em> → Bấm vào dòng chữ <strong><u>More info</u> (Thông tin khác)</strong> → Bấm nút <strong>Run anyway (Vẫn chạy)</strong>.</li>
+      <li><strong>Trên macOS (Apple Gatekeeper):</strong> Khi bấm mở file thấy thông báo <em>"App can't be opened because it is from an unidentified developer"</em> → Mở <strong>System Settings (Cài đặt hệ thống)</strong> → chọn <strong>Privacy &amp; Security (Quyền riêng tư &amp; Bảo mật)</strong> → Kéo xuống mục Bảo mật và bấm <strong>Open Anyway (Vẫn mở)</strong> → Nhập mật khẩu máy Mac để xác nhận.</li>
+      <li><strong>Về Tường lửa mạng (Firewall):</strong> Cổng <code>5001</code> là cổng localhost nội bộ và kết nối Cloudflare Tunnel qua cổng 443 HTTPS ra ngoài nên <strong>tường lửa mặc định của Windows/Mac hoàn toàn không chặn</strong>, không cần mở port modem Wi-Fi.</li>
+    </ul>
+
+    <h3>2.6. Khách Hàng Tự Chuẩn Bị 3 Thông Tin Cần Thiết (Mất dưới 3 phút)</h3>
+    <p>Để trợ lý AI hoạt động, chủ shop chỉ cần chuẩn bị sẵn 3 thông số của chính shop mình:</p>
+    <ol>
+      <li><strong>1. Fanpage Access Token (Facebook):</strong> Chuỗi token cấp quyền cho Bot gửi/nhận tin nhắn trên Fanpage của bạn (lấy tại <a href="https://developers.facebook.com" target="_blank" rel="noopener">developers.facebook.com</a> trong mục <em>Messenger → Access Tokens</em>).</li>
+      <li><strong>2. Google Gemini API Key (Miễn phí):</strong> Vào <a href="https://aistudio.google.com" target="_blank" rel="noopener">aistudio.google.com</a> → Đăng nhập tài khoản Google → Bấm <strong>Get API key</strong> → Bấm <strong>Create API key</strong> và copy chuỗi ký tự dạng <code>AIzaSy...</code>.</li>
+      <li><strong>3. Thông tin Ngân hàng nhận tiền:</strong> Tên ngân hàng (MB, VCB, ACB, Techcombank...), Số tài khoản và Tên chủ tài khoản để bot tự sinh mã VietQR đúng số tiền đơn hàng. <em>(Tùy chọn: Đăng ký tài khoản miễn phí tại <a href="https://my.sepay.vn" target="_blank" rel="noopener">my.sepay.vn</a> nếu muốn tự động khớp tiền thật 100%).</em></li>
+    </ol>
+
+    <h3>2.7. Giao Diện Sử Dụng Thực Tế &amp; Nền Tảng Hoạt Động</h3>
+    <ul>
+      <li><strong>Nền tảng sử dụng:</strong> Chạy hoàn toàn trên <strong>Trình duyệt Web (Web Browser)</strong> quen thuộc của bạn: Google Chrome, Safari, Microsoft Edge, Cốc Cốc tại địa chỉ: <code>http://localhost:5001</code>.</li>
+      <li><strong>Hỗ trợ xem trên điện thoại:</strong> Khi máy tính đang bật bot, bạn có thể dùng iPhone / Android kết nối chung Wi-Fi và truy cập vào IP của máy tính để duyệt đơn và theo dõi doanh thu ngay trên giường!</li>
+      <li><strong>Khám phá 6 Tab Quản trị Dark Mode trực quan:</strong>
+        <ul>
+          <li><strong>📊 Tab 1 — Tổng quan (Dashboard):</strong> Thống kê trực tiếp doanh số hôm nay, số tin nhắn AI đã xử lý, biểu đồ đơn hàng thành công.</li>
+          <li><strong>🧠 Tab 2 — Kịch bản AI:</strong> Nơi gõ thông tin sản phẩm, bảng giá và chọn giọng điệu cho Bot (Nhiệt tình, Thân thiện, Ngắn gọn). AI tự đọc và tư vấn thông minh như người thật.</li>
+          <li><strong>🏪 Tab 3 — Thông tin Shop &amp; VietQR:</strong> Cài đặt số tài khoản ngân hàng, bật tính năng tự động gửi mã VietQR động khi chốt đơn.</li>
+          <li><strong>🔌 Tab 4 — Hệ thống &amp; Kết nối:</strong> Nơi dán Fanpage Token, Gemini Key, Webhook SePay và Telegram ID nhận thông báo nổ đơn.</li>
+          <li><strong>⚡ Tab 5 — AI Nội Bộ (Local AI):</strong> Dành cho máy tính cấu hình mạnh muốn chạy AI Offline (Ollama / Qwen 2.5) trực tiếp trên máy không tốn chi phí API.</li>
+          <li><strong>🔔 Tab 6 — Duyệt Đơn Nháp:</strong> Bảng đơn hàng thời gian thực: phân loại rõ <em>Đã nhận tiền xác thực</em>, <em>Đang chờ thanh toán</em>, và <em>Bill OCR - Cần check TK</em> kèm nút Duyệt 1-click.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>2.8. Cam Kết Bảo Mật Dữ Liệu &amp; Bản Quyền Thương Mại</h3>
+    <ul>
+      <li><strong>Dữ liệu là của bạn 100%:</strong> Toàn bộ lịch sử trò chuyện, số điện thoại khách hàng và thông tin đơn hàng lưu trực tiếp trên máy tính/VPS riêng của bạn. Không ai có quyền truy cập ngoài bạn.</li>
+      <li><strong>Bản quyền đóng gói độc quyền:</strong> Mỗi gói bản quyền Diamond được cấp một mã License Key riêng biệt khóa chặt theo đúng 1 Fanpage ID, đảm bảo hệ thống vận hành ổn định và được hỗ trợ kỹ thuật trọn đời.</li>
+    </ul>
   </article>
 
   <!-- PHẦN 3: VIETQR + SEPAY + OCR CẢNH BÁO -->
