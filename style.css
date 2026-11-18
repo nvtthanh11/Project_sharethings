@@ -133,6 +133,15 @@ nav.site-nav a:hover { color: var(--text); text-decoration: none; }
 [data-theme="light"] .theme-toggle .icon-sun { display: block; }
 [data-theme="light"] .theme-toggle .icon-moon { display: none; }
 
+.lang-toggle {
+  height: 38px; padding: 0 12px; border-radius: 8px; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  background: var(--surface-2); color: var(--text); border: 1px solid var(--border);
+  font-size: 13.5px; font-weight: 600; text-decoration: none; transition: all .15s ease;
+  white-space: nowrap;
+}
+.lang-toggle:hover { border-color: var(--border-strong); text-decoration: none; color: var(--primary); }
+
 /* ---------- Buttons ---------- */
 .btn, .btn-primary, .btn-secondary, .btn-outline, .btn-nav {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;

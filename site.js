@@ -255,6 +255,14 @@
     applyTheme(document.documentElement.getAttribute('data-theme') || 'dark');
     var btn = document.getElementById('themeToggle');
     if (btn) btn.addEventListener('click', window.toggleTheme);
+    var langBtn = document.getElementById('langToggle') || document.querySelector('.lang-toggle');
+    if (langBtn) {
+      langBtn.addEventListener('click', function () {
+        var href = langBtn.getAttribute('href') || '';
+        var targetLang = href.indexOf('-en') !== -1 ? 'en' : 'vi';
+        try { localStorage.setItem('st-lang', targetLang); } catch (e) {}
+      });
+    }
     var product = document.body.getAttribute('data-product');
     if (product) buildChat(product);
   });

@@ -1,0 +1,2982 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth" style="background-color: #08090d; color-scheme: dark;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#08090d">
+  <meta name="supported-color-schemes" content="dark">
+  <title>BabyGuard AI — Rather Warn by Mistake Than Overlook | Smart Pediatric Sentry & Sleep Analytics</title>
+  <meta name="description" content="BabyGuard AI: 100% on-device pediatric AI monitor with contactless respiration tracking, prone sleep suffocation sentry, and acoustic cry classification. Zero cloud video leaks.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍼</text></svg>">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              500: '#8b5cf6',
+              600: '#7c3aed',
+              700: '#6d28d9',
+              900: '#4c1d95',
+              950: '#1e0545',
+            },
+            accent: {
+              teal: '#06b6d4',
+              rose: '#f43f5e',
+              amber: '#f59e0b',
+              emerald: '#10b981',
+            }
+          }
+        }
+      }
+    }
+  </script>
+    <style>
+    :root, html {
+      background-color: #08090d !important;
+      color-scheme: dark !important;
+    }
+    body {
+      background-color: #08090d !important;
+      color: #e4e4e7 !important;
+      color-scheme: dark !important;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      letter-spacing: -0.01em;
+    }
+    .gradient-hero, .bg-[#0e1017], .bg-[#08090d] {
+      background-color: #08090d !important;
+    }
+    .glass-card, .bg-[#0e1017], .bg-[#08090d] {
+      background-color: #0e1017 !important;
+    }
+    .tag-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #8a8f98;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.02);
+      padding: 3px 10px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    /* Hide scrollbars */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Infinite Marquee */
+    @keyframes marqueeScrollLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track-stories, .marquee-track-telegram {
+      display: flex;
+      width: max-content;
+      animation: marqueeScrollLeft 60s linear infinite;
+      will-change: transform;
+    }
+    .marquee-track-stories:hover, .marquee-track-telegram:hover {
+      animation-play-state: paused !important;
+    }
+
+    /* Apple Pro Ambient Glow & Specular Accents */
+    .ambient-glow-cyan {
+      position: absolute;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.16) 0%, rgba(14, 165, 233, 0.04) 45%, transparent 70%);
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .ambient-glow-purple {
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.13) 0%, rgba(99, 102, 241, 0.03) 45%, transparent 70%);
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Specular Chamfered Rim Light Border */
+    .pro-card {
+      position: relative;
+      background-color: #0e1017;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .pro-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.02) 45%, rgba(255, 255, 255, 0.14) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .pro-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.18);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.75);
+    }
+    .pro-card:hover::before {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.08) 45%, rgba(255, 255, 255, 0.3) 100%);
+    }
+
+    /* Shimmer Button Sweep */
+    @keyframes shimmerSweep {
+      0% { transform: translateX(-150%) skewX(-20deg); }
+      40%, 100% { transform: translateX(250%) skewX(-20deg); }
+    }
+    .btn-shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-shimmer::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+      animation: shimmerSweep 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      pointer-events: none;
+    }
+
+    /* Metallic Hero Text */
+    .metallic-text {
+      background: linear-gradient(180deg, #FFFFFF 20%, #A1A1AA 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .metallic-title {
+      background: linear-gradient(180deg, #FFFFFF 25%, #E4E4E7 65%, #A1A1AA 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    /* Breathing Pulse Indicator */
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.6; transform: scale(1); filter: drop-shadow(0 0 2px currentColor); }
+      50% { opacity: 1; transform: scale(1.3); filter: drop-shadow(0 0 8px currentColor); }
+    }
+    .pulse-glow {
+      animation: pulseGlow 2.4s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-[#08090d] text-[#e4e4e7] antialiased selection:bg-[#0e1017]/20 selection:text-white min-h-screen flex flex-col justify-between" style="background-color: #08090d !important; color-scheme: dark !important;">
+
+  <!-- TOP SLOGAN BANNER (REFINED & CRISP) -->
+  <aside aria-label="Mission Slogan" class="bg-[#0e1017] text-white text-xs py-2 px-3 sm:py-2.5 sm:px-4 border-b border-white/[0.08] relative sm:sticky sm:top-0 z-40">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1.5 sm:gap-2 text-center sm:text-left">
+      <div class="flex items-center justify-center sm:justify-start gap-2">
+        <span class="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+        <a href="/" class="text-white/60 hover:text-white text-[10px] sm:text-[11px] me-2" title="Back to ShareThings Ecosystem">← ShareThings Hub</a> | <span class="font-mono text-white/50 uppercase tracking-wider text-[10px] sm:text-[11px]">Mission:</span>
+        <span class="font-medium text-white text-[11px] sm:text-xs">"Rather warn by mistake than overlook an infant hazard."</span>
+      </div>
+      <div class="flex items-center justify-center gap-2 sm:gap-3 text-[10px] sm:text-[11px] text-white/50">
+        <span class="hidden md:inline">24/7 Pediatric Infant Sentry • Real-time alerts to parent Telegram</span>
+        <a href="#download" class="px-2.5 py-0.5 rounded bg-white/[0.08] hover:bg-white/[0.15] text-white font-medium transition text-[10px] sm:text-xs border border-white/[0.1]">
+          14-Day Free Trial →
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- NAVIGATION BAR (MINIMALIST & CLEAN) -->
+  <nav class="bg-[#08090d]/90 backdrop-blur-md border-b border-white/[0.08] sticky top-0 sm:top-[38px] z-30 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-18 flex items-center justify-between">
+      
+      <!-- LOGO -->
+      <a href="#" class="flex items-center gap-2.5 sm:gap-3 group">
+        <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white/[0.05] border border-white/[0.1] flex items-center justify-center text-xs font-mono font-bold text-white shadow-sm">
+          BG
+        </div>
+        <div>
+          <span class="font-bold text-base sm:text-lg text-white tracking-tight flex items-center gap-1.5">
+            BabyGuard <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/[0.08] text-white/80 border border-white/[0.08]">AI</span>
+          </span>
+          <p class="hidden xs:block text-[9px] text-white/50 font-medium uppercase tracking-wider">Pediatric Safety Standard (AAP & AASM)</p>
+        </div>
+      </a>
+
+      <!-- DESKTOP MENU -->
+      <div class="hidden lg:flex items-center gap-8 text-xs font-medium text-white/60">
+        <a href="/" class="text-emerald-400 hover:text-emerald-300 font-semibold transition">← ShareThings</a>
+        <a href="#author-story" class="hover:text-white transition">A Father’s Note</a>
+        <a href="#features" class="hover:text-white transition">Features</a>
+        <a href="#pricing" class="hover:text-white transition">Pricing</a>
+        <a href="#testimonials" class="hover:text-white transition">Reviews</a>
+        <a href="#faq" class="hover:text-white transition">FAQ</a>
+      </div>
+
+      <!-- CTA & MOBILE TOGGLE -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="babyguard" class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-white/[0.12] bg-white/[0.05] hover:bg-white/[0.1] text-white/90 font-semibold text-xs transition" title="Chuyển sang Tiếng Việt">
+          <span>🇻🇳 VI</span>
+        </a>
+        <button onclick="openDownloadModal()" class="hidden xs:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-white hover:bg-neutral-200 text-black font-semibold text-xs transition active:scale-95 shadow-sm">
+          <span>Download Free</span>
+        </button>
+
+        <!-- Hamburger Button -->
+        <button id="mobile-menu-btn" onclick="toggleMobileNav()" class="lg:hidden p-2 rounded-lg border border-white/[0.08] text-white/70 hover:bg-white/[0.04] transition" aria-label="Menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- MOBILE MENU DRAWER -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-white/[0.08] bg-[#0e1017] px-4 pt-3 pb-6 space-y-2 text-xs font-medium text-white/70 shadow-xl">
+      <button onclick="openDownloadModal(); toggleMobileNav();" class="w-full py-3 px-4 rounded-lg bg-white hover:bg-neutral-200 text-black font-semibold text-xs shadow flex items-center justify-center gap-2">
+        <span>Download Installers</span>
+      </button>
+      <a href="#author-story" onclick="toggleMobileNav()" class="block py-2 px-3 rounded hover:bg-white/[0.04] text-white">A Father’s Note</a>
+      <a href="#features" onclick="toggleMobileNav()" class="block py-2 px-3 rounded hover:bg-white/[0.04]">Features</a>
+      <a href="#pricing" onclick="toggleMobileNav()" class="block py-2 px-3 rounded hover:bg-white/[0.04]">Pricing</a>
+      <a href="#testimonials" onclick="toggleMobileNav()" class="block py-2 px-3 rounded hover:bg-white/[0.04]">Reviews</a>
+      <a href="#faq" onclick="toggleMobileNav()" class="block py-2 px-3 rounded hover:bg-white/[0.04]">FAQ</a>
+      <a href="babyguard" class="block py-2 px-3 rounded bg-white/[0.04] text-emerald-400 font-semibold">Chuyển sang Tiếng Việt (🇻🇳 VI)</a>
+      <a href="/" class="block py-2 px-3 rounded hover:bg-white/[0.04] text-white/70">← Back to ShareThings</a>
+      <a href="babyguard-policy-en" class="block py-2 px-3 rounded hover:bg-white/[0.04] text-white/50">Terms & Privacy Policy</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden border-b border-white/[0.08]">
+    <!-- Ambient Studio Glow behind hero -->
+    <div class="ambient-glow-cyan -top-20 left-1/4 -translate-x-1/2"></div>
+    <div class="ambient-glow-purple -top-10 right-10"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        
+        <!-- LEFT TEXT COLUMN -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.1] text-white/80 text-[11px] font-mono shadow-sm">
+            <span class="flex h-1.5 w-1.5 rounded-full bg-emerald-400 pulse-glow"></span>
+            <span>24/7 Real-Time Telegram Photo Alerts for Parents</span>
+          </div>
+
+          <h1 class="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-extrabold text-white tracking-tight leading-[1.18] pb-1">
+            <span class="block metallic-title">Not Just Watching —</span>
+            <span class="block text-white/95 mt-1">
+              Partnering With Parents in Nurturing Your Child
+            </span>
+          </h1>
+
+          <p class="text-sm sm:text-base text-white/60 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+            All-in-one pediatric AI ecosystem: Transforms any standard computer webcam into an <strong>intelligent sentry detecting prone sleep, airway obstruction, and contactless respiration</strong> with direct Telegram photo alerts. Includes <strong>daily moral bedtime stories</strong> to strengthen family bonds.
+          </p>
+
+          <div class="pro-card p-4 max-w-xl mx-auto lg:mx-0 text-left flex items-start gap-3 text-xs text-white/80 shadow-md">
+            <span class="text-sm text-white/40 shrink-0 font-mono font-bold">01</span>
+            <div>
+              <strong class="text-white">Ironclad Pediatric Motto:</strong> <em>"Rather warn by mistake than overlook an infant hazard."</em> Dù chỉ là một thoáng nghi ngờ bé bị chăn đè hay lật úp, hệ thống lập tức thông báo để ba mẹ an tâm kiểm tra ngay.
+            </div>
+          </div>
+
+          <!-- ACTION BUTTONS -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-1">
+            <button onclick="openDownloadModal()" class="btn-shimmer w-full sm:w-auto px-7 py-3.5 rounded-full bg-white hover:bg-neutral-100 text-black font-semibold text-sm shadow-[0_0_30px_rgba(255,255,255,0.22)] transition active:scale-95 flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              <span>Download 14-Day Free Trial</span>
+            </button>
+            <a href="#author-story" class="w-full sm:w-auto px-6 py-3.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] text-white/90 font-medium text-sm border border-white/[0.12] shadow-sm transition flex items-center justify-center">
+              <span>A Father’s Note</span>
+            </a>
+          </div>
+
+          <!-- TRUST BADGES (APPLE PRO METRIC ACCENTS) -->
+          <div class="pt-6 border-t border-white/[0.08] grid grid-cols-2 sm:grid-cols-4 gap-3 text-center lg:text-left">
+            <div class="pro-card p-3.5">
+              <div class="text-2xl sm:text-3xl font-extrabold font-mono tracking-tight flex items-center justify-center lg:justify-start gap-1.5">
+                <span class="metallic-text">0.05s</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-glow"></span>
+              </div>
+              <div class="text-[11px] text-white/60 font-medium mt-1">AI Alert Speed</div>
+            </div>
+            <div class="pro-card p-3.5">
+              <div class="text-2xl sm:text-3xl font-extrabold font-mono tracking-tight flex items-center justify-center lg:justify-start gap-1.5">
+                <span class="metallic-text">49.000₫</span>
+              </div>
+              <div class="text-[11px] text-white/60 font-medium mt-1">Lifetime Ownership</div>
+            </div>
+            <div class="pro-card p-3.5">
+              <div class="text-2xl sm:text-3xl font-extrabold font-mono tracking-tight flex items-center justify-center lg:justify-start gap-1.5">
+                <span class="metallic-text">100%</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 pulse-glow"></span>
+              </div>
+              <div class="text-[11px] text-white/60 font-medium mt-1">100% On-Device Local</div>
+            </div>
+            <div class="pro-card p-3.5">
+              <div class="text-2xl sm:text-3xl font-extrabold font-mono tracking-tight flex items-center justify-center lg:justify-start gap-1.5">
+                <span class="metallic-text">$0 / mo</span>
+              </div>
+              <div class="text-[11px] text-white/60 font-medium mt-1">Zero Monthly Fees</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT MOCKUP: TELEGRAM REALTIME NOTIFICATIONS STREAM -->
+        <div class="lg:col-span-5 relative mt-4 lg:mt-0">
+          <div class="ambient-glow-cyan top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-75 opacity-70"></div>
+          <div class="relative mx-auto max-w-[340px] sm:max-w-[380px] rounded-[44px] p-3.5 bg-[#08090d] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] ring-1 ring-white/10 relative z-10">
+            <!-- Dynamic Island -->
+            <div class="w-28 h-4 bg-[#0e1017] rounded-full mx-auto mb-3 flex items-center justify-center gap-1.5">
+              <div class="w-2 h-2 rounded-full bg-slate-800"></div>
+              <div class="w-8 h-1.5 rounded-full bg-slate-800"></div>
+            </div>
+            
+            <div class="rounded-[32px] overflow-hidden bg-[#0e1017] text-white p-3.5 space-y-3 text-xs font-sans">
+              <!-- Telegram Header -->
+              <div class="flex items-center justify-between pb-2 border-b border-white/[0.08]">
+                <div class="flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-full bg-sky-500 flex items-center justify-center font-black text-white text-xs">
+                    ✈️
+                  </div>
+                  <div>
+                    <span class="font-bold text-white block leading-tight">BabyGuard Bot</span>
+                    <span class="text-[10px] text-emerald-400 font-medium">● Active Sentry Protection</span>
+                  </div>
+                </div>
+                <span class="px-2 py-0.5 rounded-full bg-slate-800 text-white/60 font-bold text-[10px]">
+                  Telegram
+                </span>
+              </div>
+
+              <!-- Real Telegram Message Bubble with Rotating Baby Crib Carousel -->
+              <div class="bg-slate-800/90 rounded-2xl p-2.5 space-y-2 border border-white/[0.08]/80 telegram-bubble" id="telegram-baby-card">
+                
+                <!-- Baby Crib Photo Carousel Container -->
+                <div class="relative rounded-xl overflow-hidden aspect-[16/10] bg-[#08090d] select-none group" id="baby-crib-carousel">
+                  
+                  <!-- Slide 1: Baby Crib 1 (Ngửa an toàn - Full body trong nôi) -->
+                  <div class="baby-crib-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100" data-index="0">
+                    <img src="assets/baby_crib_1.jpg" onerror="this.onerror=null; this.src='/static/baby_crib_1.jpg';" alt="Bé A Siu ngủ ngon trong nôi" class="w-full h-full object-cover">
+                    <!-- Neon 3D Crib Safety Box Overlay -->
+                    <div class="absolute inset-[8%] border border-cyan-400/50 rounded-lg pointer-events-none shadow-[0_0_12px_rgba(34,211,238,0.25)]">
+                      <div class="absolute -top-1.5 -left-1.5 w-3 h-3 border-t-2 border-l-2 border-cyan-400"></div>
+                      <div class="absolute -top-1.5 -right-1.5 w-3 h-3 border-t-2 border-r-2 border-cyan-400"></div>
+                      <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 border-b-2 border-l-2 border-cyan-400"></div>
+                      <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-b-2 border-r-2 border-cyan-400"></div>
+                      <span class="absolute top-1 right-1.5 text-[8px] font-mono font-bold text-cyan-300 bg-[#08090d]/80 px-1 py-0.2 rounded border border-cyan-500/30">AI CRIB 3D</span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 2: Baby Crib 2 (Túi ngủ hồng pastel - Full body trong nôi) -->
+                  <div class="baby-crib-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none" data-index="1">
+                    <img src="assets/baby_crib_2.jpg" onerror="this.onerror=null; this.src='/static/baby_crib_2.jpg';" alt="Bé A Siu say giấc trong túi ngủ" class="w-full h-full object-cover">
+                    <!-- Neon 3D Crib Safety Box Overlay -->
+                    <div class="absolute inset-[8%] border border-emerald-400/50 rounded-lg pointer-events-none shadow-[0_0_12px_rgba(52,211,153,0.25)]">
+                      <div class="absolute -top-1.5 -left-1.5 w-3 h-3 border-t-2 border-l-2 border-emerald-400"></div>
+                      <div class="absolute -top-1.5 -right-1.5 w-3 h-3 border-t-2 border-r-2 border-emerald-400"></div>
+                      <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 border-b-2 border-l-2 border-emerald-400"></div>
+                      <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-b-2 border-r-2 border-emerald-400"></div>
+                      <span class="absolute top-1 right-1.5 text-[8px] font-mono font-bold text-emerald-300 bg-[#08090d]/80 px-1 py-0.2 rounded border border-emerald-500/30">AI CRIB 3D</span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 3: Baby Crib 3 (Tư thế sao biển - Full body trong nôi) -->
+                  <div class="baby-crib-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none" data-index="2">
+                    <img src="assets/baby_crib_3.jpg" onerror="this.onerror=null; this.src='/static/baby_crib_3.jpg';" alt="Bé A Siu ngủ tư thế sao biển" class="w-full h-full object-cover">
+                    <!-- Neon 3D Crib Safety Box Overlay -->
+                    <div class="absolute inset-[8%] border border-cyan-400/50 rounded-lg pointer-events-none shadow-[0_0_12px_rgba(34,211,238,0.25)]">
+                      <div class="absolute -top-1.5 -left-1.5 w-3 h-3 border-t-2 border-l-2 border-cyan-400"></div>
+                      <div class="absolute -top-1.5 -right-1.5 w-3 h-3 border-t-2 border-r-2 border-cyan-400"></div>
+                      <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 border-b-2 border-l-2 border-cyan-400"></div>
+                      <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-b-2 border-r-2 border-cyan-400"></div>
+                      <span class="absolute top-1 right-1.5 text-[8px] font-mono font-bold text-cyan-300 bg-[#08090d]/80 px-1 py-0.2 rounded border border-cyan-500/30">AI CRIB 3D</span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 4: Baby Crib 4 (Quấn chũn xanh pastel - Full body trong nôi) -->
+                  <div class="baby-crib-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none" data-index="3">
+                    <img src="assets/baby_crib_4.jpg" onerror="this.onerror=null; this.src='/static/baby_crib_4.jpg';" alt="Bé A Siu quấn chũn an toàn" class="w-full h-full object-cover">
+                    <!-- Neon 3D Crib Safety Box Overlay -->
+                    <div class="absolute inset-[8%] border border-sky-400/50 rounded-lg pointer-events-none shadow-[0_0_12px_rgba(56,189,248,0.25)]">
+                      <div class="absolute -top-1.5 -left-1.5 w-3 h-3 border-t-2 border-l-2 border-sky-400"></div>
+                      <div class="absolute -top-1.5 -right-1.5 w-3 h-3 border-t-2 border-r-2 border-sky-400"></div>
+                      <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 border-b-2 border-l-2 border-sky-400"></div>
+                      <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-b-2 border-r-2 border-sky-400"></div>
+                      <span class="absolute top-1 right-1.5 text-[8px] font-mono font-bold text-sky-300 bg-[#08090d]/80 px-1 py-0.2 rounded border border-sky-500/30">AI CRIB 3D</span>
+                    </div>
+                  </div>
+
+                  <!-- Live Respiratory & Safety Badge Overlay -->
+                  <div id="crib-status-badge" class="absolute top-2 left-2 bg-[#08090d]/85 backdrop-blur-md text-emerald-300 text-[10px] px-2 py-0.5 rounded-md font-bold border border-emerald-500/30 flex items-center gap-1 shadow transition-all duration-300">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span id="crib-status-text">🫁 32 BPM • Safe Supine Posture</span>
+                  </div>
+
+                  <!-- Live Time Overlay -->
+                  <div id="crib-time-badge" class="absolute bottom-2 right-2 bg-[#08090d]/85 text-white/60 text-[9px] px-2 py-0.5 rounded-md shadow">
+                    14:25 • Sent to Telegram
+                  </div>
+
+                  <!-- Carousel Dot Indicators -->
+                  <div class="absolute bottom-2 left-2 flex items-center gap-1 bg-[#08090d]/60 backdrop-blur-sm px-1.5 py-1 rounded-full z-10">
+                    <button onclick="goToCribSlide(0)" class="crib-dot w-3.5 h-1 rounded-full bg-emerald-400 transition-all duration-300" aria-label="Hình 1"></button>
+                    <button onclick="goToCribSlide(1)" class="crib-dot w-1.5 h-1 rounded-full bg-[#0e1017]/40 hover:bg-[#0e1017]/80 transition-all duration-300" aria-label="Hình 2"></button>
+                    <button onclick="goToCribSlide(2)" class="crib-dot w-1.5 h-1 rounded-full bg-[#0e1017]/40 hover:bg-[#0e1017]/80 transition-all duration-300" aria-label="Hình 3"></button>
+                    <button onclick="goToCribSlide(3)" class="crib-dot w-1.5 h-1 rounded-full bg-[#0e1017]/40 hover:bg-[#0e1017]/80 transition-all duration-300" aria-label="Hình 4"></button>
+                  </div>
+                </div>
+
+                <!-- Dynamic Telegram Notification Details matching active slide -->
+                <div class="text-[11px] text-white/70 leading-snug space-y-1">
+                  <div id="crib-msg-title" class="font-bold text-emerald-400 transition-colors duration-300 flex items-center gap-1">
+                    <span>✅</span> <span>[DUAL CHECK: SAFE]</span>
+                  </div>
+                  <p id="crib-msg-desc" class="text-white/60 min-h-[32px] transition-all duration-300">
+                    Baby Siu sleeping peacefully. Body fully within crib mattress boundary, nasal airway 100% unobstructed.
+                  </p>
+                  <div class="text-[10px] text-white/70 pt-1 border-t border-white/[0.08]/80 flex justify-between items-center">
+                    <span id="crib-msg-vital">Thoracic Respiration: <strong class="text-white">32 BPM</strong></span>
+                    <span class="text-sky-400 font-semibold cursor-pointer hover:underline" onclick="nextCribSlide()">👉 Xem ảnh tiếp</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Daily Story Teaser inside Telegram -->
+              <div class="bg-gradient-to-r from-brand-950/80 to-indigo-950/80 border border-white/[0.12] rounded-2xl p-2.5 text-[11px] space-y-1">
+                <div class="flex items-center gap-1.5 text-amber-300 font-bold text-[10px]">
+                  <span>📖</span>
+                  <span>TODAY’S BEDTIME STORY (07:00 AM)</span>
+                </div>
+                <p class="text-white/70 font-semibold">"The Little Seed and the Great Rock"</p>
+                <p class="text-white/70 text-[10px]">Ba mẹ hãy dành 5 phút tối nay đọc cho bé nghe bài học về sự kiên trì vượt khó nhé!</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTION 1: LÁ THƯ TỪ NGƯỜI BA SÁNG LẬP (ĐƯỢC ĐƯA LÊN ĐẦU TIÊN THEO YÊU CẦU) -->
+  <section id="author-story" class="py-12 sm:py-20 bg-[#08090d] text-white relative overflow-hidden border-b border-white/[0.08]">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#8b5cf6_1px,transparent_1px)] [background-size:24px_24px]"></div>
+    
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-10">
+      
+      <!-- Section Header -->
+      <div class="text-center space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] text-white/70 text-[11px] font-mono border border-white/[0.08]">
+          A Father’s Note
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          A Father’s Note
+        </h2>
+        <p class="text-white/60 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+          Written for every mother and father working hard each day to provide safety and love for their child.
+        </p>
+      </div>
+
+      <!-- Founder Letter Card -->
+      <div class="bg-[#0e1017] border border-white/[0.08] rounded-2xl p-6 sm:p-10 shadow-xl space-y-6">
+        
+        <div class="flex items-center gap-4 pb-6 border-b border-white/[0.08]">
+          <div class="w-12 h-12 rounded-xl bg-white/[0.05] border border-white/[0.1] flex items-center justify-center text-sm font-mono font-bold text-white">
+            BA
+          </div>
+          <div>
+            <h3 class="text-lg sm:text-xl font-bold text-white">“Because every child deserves uncompromising safety and protection...”</h3>
+            <span class="text-xs text-white/50 font-mono">An earnest letter from a software engineer father</span>
+          </div>
+        </div>
+
+        <div class="text-sm text-white/70 leading-relaxed space-y-4 font-normal">
+          <p>
+            <em>"Hello friend, I am a father just like you. Every day I wake up before dawn and return home late in the evening to make a living. With a modest office salary, every penny is carefully budgeted for rent, baby formula, diapers, and medical living expenses to support our family..."</em>
+          </p>
+          <p>
+            <em>"When my daughter was born, seeing imported smart infant monitors from the US and Australia priced at  to , plus an extra  to  every year in recurring cloud storage fees... honestly, for my financial situation back then, owning such a device was an unattainable luxury."</em>
+          </p>
+          <p>
+            <em>"Yet working far away each day, staring at my computer screen at the office, my heart constantly ached with anxiety: Is my baby sleeping safely at home? Did she accidentally roll onto her stomach into the mattress? Are blankets or pillows covering her nose and mouth? That burning worry would not let me rest. Repurposing my existing home computer and an old USB webcam, I spent hundreds of sleepless nights engineering on-device AI algorithms for thoracic optical respiration sensing, dual-layer airway occlusion sentry checks, and direct Telegram bot alerts."</em>
+          </p>
+          <p>
+            <em>"I will never forget the very first day this system ran live. In the middle of an intense corporate meeting, my phone gently buzzed in my pocket. Opening Telegram, I saw a crisp photo of my baby girl sleeping peacefully, her airway 100% unobstructed, accompanied by the message: <strong>'Respiration 34 BPM — Baby is sleeping peacefully, stay focused and worry-free at work, Daddy!'</strong>. In that moment, tears welled up in my eyes. Every ounce of daily financial stress simply melted away."</em>
+          </p>
+          <p>
+            <em>"I refined BabyGuard AI and share this software with you with one heartfelt conviction: Every single infant, whether born into wealth or a hardworking modest household, deserves uncompromising safety and care. And parents should never have to shoulder exorbitant hardware costs or recurring monthly fees. My singular guiding motto across every line of code remains: <strong>'Rather warn by mistake than overlook an infant hazard'</strong> — so your child sleeps safely, and you can work with complete peace of mind for your family."</em>
+          </p>
+        </div>
+
+        <div class="pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-white/60">
+          <div class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            <span class="font-bold text-white">Lead Engineer & Founder, BabyGuard AI</span>
+            <span class="text-white/50">(Father of Baby Siu)</span>
+          </div>
+          <div class="px-3 py-1 rounded bg-white/[0.04] border border-white/[0.08] text-white/70 font-mono text-xs">
+            "Rather warn by mistake than overlook an infant hazard."
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 2: DÒNG THỜI GIAN BÁO CÁO TELEGRAM THỰC TẾ (TỰ ĐỘNG CUỘN - MARQUEE LIÊN TỤC) -->
+  <section id="telegram-stream" class="py-12 sm:py-20 bg-[#0e1017] text-white relative overflow-hidden border-b border-white/[0.08]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-500/10 text-sky-300 text-xs font-black uppercase tracking-wider border border-sky-500/30">
+          Realtime Stream 24/7
+        </div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
+          <span class="inline-block">Real-Time Telegram Nursery Journal —</span>
+          <span class="inline-block">Peace of Mind Wherever You Are</span>
+        </h2>
+        <p class="text-white/60 text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto">
+          Đa dạng tin nhắn: từ ảnh check-in nhanh, cảnh báo khẩn cấp kèm phác đồ sơ cứu chuẩn quốc tế, đến biểu đồ tổng kết giấc ngủ chuẩn AAP ghim đầu nhóm mỗi sáng.
+        </p>
+      </div>
+
+      <!-- AUTO-SCROLL MARQUEE CONTAINER (PAUSE ON HOVER) -->
+      <div class="relative overflow-hidden w-full py-4" title="Rê chuột vào để dừng đọc tin nhắn">
+        <div class="marquee-track-telegram flex items-start gap-6">
+          
+          <!-- SET 1 OF TELEGRAM CARDS -->
+          
+          <!-- Card 1: Ngắn - Check-in bé ngủ ngoan -->
+          <div class="w-[300px] shrink-0 bg-[#08090d] p-4 rounded-3xl border border-white/[0.08] space-y-2 shadow-xl hover:border-brand-500 transition">
+            <div class="flex items-center justify-between text-[11px] text-white/70 pb-1.5 border-b border-white/[0.08]">
+              <span class="font-bold text-sky-400">👶 Baby Siu (5 mos)</span>
+              <span>14:20</span>
+            </div>
+            <div class="text-xs space-y-1">
+              <span class="text-emerald-400 font-bold block">✅ BABY RESTING PEACEFULLY</span>
+              <p class="text-white/60 text-[11px]">34 BPM regular breathing. Smooth rhythmic chest motion, nasal airway 100% clear.</p>
+            </div>
+            <div class="pt-1.5 border-t border-white/[0.08] flex justify-between text-[10px] text-white/60">
+              <span>📷 High-Resolution Crib Photo</span>
+              <span class="text-sky-400">Xem camera</span>
+            </div>
+          </div>
+
+          <!-- Card 2: DÀI - CẢNH BÁO CHE MẶT & 3 BƯỚC SƠ CỨU -->
+          <div class="w-[380px] shrink-0 bg-[#08090d] p-5 rounded-3xl border-2 border-rose-500/80 space-y-3 shadow-2xl relative">
+            <div class="flex items-center justify-between text-[11px] pb-2 border-b border-white/[0.08]">
+              <span class="font-extrabold text-rose-400 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+                🚨 CRITICAL ALERT: AIRWAY HAZARD DETECTED
+              </span>
+              <span class="text-white/70 text-[10px]">03:42</span>
+            </div>
+            <div class="space-y-2 text-xs">
+              <div class="text-rose-300 font-bold leading-tight">
+                Blanket covering baby’s nose and mouth > 10s! In-room nursery alarm chime activated.
+              </div>
+              <div class="bg-rose-950/60 border border-rose-500/30 rounded-xl p-3 text-[11px] text-white/70 space-y-1.5">
+                <div class="font-black text-amber-300 uppercase tracking-wide text-[10px]">3 Bước Sơ Cứu Ngạt Thở Tức Thì:</div>
+                <p>1. Enter nursery immediately; remove blanket from baby's face.</p>
+                <p>2. Gently tilt chin; verify open unobstructed airway.</p>
+                <p>3. If cyanotic, dial 911 / 115 and begin emergency infant rescue breaths!</p>
+              </div>
+            </div>
+            <div class="pt-2 border-t border-white/[0.08] flex items-center justify-between text-[10px]">
+              <span class="text-amber-400 font-semibold">🔍 Sentinel 4-Frame Cross-Verification</span>
+              <span class="text-rose-400 font-bold">Better safe than sorry!</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Ngắn - Tự nới nôi 3D -->
+          <div class="w-[300px] shrink-0 bg-[#08090d] p-4 rounded-3xl border border-white/[0.08] space-y-2 shadow-xl hover:border-brand-500 transition">
+            <div class="flex items-center justify-between text-[11px] text-white/70 pb-1.5 border-b border-white/[0.08]">
+              <span class="font-bold text-sky-400">👶 Baby Milk (2 mos)</span>
+              <span>10:15</span>
+            </div>
+            <div class="text-xs space-y-1">
+              <span class="text-cyan-400 font-bold block">📐 ADAPTIVE 3D CRIB BOUNDARY EXPANSION</span>
+              <p class="text-white/60 text-[11px]">Bé vừa xoay người giang tay ra mép, AI nhận biết bé vẫn nằm an toàn trên đệm và tự vẽ lại khung xanh lá ôm trọn bé.</p>
+            </div>
+            <div class="pt-1.5 border-t border-white/[0.08] text-[10px] text-emerald-400 font-medium">
+              🛡️ Filtered 100% of false nuisance alarms
+            </div>
+          </div>
+
+          <!-- Card 4: DÀI - BÁO CÁO ĐÊM THEO DÕI GIẤC NGỦ CHUẨN AAP -->
+          <div class="w-[380px] shrink-0 bg-[#08090d] p-5 rounded-3xl border border-amber-500/50 space-y-3 shadow-xl">
+            <div class="flex items-center justify-between text-[11px] pb-2 border-b border-white/[0.08]">
+              <span class="font-bold text-amber-300 flex items-center gap-1.5">
+                <span>📌</span> NIGHT SLEEP SUMMARY (PINNED AT 07:00 AM)
+              </span>
+              <span class="text-white/70 text-[10px]">07:00</span>
+            </div>
+            <div class="text-xs space-y-2 text-white/70">
+              <div class="grid grid-cols-2 gap-2 text-[11px]">
+                <div class="bg-[#0e1017] p-2 rounded-xl border border-white/[0.08]">
+                  <span class="text-white/70 block text-[10px]">Night Sleep Total</span>
+                  <strong class="text-white text-sm">10h 15m</strong>
+                </div>
+                <div class="bg-[#0e1017] p-2 rounded-xl border border-white/[0.08]">
+                  <span class="text-white/70 block text-[10px]">Deep Sleep</span>
+                  <strong class="text-emerald-400 text-sm">65% (6h40m)</strong>
+                </div>
+              </div>
+              <p class="text-white/60 text-[11px] leading-relaxed">
+                <strong>Pediatric Care Recommendation (AAP):</strong> Bé Bon có nhịp sinh học rất đều. Cử ngủ tiếp theo dự kiến lúc 09:30 theo Cửa Sổ Thức (Wake Window). Ba nhớ chuẩn bị phòng mát 25°C nhé!
+              </p>
+            </div>
+            <div class="pt-2 border-t border-white/[0.08] text-[10px] text-amber-400 flex justify-between">
+              <span>📊 AAP & AASM Benchmark</span>
+              <span>Pinned in Telegram Group</span>
+            </div>
+          </div>
+
+          <!-- Card 5: Vừa - Tự bật tiếng mưa dỗ bé khóc -->
+          <div class="w-[320px] shrink-0 bg-[#08090d] p-4 rounded-3xl border border-white/[0.08] space-y-2 shadow-xl hover:border-brand-500 transition">
+            <div class="flex items-center justify-between text-[11px] text-white/70 pb-1.5 border-b border-white/[0.08]">
+              <span class="font-bold text-sky-400">👶 Baby Miu (3 mos)</span>
+              <span>02:40</span>
+            </div>
+            <div class="text-xs space-y-1">
+              <span class="text-purple-400 font-bold block">🎵 AUTOMATIC NIGHTTIME SOOTHING LULLABY</span>
+              <p class="text-white/60 text-[11px]">AI Google YAMNet phát hiện tiếng khóc gắt ➔ Tự động kích hoạt tiếng ồn trắng (White Noise mưa rơi). Bé nín khóc và ngủ lại sau 38 giây.</p>
+            </div>
+            <div class="pt-1.5 border-t border-white/[0.08] text-[10px] text-white/70">
+              💤 Parents sleep through the night without sleep deprivation
+            </div>
+          </div>
+
+          <!-- Card 6: DÀI - SẶC SỮA & PHÁC ĐỒ SƠ CỨU AHA -->
+          <div class="w-[380px] shrink-0 bg-[#08090d] p-5 rounded-3xl border-2 border-amber-500/80 space-y-3 shadow-2xl">
+            <div class="flex items-center justify-between text-[11px] pb-2 border-b border-white/[0.08]">
+              <span class="font-extrabold text-amber-300 flex items-center gap-1.5">
+                🥛 COUGH & CHOKING DETECTED (AHA)
+              </span>
+              <span class="text-white/70 text-[10px]">21:18</span>
+            </div>
+            <div class="space-y-2 text-xs">
+              <div class="text-amber-200 font-bold leading-tight">
+                AI nhận diện tiếng ho sặc sữa kéo dài. Đã gửi phác đồ sơ cứu khẩn cấp theo chuẩn Hiệp Hội Tim Mạch Hoa Kỳ:
+              </div>
+              <div class="bg-amber-950/40 border border-amber-500/30 rounded-xl p-3 text-[11px] text-white/70 space-y-1">
+                <p>• <strong>Bước 1:</strong> Đặt bé nằm sấp trên cẳng tay, giữ chắc cằm, đầu thấp hơn ngực.</p>
+                <p>• <strong>Bước 2:</strong> Dùng gót bàn tay vỗ dứt khoát 5 lần vào lưng (giữa hai bả vai).</p>
+                <p>• <strong>Bước 3:</strong> Lật ngửa lại, dùng 2 ngón tay ấn 5 lần vào giữa ngực.</p>
+                <p class="text-rose-400 font-bold text-[10px] pt-1">⚠️ Never hold infant upside down or shake!</p>
+              </div>
+            </div>
+            <div class="pt-2 border-t border-white/[0.08] text-[10px] text-amber-400">
+              🏥 Instant First-Aid Protocol on Screen
+            </div>
+          </div>
+
+          <!-- Card 7: Vừa - Cửa sổ thức Wake Window -->
+          <div class="w-[310px] shrink-0 bg-[#08090d] p-4 rounded-3xl border border-white/[0.08] space-y-2 shadow-xl hover:border-brand-500 transition">
+            <div class="flex items-center justify-between text-[11px] text-white/70 pb-1.5 border-b border-white/[0.08]">
+              <span class="font-bold text-sky-400">👶 Baby Com (1 mo)</span>
+              <span>15:30</span>
+            </div>
+            <div class="text-xs space-y-1">
+              <span class="text-brand-400 font-bold block">⏰ WAKE WINDOW OPTIMIZER</span>
+              <p class="text-white/60 text-[11px]">Bé đã thức chơi vui vẻ được 75 phút. Dự kiến cử ngủ kế tiếp lúc 15:45. Ba mẹ chuẩn bị dỗ bé để tránh con bị gắt ngủ nhé!</p>
+            </div>
+            <div class="pt-1.5 border-t border-white/[0.08] text-[10px] text-brand-300">
+              💡 Optimizes circadian pediatric rhythm
+            </div>
+          </div>
+
+          <!-- Card 8: Ngắn - Chụp ảnh khoảnh khắc cười -->
+          <div class="w-[300px] shrink-0 bg-[#08090d] p-4 rounded-3xl border border-white/[0.08] space-y-2 shadow-xl hover:border-brand-500 transition">
+            <div class="flex items-center justify-between text-[11px] text-white/70 pb-1.5 border-b border-white/[0.08]">
+              <span class="font-bold text-sky-400">👶 Baby Strawberry (5 mos)</span>
+              <span>09:12</span>
+            </div>
+            <div class="text-xs space-y-1">
+              <span class="text-emerald-400 font-bold block">📸 KHOẢNH KHẮC ĐÁNG YÊU 1080P</span>
+              <p class="text-white/60 text-[11px]">Bé Dâu vừa thức giấc, vươn vai cười chúm chím với camera. Đã tự động lưu vào album 10 ảnh đẹp trong ngày.</p>
+            </div>
+            <div class="pt-1.5 border-t border-white/[0.08] text-[10px] text-white/60">
+              🎬 Đã lưu để ghép video cuối tháng
+            </div>
+          </div>
+
+          <!-- SET 2 OF TELEGRAM CARDS (FOR SEAMLESS INFINITE LOOP) -->
+          
+          <!-- Card 1 Duplicate -->
+          <div class="w-[300px] shrink-0 bg-[#08090d] p-4 rounded-3xl border border-white/[0.08] space-y-2 shadow-xl hover:border-brand-500 transition">
+            <div class="flex items-center justify-between text-[11px] text-white/70 pb-1.5 border-b border-white/[0.08]">
+              <span class="font-bold text-sky-400">👶 Baby Siu (5 mos)</span>
+              <span>14:20</span>
+            </div>
+            <div class="text-xs space-y-1">
+              <span class="text-emerald-400 font-bold block">✅ BABY RESTING PEACEFULLY</span>
+              <p class="text-white/60 text-[11px]">34 BPM regular breathing. Smooth rhythmic chest motion, nasal airway 100% clear.</p>
+            </div>
+            <div class="pt-1.5 border-t border-white/[0.08] flex justify-between text-[10px] text-white/60">
+              <span>📷 High-Resolution Crib Photo</span>
+              <span class="text-sky-400">Xem camera</span>
+            </div>
+          </div>
+
+          <!-- Card 2 Duplicate -->
+          <div class="w-[380px] shrink-0 bg-[#08090d] p-5 rounded-3xl border-2 border-rose-500/80 space-y-3 shadow-2xl relative">
+            <div class="flex items-center justify-between text-[11px] pb-2 border-b border-white/[0.08]">
+              <span class="font-extrabold text-rose-400 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+                🚨 CRITICAL ALERT: AIRWAY HAZARD DETECTED
+              </span>
+              <span class="text-white/70 text-[10px]">03:42</span>
+            </div>
+            <div class="space-y-2 text-xs">
+              <div class="text-rose-300 font-bold leading-tight">
+                Blanket covering baby’s nose and mouth > 10s! In-room nursery alarm chime activated.
+              </div>
+              <div class="bg-rose-950/60 border border-rose-500/30 rounded-xl p-3 text-[11px] text-white/70 space-y-1.5">
+                <div class="font-black text-amber-300 uppercase tracking-wide text-[10px]">3 Bước Sơ Cứu Ngạt Thở Tức Thì:</div>
+                <p>1. Enter nursery immediately; remove blanket from baby's face.</p>
+                <p>2. Gently tilt chin; verify open unobstructed airway.</p>
+                <p>3. If cyanotic, dial 911 / 115 and begin emergency infant rescue breaths!</p>
+              </div>
+            </div>
+            <div class="pt-2 border-t border-white/[0.08] flex items-center justify-between text-[10px]">
+              <span class="text-amber-400 font-semibold">🔍 Sentinel 4-Frame Cross-Verification</span>
+              <span class="text-rose-400 font-bold">Better safe than sorry!</span>
+            </div>
+          </div>
+
+          <!-- Card 3 Duplicate -->
+          <div class="w-[300px] shrink-0 bg-[#08090d] p-4 rounded-3xl border border-white/[0.08] space-y-2 shadow-xl hover:border-brand-500 transition">
+            <div class="flex items-center justify-between text-[11px] text-white/70 pb-1.5 border-b border-white/[0.08]">
+              <span class="font-bold text-sky-400">👶 Baby Milk (2 mos)</span>
+              <span>10:15</span>
+            </div>
+            <div class="text-xs space-y-1">
+              <span class="text-cyan-400 font-bold block">📐 ADAPTIVE 3D CRIB BOUNDARY EXPANSION</span>
+              <p class="text-white/60 text-[11px]">Bé vừa xoay người giang tay ra mép, AI nhận biết bé vẫn nằm an toàn trên đệm và tự vẽ lại khung xanh lá ôm trọn bé.</p>
+            </div>
+            <div class="pt-1.5 border-t border-white/[0.08] text-[10px] text-emerald-400 font-medium">
+              🛡️ Filtered 100% of false nuisance alarms
+            </div>
+          </div>
+
+          <!-- Card 4 Duplicate -->
+          <div class="w-[380px] shrink-0 bg-[#08090d] p-5 rounded-3xl border border-amber-500/50 space-y-3 shadow-xl">
+            <div class="flex items-center justify-between text-[11px] pb-2 border-b border-white/[0.08]">
+              <span class="font-bold text-amber-300 flex items-center gap-1.5">
+                <span>📌</span> NIGHT SLEEP SUMMARY (PINNED AT 07:00 AM)
+              </span>
+              <span class="text-white/70 text-[10px]">07:00</span>
+            </div>
+            <div class="text-xs space-y-2 text-white/70">
+              <div class="grid grid-cols-2 gap-2 text-[11px]">
+                <div class="bg-[#0e1017] p-2 rounded-xl border border-white/[0.08]">
+                  <span class="text-white/70 block text-[10px]">Night Sleep Total</span>
+                  <strong class="text-white text-sm">10h 15m</strong>
+                </div>
+                <div class="bg-[#0e1017] p-2 rounded-xl border border-white/[0.08]">
+                  <span class="text-white/70 block text-[10px]">Deep Sleep</span>
+                  <strong class="text-emerald-400 text-sm">65% (6h40m)</strong>
+                </div>
+              </div>
+              <p class="text-white/60 text-[11px] leading-relaxed">
+                <strong>Pediatric Care Recommendation (AAP):</strong> Bé Bon có nhịp sinh học rất đều. Cử ngủ tiếp theo dự kiến lúc 09:30 theo Cửa Sổ Thức (Wake Window). Ba nhớ chuẩn bị phòng mát 25°C nhé!
+              </p>
+            </div>
+            <div class="pt-2 border-t border-white/[0.08] text-[10px] text-amber-400 flex justify-between">
+              <span>📊 AAP & AASM Benchmark</span>
+              <span>Pinned in Telegram Group</span>
+            </div>
+          </div>
+
+          <!-- Card 5 Duplicate -->
+          <div class="w-[320px] shrink-0 bg-[#08090d] p-4 rounded-3xl border border-white/[0.08] space-y-2 shadow-xl hover:border-brand-500 transition">
+            <div class="flex items-center justify-between text-[11px] text-white/70 pb-1.5 border-b border-white/[0.08]">
+              <span class="font-bold text-sky-400">👶 Baby Miu (3 mos)</span>
+              <span>02:40</span>
+            </div>
+            <div class="text-xs space-y-1">
+              <span class="text-purple-400 font-bold block">🎵 AUTOMATIC NIGHTTIME SOOTHING LULLABY</span>
+              <p class="text-white/60 text-[11px]">AI Google YAMNet phát hiện tiếng khóc gắt ➔ Tự động kích hoạt tiếng ồn trắng (White Noise mưa rơi). Bé nín khóc và ngủ lại sau 38 giây.</p>
+            </div>
+            <div class="pt-1.5 border-t border-white/[0.08] text-[10px] text-white/70">
+              💤 Parents sleep through the night without sleep deprivation
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="text-center text-xs text-white/60 flex items-center justify-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+        <span>Live simulated Telegram feed • <strong><span class="hidden sm:inline">Rê chuột</span><span class="sm:hidden">Chạm</span> vào bất kỳ ô nào để dừng đọc</strong></span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 3: CÂU CHUYỆN MỖI NGÀY CHO BÉ (TỰ ĐỘNG CUỘN MARQUEE) -->
+  <section id="daily-stories" class="py-12 sm:py-20 bg-[#08090d] border-b border-white/[0.08] overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] text-white/70 text-[11px] font-mono border border-white/[0.08]">
+          Nurturing Mind & Character
+        </div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
+          <span class="inline-block">Nurturing Young Minds:</span>
+          <span class="inline-block">Daily Character-Building Bedtime Stories</span>
+        </h2>
+        <p class="text-white/70 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+          Sau một ngày dài mệt mỏi, nhiều bậc cha mẹ muốn tâm sự cùng con nhưng lại lúng túng không biết nói gì. <strong>BabyGuard AI đồng hành cùng <span class="whitespace-nowrap">ba mẹ:</span></strong> Mỗi ngày gửi đến một câu chuyện ngụ ngôn giàu tính nhân văn, giúp rèn luyện đạo đức, lòng biết ơn và sự kiên trì cho bé từ thuở ấu thơ.
+        </p>
+      </div>
+
+      <!-- AUTO-SCROLL STORIES MARQUEE CONTAINER (PAUSE ON HOVER) -->
+      <div class="relative overflow-hidden w-full py-4" title="Rê chuột vào để dừng đọc câu chuyện">
+        <div class="marquee-track-stories flex items-stretch gap-6">
+          
+          <!-- STORY SET 1 -->
+          
+          <!-- Story 1 -->
+          <div class="w-[280px] sm:w-[360px] shrink-0 bg-[#0e1017] p-6 rounded-3xl border border-white/[0.08] shadow-sm hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white/80 flex items-center justify-center text-lg">
+                🌱
+              </div>
+              <span class="text-[10px] font-black uppercase text-amber-600 tracking-wider">Moral: Resilience</span>
+              <h3 class="text-lg font-bold text-white">The Little Seed and the Great Rock</h3>
+              <p class="text-white/70 text-xs leading-relaxed">
+                The little seed was buried beneath a heavy dark rock, but it never gave up. Drinking single drops of morning dew, it persistently pushed through tiny crevices until it blossomed into a majestic green tree.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-white/[0.06] text-[11px] text-white/70 font-normal bg-white/[0.02] p-3 rounded-xl border border-white/[0.06]">
+              <em>Parent's Whisper: "My dear child, whenever life feels heavy, remember this resilient little seed!"</em>
+            </div>
+          </div>
+
+          <!-- Story 2 -->
+          <div class="w-[280px] sm:w-[360px] shrink-0 bg-[#0e1017] p-6 rounded-3xl border border-white/[0.08] shadow-sm hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white/80 flex items-center justify-center text-lg">
+                🍂
+              </div>
+              <span class="text-[10px] font-black uppercase text-rose-600 tracking-wider">Moral: Gratitude</span>
+              <h3 class="text-lg font-bold text-white">The Autumn Leaf Grateful to the Tree Trunk</h3>
+              <p class="text-white/70 text-xs leading-relaxed">
+                When autumn arrived, the golden leaf gently drifted down to earth. Grateful for the protective branches that sheltered it all summer, it happily nourished the tree roots as fertile soil.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-white/[0.06] text-[11px] text-white/70 font-normal bg-white/[0.02] p-3 rounded-xl border border-white/[0.06]">
+              💬 <em>Parent's Whisper: "Gratitude toward family and life will always keep your heart warm, kind, and full of joy."</em>
+            </div>
+          </div>
+
+          <!-- Story 3 -->
+          <div class="w-[280px] sm:w-[360px] shrink-0 bg-[#0e1017] p-6 rounded-3xl border border-white/[0.08] shadow-sm hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white/80 flex items-center justify-center text-lg">
+                🍎
+              </div>
+              <span class="text-[10px] font-black uppercase text-emerald-600 tracking-wider">Moral: Generosity</span>
+              <h3 class="text-lg font-bold text-white">The Kind Bear and Half of the Sweet Apple</h3>
+              <p class="text-white/70 text-xs leading-relaxed">
+                The kind bear found the only red apple in the freezing forest. Seeing a shivering bunny, he shared half the apple. Miraculously, sharing made the apple taste ten times sweeter.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-white/[0.06] text-[11px] text-white/70 font-normal bg-white/[0.02] p-3 rounded-xl border border-white/[0.06]">
+              💬 <em>Parent's Whisper: "True happiness is not keeping everything for yourself, but opening your heart to care for others."</em>
+            </div>
+          </div>
+
+          <!-- Story 4 -->
+          <div class="w-[280px] sm:w-[360px] shrink-0 bg-[#0e1017] p-6 rounded-3xl border border-white/[0.08] shadow-sm hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="w-12 h-12 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center text-2xl">
+                ✨
+              </div>
+              <span class="text-[10px] font-black uppercase text-cyan-600 tracking-wider">Moral: Self-Confidence</span>
+              <h3 class="text-lg font-bold text-white">The Tiny Firefly Lighting the Forest</h3>
+              <p class="text-white/70 text-xs leading-relaxed">
+                The tiny firefly was once sad that his glow was not as bright as the moon. But on a dark stormy night, his gentle spark safely guided lost baby rabbits back to their warm home.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-white/[0.06] text-[11px] text-white/70 font-normal bg-white/[0.02] p-3 rounded-xl border border-white/[0.06]">
+              💬 <em>Parent's Whisper: "You are unique and wonderful in this world. Always have the confidence to shine in your own special way!"</em>
+            </div>
+          </div>
+
+          <!-- Story 5 -->
+          <div class="w-[280px] sm:w-[360px] shrink-0 bg-[#0e1017] p-6 rounded-3xl border border-white/[0.08] shadow-sm hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-2xl">
+                🌊
+              </div>
+              <span class="text-[10px] font-black uppercase text-indigo-600 tracking-wider">Moral: Humility</span>
+              <h3 class="text-lg font-bold text-white">The Gentle Stream and the Endless Ocean</h3>
+              <p class="text-white/70 text-xs leading-relaxed">
+                The gentle stream flowed through rocky waterfalls, always seeking the lowest ground. Because the ocean stays humble at the lowest point, it embraces the waters of ten thousand rivers.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-white/[0.06] text-[11px] text-white/70 font-normal bg-white/[0.02] p-3 rounded-xl border border-white/[0.06]">
+              💬 <em>Parent's Whisper: "Those who listen with humility and open hearts will gain an ocean of wisdom."</em>
+            </div>
+          </div>
+
+          <!-- STORY SET 2 (FOR SEAMLESS INFINITE LOOP) -->
+          
+          <!-- Story 1 Duplicate -->
+          <div class="w-[280px] sm:w-[360px] shrink-0 bg-[#0e1017] p-6 rounded-3xl border border-white/[0.08] shadow-sm hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white/80 flex items-center justify-center text-lg">
+                🌱
+              </div>
+              <span class="text-[10px] font-black uppercase text-amber-600 tracking-wider">Moral: Resilience</span>
+              <h3 class="text-lg font-bold text-white">The Little Seed and the Great Rock</h3>
+              <p class="text-white/70 text-xs leading-relaxed">
+                The little seed was buried beneath a heavy dark rock, but it never gave up. Drinking single drops of morning dew, it persistently pushed through tiny crevices until it blossomed into a majestic green tree.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-white/[0.06] text-[11px] text-white/70 font-normal bg-white/[0.02] p-3 rounded-xl border border-white/[0.06]">
+              <em>Parent's Whisper: "My dear child, whenever life feels heavy, remember this resilient little seed!"</em>
+            </div>
+          </div>
+
+          <!-- Story 2 Duplicate -->
+          <div class="w-[280px] sm:w-[360px] shrink-0 bg-[#0e1017] p-6 rounded-3xl border border-white/[0.08] shadow-sm hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white/80 flex items-center justify-center text-lg">
+                🍂
+              </div>
+              <span class="text-[10px] font-black uppercase text-rose-600 tracking-wider">Moral: Gratitude</span>
+              <h3 class="text-lg font-bold text-white">The Autumn Leaf Grateful to the Tree Trunk</h3>
+              <p class="text-white/70 text-xs leading-relaxed">
+                When autumn arrived, the golden leaf gently drifted down to earth. Grateful for the protective branches that sheltered it all summer, it happily nourished the tree roots as fertile soil.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-white/[0.06] text-[11px] text-white/70 font-normal bg-white/[0.02] p-3 rounded-xl border border-white/[0.06]">
+              💬 <em>Parent's Whisper: "Gratitude toward family and life will always keep your heart warm, kind, and full of joy."</em>
+            </div>
+          </div>
+
+          <!-- Story 3 Duplicate -->
+          <div class="w-[280px] sm:w-[360px] shrink-0 bg-[#0e1017] p-6 rounded-3xl border border-white/[0.08] shadow-sm hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white/80 flex items-center justify-center text-lg">
+                🍎
+              </div>
+              <span class="text-[10px] font-black uppercase text-emerald-600 tracking-wider">Moral: Generosity</span>
+              <h3 class="text-lg font-bold text-white">The Kind Bear and Half of the Sweet Apple</h3>
+              <p class="text-white/70 text-xs leading-relaxed">
+                The kind bear found the only red apple in the freezing forest. Seeing a shivering bunny, he shared half the apple. Miraculously, sharing made the apple taste ten times sweeter.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-white/[0.06] text-[11px] text-white/70 font-normal bg-white/[0.02] p-3 rounded-xl border border-white/[0.06]">
+              💬 <em>Parent's Whisper: "True happiness is not keeping everything for yourself, but opening your heart to care for others."</em>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="text-center text-xs text-white/70 font-medium flex items-center justify-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Kho truyện tự động cuộn liên tục • <strong><span class="hidden sm:inline">Rê chuột</span><span class="sm:hidden">Chạm</span> vào để dừng đọc cùng bé yêu</strong></span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 4: TÍNH NĂNG VƯỢT TRỘI (5S CIRCULAR ROTATING CAROUSEL VỚI ZOOM 130% KHI HOVER) -->
+  <section id="features" class="py-14 sm:py-24 bg-[#0e1017] border-b border-white/[0.08] relative overflow-hidden">
+    <div class="ambient-glow-cyan top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-35"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.03] text-white/80 text-[11px] font-mono border border-white/[0.1] shadow-sm">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 pulse-glow"></span>
+          <span>Đột Phá Công Nghệ Camera AI</span>
+        </div>
+        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <span class="inline-block metallic-title">Features</span>
+          <span class="inline-block text-white/95">Pediatric Sentry & Sleep Analytics</span>
+        </h2>
+      </div>
+
+      <!-- MAIN SPOTLIGHT CONTAINER (Phóng to và bay lên trên) -->
+      <div id="feature-spotlight-box" class="pro-card relative max-w-5xl mx-auto p-6 sm:p-10 shadow-2xl transition-all duration-500 overflow-hidden" title="Rê chuột vào để dừng chuyển slide tự động">
+        <div class="ambient-glow-cyan -top-16 -right-16 opacity-30"></div>
+        <!-- Timer progress bar indicator (5s) -->
+        <div class="absolute top-0 left-0 right-0 h-1 bg-white/[0.04] rounded-t-3xl overflow-hidden">
+          <div id="feature-timer-bar" class="h-full bg-white/70 transition-all duration-100 ease-linear shadow-[0_0_8px_rgba(255,255,255,0.5)]" style="width: 0%;"></div>
+        </div>
+
+        <div id="feature-spotlight-content" class="feature-spotlight-active grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+          <!-- Dynamic Content rendered via JS below -->
+        </div>
+
+      </div>
+
+      <!-- CIRCULAR THUMBNAILS ROW (CÁC ICON NHỎ PHÍA DƯỚI - ZOOM 130% TRÊN HOVER) -->
+      <div class="space-y-4 pt-4">
+        <div class="text-center">
+          <span class="text-xs font-bold text-white/70">
+            Rê chuột vào biểu tượng để xem chi tiết hoặc phóng to
+          </span>
+        </div>
+
+        <!-- Thumbnails Strip Grid -->
+        <div id="feature-thumbs-grid" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 max-w-6xl mx-auto relative z-10">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 5: BẢNG SO SÁNH MINH BẠCH & NỖI LO BẢO MẬT HÌNH ẢNH PHÒNG NGỦ BÉ -->
+  <section class="py-20 bg-[#08090d] border-b border-white/[0.08]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-2">
+        <h2 class="text-xs font-bold text-brand-600 uppercase tracking-widest">Objective Comparison</h2>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+          <span class="inline-block">BabyGuard AI</span>
+          <span class="inline-block">vs Các Dòng Camera Khác</span>
+        </h3>
+        <p class="text-white/70 text-xs sm:text-sm max-w-xl mx-auto">So sánh công khai về an toàn sinh mạng, chi phí kinh tế và tính bảo mật hình ảnh riêng tư cho con.</p>
+      </div>
+
+      <!-- PRIVACY WARNING CALLOUT -->
+      <div class="p-5 sm:p-6 rounded-2xl bg-[#0e1017] border border-white/[0.08] text-white flex flex-col sm:flex-row items-center gap-4 shadow-sm">
+        <div class="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-xl shrink-0 font-mono text-white/70">
+          SEC
+        </div>
+        <div class="space-y-1 text-center sm:text-left text-xs sm:text-sm">
+          <strong class="text-sm sm:text-base font-bold text-white block">Cảnh Báo Nỗi Lo Bảo Mật: Hình Ảnh Phòng Ngủ Của Bé Có Bị Rò Rỉ?</strong>
+          <p class="leading-relaxed text-white/70 text-xs font-normal">
+            Hầu hết camera gia đình thông thường (Ezviz, Xiaomi...) và camera nhập ngoại (Nanit, CuboAi) đều <strong>bắt buộc truyền dữ liệu hình ảnh phòng ngủ của bé lên máy chủ đám mây (Cloud) ở nước ngoài</strong>. Rất nhiều vụ việc rò rỉ clip riêng tư của trẻ đã từng xảy ra trên báo chí! 
+            <strong>BabyGuard AI chạy 100% Edge AI cục bộ tại nhà:</strong> Toàn bộ video và âm thanh chỉ nằm trên chiếc máy tính của gia đình bạn, không một máy chủ trung gian nào trên thế giới có thể chạm tới!
+          </p>
+        </div>
+      </div>
+
+      <!-- DESKTOP COMPARISON TABLE (Hiện trên máy tính & máy tính bảng) -->
+      <div class="hidden md:block overflow-x-auto rounded-2xl border border-white/[0.08] shadow-sm bg-[#0e1017]">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="border-b border-white/[0.08] text-white/60 font-mono text-[11px]">
+              <th class="py-3.5 px-5 bg-white/[0.02] text-white/80">Tiêu Chí / Features</th>
+              <th class="py-3.5 px-5 text-white/60">Camera Thường (Ezviz, Xiaomi)</th>
+              <th class="py-3.5 px-5 text-white/60">Camera Ngoại (Nanit, Cubo Ai)</th>
+              <th class="py-3.5 px-5 bg-white/[0.04] text-white font-bold border-l border-r border-white/[0.08]">BabyGuard AI</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/[0.06] text-white/80">
+            <tr>
+              <td class="py-3.5 px-5 font-semibold text-white">Chống nằm sấp & che ngạt mặt</td>
+              <td class="py-3.5 px-5 text-white/50">Không hỗ trợ</td>
+              <td class="py-3.5 px-5 text-white/70">Có hỗ trợ</td>
+              <td class="py-3.5 px-5 bg-white/[0.04] font-semibold text-white border-l border-r border-white/[0.08]">Độc quyền: "Better safe than sorry — Never overlook an infant hazard"</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-5 font-semibold text-white">Bắn thông báo & ảnh qua Telegram</td>
+              <td class="py-3.5 px-5 text-white/50">Chỉ có app riêng hay bị trễ</td>
+              <td class="py-3.5 px-5 text-white/50">Bắt buộc mở app riêng</td>
+              <td class="py-3.5 px-5 bg-white/[0.04] font-semibold text-white border-l border-r border-white/[0.08]">Bắn tức thì qua Telegram của ba mẹ</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-5 font-semibold text-white">Đo nhịp thở lồng ngực không chạm</td>
+              <td class="py-3.5 px-5 text-white/50">Not Supported</td>
+              <td class="py-3.5 px-5 text-white/60">Bắt buộc mua vớ/đai phụ kiện</td>
+              <td class="py-3.5 px-5 bg-white/[0.04] font-semibold text-white border-l border-r border-white/[0.08]">Có sẵn (DSP Butterworth 28-75 BPM)</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-5 font-semibold text-white">Vùng an toàn 3D tự nới rộng nôi</td>
+              <td class="py-3.5 px-5 text-white/50">Not Supported</td>
+              <td class="py-3.5 px-5 text-white/60">Khung chữ nhật thô cứng</td>
+              <td class="py-3.5 px-5 bg-white/[0.04] font-semibold text-white border-l border-r border-white/[0.08]">Tự động nới rộng ôm trọn đệm bé</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-5 font-semibold text-white">Chuyện kể giáo dục đạo đức mỗi ngày</td>
+              <td class="py-3.5 px-5 text-white/50">Not Supported</td>
+              <td class="py-3.5 px-5 text-white/50">Not Supported</td>
+              <td class="py-3.5 px-5 bg-white/[0.04] font-semibold text-white border-l border-r border-white/[0.08]">Kho 365 chuyện nhân văn mỗi ngày</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-5 font-semibold text-white">Nursery Video Data Privacy</td>
+              <td class="py-3.5 px-5 text-white/50">Lưu máy chủ nước ngoài</td>
+              <td class="py-3.5 px-5 text-white/60">Lưu Cloud AWS nước ngoài</td>
+              <td class="py-3.5 px-5 bg-white/[0.04] font-semibold text-white border-l border-r border-white/[0.08]">100% Cục bộ trên máy tính gia đình</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-5 font-semibold text-white">Chi phí phần cứng ban đầu</td>
+              <td class="py-3.5 px-5 text-white/70">500.000đ - 900.000đ</td>
+              <td class="py-3.5 px-5 text-white/70">8.000.000đ - 12.000.000đ</td>
+              <td class="py-3.5 px-5 bg-white/[0.04] font-semibold text-white border-l border-r border-white/[0.08]">0đ (Tận dụng webcam/laptop/ĐT cũ)</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-5 font-semibold text-white">Phí duy trì thuê bao (Subscription)</td>
+              <td class="py-3.5 px-5 text-white/70">Miễn phí cơ bản</td>
+              <td class="py-3.5 px-5 text-white/70">2.500.000đ - 3.500.000đ / năm</td>
+              <td class="py-3.5 px-5 bg-white/[0.04] font-semibold text-white border-l border-r border-white/[0.08]">Tải miễn phí • 14 ngày sau chỉ 49k dùng vĩnh viễn trọn đời</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- MOBILE COMPARISON CARDS (Tối ưu riêng cho điện thoại - xem liền mạch không cần vuốt ngang) -->
+      <div class="block md:hidden space-y-3.5">
+        <!-- Card 1 -->
+        <div class="p-4 rounded-2xl bg-[#0e1017] border border-white/[0.08] shadow-sm space-y-2.5">
+          <div class="font-extrabold text-white text-xs sm:text-sm flex items-center justify-between">
+            <span class="flex items-center gap-1.5"><span>🛡️</span> 1. Chống nằm sấp & che ngạt mặt</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-300 text-xs space-y-0.5">
+            <span class="text-[10px] text-emerald-800 font-black uppercase tracking-wider block">🍼 BabyGuard AI:</span>
+            <span class="text-emerald-950 font-black">✅ Độc quyền: "Better safe than sorry — Never overlook an infant hazard"</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-[11px] pt-0.5">
+            <div class="p-2 rounded-xl bg-[#08090d] border border-white/[0.08]">
+              <span class="block text-white/80 font-semibold text-[10px]">Camera Ngoại (Nanit):</span>
+              <span class="text-emerald-800 font-bold">✅ Có hỗ trợ</span>
+            </div>
+            <div class="p-2 rounded-xl bg-[#08090d] border border-white/[0.08]">
+              <span class="block text-white/80 font-semibold text-[10px]">Camera Thường (Ezviz):</span>
+              <span class="text-rose-600 font-bold">❌ Không hỗ trợ</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="p-4 rounded-2xl bg-[#0e1017] border border-white/[0.08] shadow-sm space-y-2.5">
+          <div class="font-extrabold text-white text-xs sm:text-sm flex items-center justify-between">
+            <span class="flex items-center gap-1.5"><span>⚡</span> 2. Báo động & Ảnh qua Telegram</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-300 text-xs space-y-0.5">
+            <span class="text-[10px] text-emerald-800 font-black uppercase tracking-wider block">🍼 BabyGuard AI:</span>
+            <span class="text-emerald-950 font-black">✅ Bắn tức thì qua Telegram của ba mẹ</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-[11px] pt-0.5">
+            <div class="p-2 rounded-xl bg-[#08090d] border border-white/[0.08]">
+              <span class="block text-white/80 font-semibold text-[10px]">Camera Ngoại:</span>
+              <span class="text-rose-600 font-bold">❌ Mở app riêng</span>
+            </div>
+            <div class="p-2 rounded-xl bg-[#08090d] border border-white/[0.08]">
+              <span class="block text-white/80 font-semibold text-[10px]">Camera Thường:</span>
+              <span class="text-rose-600 font-bold">❌ App riêng bị trễ</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="p-4 rounded-2xl bg-[#0e1017] border border-white/[0.08] shadow-sm space-y-2.5">
+          <div class="font-extrabold text-white text-xs sm:text-sm flex items-center justify-between">
+            <span class="flex items-center gap-1.5"><span>🫁</span> 3. Đo nhịp thở lồng ngực không chạm</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-300 text-xs space-y-0.5">
+            <span class="text-[10px] text-emerald-800 font-black uppercase tracking-wider block">🍼 BabyGuard AI:</span>
+            <span class="text-emerald-950 font-black">✅ Có sẵn (DSP Butterworth 28–75 BPM)</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-[11px] pt-0.5">
+            <div class="p-2 rounded-xl bg-[#08090d] border border-white/[0.08]">
+              <span class="block text-white/80 font-semibold text-[10px]">Camera Ngoại:</span>
+              <span class="text-amber-800 font-bold">⚠️ Mua vớ phụ kiện</span>
+            </div>
+            <div class="p-2 rounded-xl bg-[#08090d] border border-white/[0.08]">
+              <span class="block text-white/80 font-semibold text-[10px]">Camera Thường:</span>
+              <span class="text-rose-600 font-bold">❌ Not Supported</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="p-4 rounded-2xl bg-[#0e1017] border border-white/[0.08] shadow-sm space-y-2.5">
+          <div class="font-extrabold text-white text-xs sm:text-sm flex items-center justify-between">
+            <span class="flex items-center gap-1.5"><span>📐</span> 4. Vùng an toàn 3D nôi bé</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-300 text-xs space-y-0.5">
+            <span class="text-[10px] text-emerald-800 font-black uppercase tracking-wider block">🍼 BabyGuard AI:</span>
+            <span class="text-emerald-950 font-black">✅ Tự nới rộng đệm & chỉnh 4 góc cảm ứng</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-[11px] pt-0.5">
+            <div class="p-2 rounded-xl bg-[#08090d] border border-white/[0.08]">
+              <span class="block text-white/80 font-semibold text-[10px]">Camera Ngoại:</span>
+              <span class="text-amber-800 font-bold">⚠️ Khung chữ nhật thô</span>
+            </div>
+            <div class="p-2 rounded-xl bg-[#08090d] border border-white/[0.08]">
+              <span class="block text-white/80 font-semibold text-[10px]">Camera Thường:</span>
+              <span class="text-rose-600 font-bold">❌ Not Supported</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="p-4 rounded-2xl bg-[#0e1017] border border-white/[0.08] shadow-sm space-y-2.5">
+          <div class="font-extrabold text-white text-xs sm:text-sm flex items-center justify-between">
+            <span class="flex items-center gap-1.5"><span>📖</span> 5. Chuyện kể đạo đức mỗi ngày</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-300 text-xs space-y-0.5">
+            <span class="text-[10px] text-emerald-800 font-black uppercase tracking-wider block">🍼 BabyGuard AI:</span>
+            <span class="text-emerald-950 font-black">📖 Kho 365 truyện nhân văn cho bé</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-[11px] pt-0.5">
+            <div class="p-2 rounded-xl bg-[#08090d] border border-white/[0.08]">
+              <span class="block text-white/80 font-semibold text-[10px]">Camera Ngoại:</span>
+              <span class="text-rose-600 font-bold">❌ Not Supported</span>
+            </div>
+            <div class="p-2 rounded-xl bg-[#08090d] border border-white/[0.08]">
+              <span class="block text-white/80 font-semibold text-[10px]">Camera Thường:</span>
+              <span class="text-rose-600 font-bold">❌ Not Supported</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="p-4 rounded-2xl bg-[#0e1017] border border-white/[0.08] shadow-sm space-y-2.5">
+          <div class="font-extrabold text-white text-xs sm:text-sm flex items-center justify-between">
+            <span class="flex items-center gap-1.5"><span>🔒</span> 6. Bảo mật hình ảnh phòng ngủ</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-300 text-xs space-y-0.5">
+            <span class="text-[10px] text-emerald-800 font-black uppercase tracking-wider block">🍼 BabyGuard AI:</span>
+            <span class="text-emerald-950 font-black">🔒 100% Cục bộ tại nhà (Tuyệt đối an toàn)</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-[11px] pt-0.5">
+            <div class="p-2 rounded-xl bg-[#08090d] border border-white/[0.08]">
+              <span class="block text-white/80 font-semibold text-[10px]">Camera Ngoại:</span>
+              <span class="text-amber-800 font-bold">⚠️ Lưu Cloud AWS</span>
+            </div>
+            <div class="p-2 rounded-xl bg-[#08090d] border border-white/[0.08]">
+              <span class="block text-white/80 font-semibold text-[10px]">Camera Thường:</span>
+              <span class="text-rose-600 font-bold">⚠️ Lưu Cloud TQ</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="p-4 rounded-2xl bg-[#0e1017] border border-white/[0.08] shadow-sm space-y-2.5">
+          <div class="font-extrabold text-white text-xs sm:text-sm flex items-center justify-between">
+            <span class="flex items-center gap-1.5"><span>💰</span> 7. Chi phí phần cứng & Duy trì</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-300 text-xs space-y-0.5">
+            <span class="text-[10px] text-emerald-800 font-black uppercase tracking-wider block">🍼 BabyGuard AI:</span>
+            <span class="text-emerald-950 font-black">0đ phần cứng • Tải dùng thử 14 ngày miễn phí • 49,000 VND (~$2) Lifetime License</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-[11px] pt-0.5">
+            <div class="p-2 rounded-xl bg-[#08090d] border border-white/[0.08]">
+              <span class="block text-white/80 font-semibold text-[10px]">Camera Ngoại:</span>
+              <span class="text-rose-600 font-bold">8–12 tr + 3 tr/năm</span>
+            </div>
+            <div class="p-2 rounded-xl bg-[#08090d] border border-white/[0.08]">
+              <span class="block text-white/80 font-semibold text-[10px]">Camera Thường:</span>
+              <span class="text-white/90 font-bold">500k – 900k</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 6: BẢNG GIÁ & CHÍNH SÁCH BẢO MẬT GIA ĐÌNH -->
+  <section id="pricing" class="py-14 sm:py-24 bg-[#08090d] text-white relative">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <!-- HEADER -->
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-black uppercase tracking-wider border border-emerald-500/30">
+          🛡️ Bảo Mật Riêng Tư • Chi Phí Bình Dân Cho Mọi Nhà
+        </div>
+        <h3 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight">
+          <span class="inline-block">Tải Về Miễn Phí 100%</span>
+          <span class="inline-block text-brand-400">• 14 Ngày Sau Mới Thanh Toán</span>
+        </h3>
+        <p class="text-white/60 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+          Không cần trả trước, không cần nhập thẻ tín dụng. Hãy trải nghiệm trọn vẹn sự an tâm suốt 14 ngày. Chỉ thanh toán <b>49.00$0 / mo một lần duy nhất</b> để sở hữu bản quyền vĩnh viễn trọn đời cho con!
+        </p>
+      </div>
+
+      <!-- CẢNH BÁO NGUY HIỂM TỪ CAMERA MẠNG / CLOUD NGOÀI THỊ TRƯỜNG -->
+      <div class="bg-[#0e1017] border border-rose-500/30 rounded-2xl p-6 sm:p-8 space-y-6 relative">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/[0.06] pb-4">
+          <div>
+            <h4 class="text-sm sm:text-base font-bold text-white tracking-tight uppercase">
+              Warning: The Hidden Privacy Hazards of Cheap Cloud Nursery Cameras
+            </h4>
+            <p class="text-xs text-white/50">Tại sao ba mẹ tuyệt đối không nên đặt camera kết nối Cloud ngoài thị trường trong phòng ngủ của bé?</p>
+          </div>
+          <span class="px-2.5 py-0.5 rounded border border-rose-500/30 text-rose-300 text-[10px] font-mono uppercase tracking-wider w-fit">
+            Hiểm họa đời tư
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Rủi ro 1 -->
+          <div class="bg-black/40 border border-white/[0.06] rounded-xl p-4 space-y-2">
+            <span class="text-[10px] font-mono text-white/40 block">01</span>
+            <div class="text-white font-semibold text-xs">
+              Rò Rỉ Video Phòng Ngủ
+            </div>
+            <p class="text-xs text-white/60 leading-relaxed">
+              Camera giá rẻ (Yoosee, Imou, Ezviz...) gửi toàn bộ dữ liệu video lên máy chủ Cloud bên thứ ba (thường ở nước ngoài). Hàng ngàn clip nhạy cảm cảnh mẹ cho con bú, trẻ sơ sinh thay tã đã bị hacker rao bán trên các hội nhóm Telegram và web đen.
+            </p>
+          </div>
+
+          <!-- Rủi ro 2 -->
+          <div class="bg-black/40 border border-white/[0.06] rounded-xl p-4 space-y-2">
+            <span class="text-[10px] font-mono text-white/40 block">02</span>
+            <div class="text-white font-semibold text-xs">
+              Người Lạ Xâm Nhập & Trêu Bé
+            </div>
+            <p class="text-xs text-white/60 leading-relaxed">
+              Với mật khẩu mặc định hoặc lỗ hổng firmware, kẻ xấu từ xa dễ dàng xâm nhập, theo dõi nhất cử nhất động gia đình, thậm chí tự ý bật loa trên camera để nói chuyện, trêu ghẹo dọa nạt bé giữa đêm khuya.
+            </p>
+          </div>
+
+          <!-- Rủi ro 3 -->
+          <div class="bg-black/40 border border-white/[0.06] rounded-xl p-4 space-y-2">
+            <span class="text-[10px] font-mono text-white/40 block">03</span>
+            <div class="text-white font-semibold text-xs">
+              Mất Mạng Là Mất An Toàn
+            </div>
+            <p class="text-xs text-white/60 leading-relaxed">
+              Camera phụ thuộc hoàn toàn vào internet. Khi nhà mất WiFi, đứt cáp quang biển hoặc máy chủ sập, camera trở nên vô dụng — không còn khả năng phát hiện khi bé nằm sấp hay ngạt thở để báo động.
+            </p>
+          </div>
+        </div>
+
+        <!-- GIẢI PHÁP ĐỘC QUYỀN CỦA BABYGUARD AI -->
+        <div class="p-4 rounded-xl bg-white/[0.02] border border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+          <div class="space-y-0.5">
+            <div class="font-bold text-white text-xs sm:text-sm">BabyGuard AI’s Uncompromising Security Shield (100% Local Edge AI)</div>
+            <div class="text-[11px] text-white/60 leading-relaxed">
+              Toàn bộ hình ảnh & âm thanh được xử lý trực tiếp trên máy tính tại nhà. <strong>Không bao giờ gửi video lên Cloud</strong>. Mất mạng internet máy vẫn phát hiện bé khóc và lật úp bình thường.
+            </div>
+          </div>
+          <span class="px-2.5 py-1 rounded border border-emerald-500/30 text-emerald-400 font-mono text-[10px] tracking-wider shrink-0 text-center">
+            100% LOCAL SHIELD
+          </span>
+        </div>
+      </div>
+
+      <!-- BẢNG GIÁ 1 GÓI DUY NHẤT: 49K SỞ HỮU TRỌN ĐỜI (14 NGÀY DÙNG THỬ MIỄN PHÍ) -->
+      <div class="max-w-3xl mx-auto bg-[#0e1017] border border-white/[0.12] rounded-2xl p-6 sm:p-10 shadow-2xl relative">
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-white/[0.08] border border-white/[0.12] text-white/90 font-mono text-[11px] uppercase tracking-wider shadow">
+          Trải Nghiệm 14 Ngày Trước • Thanh Toán Sau
+        </div>
+
+        <div class="space-y-6 pt-2">
+          
+          <div class="text-center space-y-3 border-b border-white/[0.08] pb-6">
+            <h4 class="text-xl sm:text-2xl font-bold text-white">Lifetime Commercial License</h4>
+            <div class="flex items-center justify-center gap-3">
+              <span class="text-5xl sm:text-6xl font-bold text-white font-mono">49.000đ</span>
+              <div class="text-left">
+                <span class="text-xs sm:text-sm text-white/60 font-bold block">Mua 1 lần duy nhất</span>
+                <span class="text-[11px] text-white/50 font-mono block">Dùng trọn đời • Không gia hạn</span>
+              </div>
+            </div>
+            <p class="text-xs sm:text-sm text-white/60 max-w-xl mx-auto leading-relaxed">
+              Ba mẹ được <b>dùng thử miễn phí trọn vẹn 14 ngày đầu tiên</b> để kiểm chứng độ chính xác và an tâm cho giấc ngủ của con. Sau 14 ngày, nếu hài lòng, chỉ thanh toán <b>49.00$0 / mo</b> một lần duy nhất để kích hoạt vĩnh viễn.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-white/70">
+            <div class="flex items-center gap-2 bg-white/[0.02] p-3 rounded-xl border border-white/[0.06]">
+              <span class="text-white font-mono font-bold text-xs">✓</span>
+              <span><b>Tải về miễn phí 100%</b>, không cần nhập thẻ tín dụng</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white/[0.02] p-3 rounded-xl border border-white/[0.06]">
+              <span class="text-white font-mono font-bold text-xs">✓</span>
+              <span><b>14 ngày dùng thử</b> đầy đủ 100% tính năng AI cao cấp</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white/[0.02] p-3 rounded-xl border border-white/[0.06]">
+              <span class="text-white font-mono font-bold text-xs">✓</span>
+              <span><b>0đ thuê bao tháng</b>, 0đ phí duy trì hằng năm</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white/[0.02] p-3 rounded-xl border border-white/[0.06]">
+              <span class="text-white font-mono font-bold text-xs">✓</span>
+              <span><b>Bảo mật 100% Local</b>, tuyệt đối không rò rỉ hình ảnh</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white/[0.02] p-3 rounded-xl border border-white/[0.06]">
+              <span class="text-white font-mono font-bold text-xs">✓</span>
+              <span>Free lifetime updates and performance improvements</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white/[0.02] p-3 rounded-xl border border-white/[0.06]">
+              <span class="text-white font-mono font-bold text-xs">✓</span>
+              <span>Tiết kiệm hơn <b>10.000.000đ</b> so với camera ngoại</span>
+            </div>
+          </div>
+
+          <div class="pt-2 space-y-3">
+            <a href="#download" class="w-full py-3.5 px-6 rounded-xl bg-white hover:bg-neutral-200 text-black font-semibold text-center text-sm shadow transition active:scale-95 flex items-center justify-center gap-2">
+              <span>TẢI VỀ DÙNG THỬ MIỄN PHÍ 14 NGÀY</span>
+            </a>
+            <div class="text-center">
+              <button onclick="openCheckoutModal()" class="text-xs text-white/40 hover:text-white underline font-normal transition cursor-pointer">
+                Hoặc bấm vào đây nếu muốn mua kích hoạt bản quyền 49k ngay lập tức →
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 7: HƯỚNG DẪN CÀI ĐẶT 3 BƯỚC TINH GỌN (KHÔNG CẦN CÀI MẠNG PHỨC TẠP) -->
+  <section id="guide" class="py-14 sm:py-24 bg-[#0e1017] border-b border-white/[0.08]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] text-white/70 text-[11px] font-mono border border-white/[0.08]">
+          📖 Hướng Dẫn Sử Dụng & Cài Đặt
+        </div>
+        <h3 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white leading-tight">
+          <span class="inline-block">Bắt Đầu Giám Sát Bé</span>
+          <span class="inline-block">Chỉ Trong 3 Bước Siêu Dễ</span>
+        </h3>
+        <p class="text-white/70 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+          Không cần biết kỹ thuật IT phức tạp. Chỉ cần 1 máy tính (Macbook/Laptop/Mini PC) và 1 điện thoại là <span class="whitespace-nowrap">ba mẹ</span> có ngay hệ thống AI giám sát y tế cao cấp cho <span class="whitespace-nowrap">bé yêu!</span>
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Step 1 -->
+        <div class="p-6 sm:p-8 rounded-2xl bg-[#0e1017] border border-white/[0.08] space-y-4">
+          <div class="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/[0.1] text-white font-mono font-bold text-sm flex items-center justify-center">
+            01
+          </div>
+          <h4 class="text-base font-bold text-white">Download & Launch on PC / Mac</h4>
+          <p class="text-white/60 text-xs leading-relaxed">
+            Tải bộ cài đặt phù hợp với máy tính (<a href="#download" class="text-white underline">Windows hoặc Mac</a>) và mở ứng dụng. Cắm webcam hướng vào nôi bé. Màn hình tự động hiện bảng điều khiển AI và <b>Mã QR kết nối điện thoại</b>.
+          </p>
+          <div class="pt-2 text-[11px] text-white/50 font-mono">
+            Hỗ trợ macOS Apple Silicon & Windows 10/11
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="p-6 sm:p-8 rounded-2xl bg-[#0e1017] border border-white/[0.08] space-y-4">
+          <div class="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/[0.1] text-white font-mono font-bold text-sm flex items-center justify-center">
+            02
+          </div>
+          <h4 class="text-base font-bold text-white">Install Mobile App & Scan QR</h4>
+          <p class="text-white/60 text-xs leading-relaxed">
+            Tải ứng dụng <a href="/download/app.apk" class="text-white underline">BabyGuard_AI.apk</a> cho điện thoại Android của ba mẹ. Mở app lên quét mã QR trên màn hình máy tính để kết nối tức thì. Xem trực tiếp mọi lúc qua 4G/5G.
+          </p>
+          <div class="pt-2 text-[11px] text-white/50 font-mono">
+            Cài nhanh trong 5 giây, bảo mật riêng tư 100%
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="p-6 sm:p-8 rounded-2xl bg-[#0e1017] border border-white/[0.08] space-y-4">
+          <div class="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/[0.1] text-white font-mono font-bold text-sm flex items-center justify-center">
+            03
+          </div>
+          <h4 class="text-base font-bold text-white">Peace of Mind at Work 24/7</h4>
+          <p class="text-white/60 text-xs leading-relaxed">
+            AI tự động canh nôi 24/7: Cảnh báo ngay khi bé lật úp, ngạt thở, ho sốt, khóc đêm. Tự động phát nhạc ru làm dịu bé. Báo cáo giấc ngủ chuyên sâu gửi về điện thoại và Telegram mỗi sáng.
+          </p>
+          <div class="pt-2 text-[11px] text-white/50 font-mono">
+            Miễn phí dùng thử 14 ngày • Bản quyền 49k trọn đời
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Setup Highlights Banner -->
+      <div class="p-6 sm:p-8 rounded-2xl bg-[#0e1017] border border-white/[0.08] text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+        <div class="space-y-2 text-center md:text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/70 text-[10px] font-mono uppercase">
+            Khởi Chạy Siêu Tốc Trong 60 Giây
+          </div>
+          <h4 class="text-lg sm:text-xl font-bold text-white leading-tight">
+            Only 49,000 VND (~$2 USD) — Lifetime Ownership, Zero Monthly Fees
+          </h4>
+          <p class="text-white/60 text-xs max-w-xl leading-relaxed">
+            Tận dụng chính máy tính và điện thoại cũ của gia đình, không cần mua camera ngoại đắt đỏ 8 - 12 triệu. An tâm tuyệt đối vì dữ liệu xử lý tại chỗ, không lộ video riêng tư.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 shrink-0 w-full md:w-auto">
+          <a href="/download/app.apk" class="px-5 py-3 rounded-xl bg-white hover:bg-neutral-200 text-black font-semibold text-xs text-center shadow transition flex items-center justify-center gap-2">
+            <span>Tải App Android (.APK)</span>
+          </a>
+          <button type="button" onclick="openDownloadModal()" class="px-6 py-3.5 rounded-2xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs text-center border border-white/[0.08] transition flex items-center justify-center gap-2 cursor-pointer">
+            <span>💻</span>
+            <span>Tải Bộ Cài Máy Tính (Windows / Mac)</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 8: 40+ ĐÁNH GIÁ THỰC TẾ TỪ CÁC NGƯỜI BA & NGƯỜI MẸ (THỐNG NHẤT XÀI CHỮ BA) -->
+  <section id="testimonials" class="py-14 sm:py-24 bg-[#08090d] border-b border-white/[0.08]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-1.5 text-amber-500 font-bold text-sm">
+          <span>⭐⭐⭐⭐⭐</span>
+          <span class="text-white/80 font-extrabold text-xs">4.9 / 5.0 Từ Hơn 1.200 Ba Mẹ Tin Dùng</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white leading-tight">
+          <span class="inline-block">Cộng Đồng Ba Mẹ</span>
+          <span class="inline-block">Nói Gì Về BabyGuard AI?</span>
+        </h3>
+        <p class="text-white/70 text-sm leading-relaxed max-w-2xl mx-auto">
+          Những phản hồi chân thực từ các người ba làm kỹ thuật, tài xế công nghệ, nhân viên văn phòng và các người mẹ bỉm sữa trên khắp mọi miền đất nước:
+        </p>
+      </div>
+
+      <!-- MASONRY GRID OF TESTIMONIALS (40 REVIEWS) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+        
+        <!-- Review 1 -->
+        <div class="p-4 bg-[#0e1017] rounded-2xl border border-white/[0.08] space-y-2 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-white">Tuan Minh (Software Engineer) • Hanoi</span>
+            <span class="text-amber-500">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-white/70 leading-relaxed">
+            "As a software engineer, I was genuinely amazed that an old USB webcam could track respiration and sleep posture so accurately. Looking at Telegram while working gives me total peace of mind!"
+          </p>
+          <span class="text-[10px] text-brand-600 font-semibold block">👨 Father of Baby Tit (5 mos) • Verified</span>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="p-4 bg-[#0e1017] rounded-2xl border border-white/[0.08] space-y-2 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-white">Lan Huong • Ho Chi Minh City</span>
+            <span class="text-amber-500">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-white/70 leading-relaxed">
+            "Our favorite part is the bedtime story library. My husband used to be quiet in the evenings, but now he reads the daily moral tale to our baby every night. Their bond has grown so sweet!"
+          </p>
+          <span class="text-[10px] text-rose-600 font-semibold block">👩 Mother of Baby Milk (3 mos) • Verified</span>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="p-4 bg-[#0e1017] rounded-2xl border border-white/[0.08] space-y-2 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-white">Quoc Huy • Da Nang</span>
+            <span class="text-amber-500">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-white/70 leading-relaxed">
+            "Reading the founder’s letter brought tears to my eyes. On a modest salary, we couldn’t afford expensive imported hardware. A one-time lifetime license is a true blessing for our home!"
+          </p>
+          <span class="text-[10px] text-brand-600 font-semibold block">👨 Father of Baby Bon (2 mos) • Verified</span>
+        </div>
+
+        <!-- Review 4 -->
+        <div class="p-4 bg-[#0e1017] rounded-2xl border border-white/[0.08] space-y-2 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-white">Hoang Nam • Hai Phong</span>
+            <span class="text-amber-500">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-white/70 leading-relaxed">
+            "Zero monthly fees. Running in background on our home desktop consumes barely any power, yet gives us clinical-grade cry detection and acute choke alerts!"
+          </p>
+          <span class="text-[10px] text-brand-600 font-semibold block">👨 Father of Baby Miu (4 mos) • Verified</span>
+        </div>
+
+        <!-- Review 5 -->
+        <div class="p-4 bg-[#0e1017] rounded-2xl border border-white/[0.08] space-y-2 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-white">Thu Thao • Can Tho</span>
+            <span class="text-amber-500">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-white/70 leading-relaxed">
+            "Last night when baby choked during a night feeding, the bot instantly alerted and displayed the AHA back-blow protocol. I followed it right away. A true guardian angel for parents!"
+          </p>
+          <span class="text-[10px] text-rose-600 font-semibold block">👩 Mother of Baby Strawberry (2 mos) • Verified</span>
+        </div>
+
+        <!-- Review 6 -->
+        <div class="p-4 bg-[#0e1017] rounded-2xl border border-white/[0.08] space-y-2 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-white">Duc Thang • Binh Duong</span>
+            <span class="text-amber-500">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-white/70 leading-relaxed">
+            "Generic cameras scream false alarms whenever a room fan spins. BabyGuard AI uses multi-frame verification so safe crib bolsters don’t trigger panic. We finally sleep soundly at night."
+          </p>
+          <span class="text-[10px] text-brand-600 font-semibold block">👨 Father of Baby Com (6 mos) • Verified</span>
+        </div>
+
+        <!-- Review 7 -->
+        <div class="p-4 bg-[#0e1017] rounded-2xl border border-white/[0.08] space-y-2 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-white">Thanh Tung • Dong Nai</span>
+            <span class="text-amber-500">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-white/70 leading-relaxed">
+            "I drive rideshare all day; at traffic stops I glance at Telegram to see my baby sleeping safely. The motto 'Rather warn by mistake than overlook' earned my complete trust as a dad."
+          </p>
+          <span class="text-[10px] text-brand-600 font-semibold block">👨 Father of Baby Hedgehog (3 mos) • Verified</span>
+        </div>
+
+        <!-- Review 8 -->
+        <div class="p-4 bg-[#0e1017] rounded-2xl border border-white/[0.08] space-y-2 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-white">Bich Ngoc • Nha Trang</span>
+            <span class="text-amber-500">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-white/70 leading-relaxed">
+            "I was terrified of cheap cloud cameras leaking private nursery video. This software runs 100% locally on our home PC with zero cloud uploads. Total peace of mind!"
+          </p>
+          <span class="text-[10px] text-rose-600 font-semibold block">👩 Mother of Baby Rice (5 mos) • Verified</span>
+        </div>
+
+        <!-- Review 9 -->
+        <div class="p-4 bg-[#0e1017] rounded-2xl border border-white/[0.08] space-y-2 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-white">Minh Khang • Vung Tau</span>
+            <span class="text-amber-500">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-white/70 leading-relaxed">
+            "The 3D adaptive crib zone is brilliant! My baby wiggles in all directions, and the AI contours naturally to the mattress plane without crying wolf. Thank you so much!"
+          </p>
+          <span class="text-[10px] text-brand-600 font-semibold block">👨 Father of Baby Bean (4 mos) • Verified</span>
+        </div>
+
+        <!-- Review 10 -->
+        <div class="p-4 bg-[#0e1017] rounded-2xl border border-white/[0.08] space-y-2 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-white">Mai Phuong • Hue</span>
+            <span class="text-amber-500">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-white/70 leading-relaxed">
+            "The 07:00 AM AAP sleep report is so thorough! The Wake Window calculation helps me know exactly when baby needs a nap before overtiredness sets in."
+          </p>
+          <span class="text-[10px] text-rose-600 font-semibold block">👩 Mother of Baby Bunny (1 mo) • Verified</span>
+        </div>
+
+        <!-- Review 11 -->
+        <div class="p-4 bg-[#0e1017] rounded-2xl border border-white/[0.08] space-y-2 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-white">Van Hung • Quang Ninh</span>
+            <span class="text-amber-500">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-white/70 leading-relaxed">
+            "Repurposed my wife’s old unused laptop. Turned it into an intelligent nursery sentinel for our baby without spending hundreds on imported gear."
+          </p>
+          <span class="text-[10px] text-brand-600 font-semibold block">👨 Father of Baby Ken (7 mos) • Verified</span>
+        </div>
+
+        <!-- Review 12 -->
+        <div class="p-4 bg-[#0e1017] rounded-2xl border border-white/[0.08] space-y-2 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-white">Tien Dat • Thai Nguyen</span>
+            <span class="text-amber-500">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-white/70 leading-relaxed">
+            "The Telegram integration is fantastic. Both my wife and our grandmother in the countryside can view nursery updates easily without complex setups."
+          </p>
+          <span class="text-[10px] text-brand-600 font-semibold block">👨 Father of Baby Bo (3 mos) • Verified</span>
+        </div>
+
+        <!-- Review 13 to 20 -->
+        <div class="p-4 bg-[#0e1017] rounded-2xl border border-white/[0.08] space-y-2 shadow-sm">
+          <div class="flex items-center justify-between"><span class="font-bold text-white">Trong Nghia • Nam Dinh</span><span class="text-amber-500">⭐⭐⭐⭐⭐</span></div>
+          <p class="text-white/70 leading-relaxed">"The automated milestone critic captures crisp, uncropped moments. At the end of the month we download the photo archive for meaningful family albums!"</p>
+          <span class="text-[10px] text-brand-600 font-semibold block">👨 Father of Baby Tin (5 mos)</span>
+        </div>
+
+        <div class="p-4 bg-[#0e1017] rounded-2xl border border-white/[0.08] space-y-2 shadow-sm">
+          <div class="flex items-center justify-between"><span class="font-bold text-white">Hong Hanh • Bac Ninh</span><span class="text-amber-500">⭐⭐⭐⭐⭐</span></div>
+          <p class="text-white/70 leading-relaxed">"When baby fusses, it automatically plays soothing gentle rain white noise. Baby settles quickly without me having to rush in and turn on music."</p>
+          <span class="text-[10px] text-rose-600 font-semibold block">👩 Mother of Baby Na (2 mos)</span>
+        </div>
+
+        <div class="p-4 bg-[#0e1017] rounded-2xl border border-white/[0.08] space-y-2 shadow-sm">
+          <div class="flex items-center justify-between"><span class="font-bold text-white">Ba Tung • Thanh Hoa</span><span class="text-amber-500">⭐⭐⭐⭐⭐</span></div>
+          <p class="text-white/70 leading-relaxed">"Runs smoothly at 60 FPS on a basic $8 USB webcam with YuNet facial landmarking. Truly world-class software engineering!"</p>
+          <span class="text-[10px] text-brand-600 font-semibold block">👨 Father of Baby Squirrel (4 mos)</span>
+        </div>
+
+        <div class="p-4 bg-[#0e1017] rounded-2xl border border-white/[0.08] space-y-2 shadow-sm">
+          <div class="flex items-center justify-between"><span class="font-bold text-white">Quang Dung • Nghe An</span><span class="text-amber-500">⭐⭐⭐⭐⭐</span></div>
+          <p class="text-white/70 leading-relaxed">"A permanent license for 49k VND (~$2 USD) is unbelievably generous for child life-safety technology. Worth tenfold any online parenting course."</p>
+          <span class="text-[10px] text-brand-600 font-semibold block">👨 Father of Baby Sprout (1 mo)</span>
+        </div>
+
+        <div class="p-4 bg-[#0e1017] rounded-2xl border border-white/[0.08] space-y-2 shadow-sm">
+          <div class="flex items-center justify-between"><span class="font-bold text-white">Yen Nhi • Lam Dong</span><span class="text-amber-500">⭐⭐⭐⭐⭐</span></div>
+          <p class="text-white/70 leading-relaxed">"Our favorite feature is the daily moral storytelling. Every evening my husband and I whisper the story to our baby, bringing our family closer."</p>
+          <span class="text-[10px] text-rose-600 font-semibold block">👩 Mother of Baby Jerry (6 mos)</span>
+        </div>
+
+        <div class="p-4 bg-[#0e1017] rounded-2xl border border-white/[0.08] space-y-2 shadow-sm">
+          <div class="flex items-center justify-between"><span class="font-bold text-white">Gia Bao • Gia Lai</span><span class="text-amber-500">⭐⭐⭐⭐⭐</span></div>
+          <p class="text-white/70 leading-relaxed">"The AHA choking and back-blow guidance is crystal clear. Empowers fathers to care for infants with calm confidence when mothers are away."</p>
+          <span class="text-[10px] text-brand-600 font-semibold block">👨 Father of Baby Coca (3 mos)</span>
+        </div>
+
+        <div class="p-4 bg-[#0e1017] rounded-2xl border border-white/[0.08] space-y-2 shadow-sm">
+          <div class="flex items-center justify-between"><span class="font-bold text-white">The Anh • Long An</span><span class="text-amber-500">⭐⭐⭐⭐⭐</span></div>
+          <p class="text-white/70 leading-relaxed">"Took barely 3 steps to set up with zero IT experience. Plugged in the webcam, connected Telegram bot, and it was running flawlessly!"</p>
+          <span class="text-[10px] text-brand-600 font-semibold block">👨 Father of Baby Puppy (4 mos)</span>
+        </div>
+
+        <div class="p-4 bg-[#0e1017] rounded-2xl border border-white/[0.08] space-y-2 shadow-sm">
+          <div class="flex items-center justify-between"><span class="font-bold text-white">Chị Kim Ngân • Tiền Giang</span><span class="text-amber-500">⭐⭐⭐⭐⭐</span></div>
+          <p class="text-white/70 leading-relaxed">"Nói chuyện 2 chiều 'Nói Với Bé' rất ấm, ở công ty nhớ con bấm nói một câu ở nhà loa phát ra bé mừng rỡ cười tít mắt."</p>
+          <span class="text-[10px] text-rose-600 font-semibold block">👩 Mẹ bé Kem (5 tháng)</span>
+        </div>
+
+      </div>
+
+      <div class="text-center pt-2">
+        <span class="text-xs text-white/60">Và hơn 1.180 nhận xét tích cực khác từ khắp 63 tỉnh thành trên toàn quốc...</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 9: HỎI ĐÁP THƯỜNG GẶP (FAQ) -->
+  <section id="faq" class="py-12 sm:py-20 bg-[#0e1017] border-b border-white/[0.08]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="text-center space-y-2">
+        <h2 class="text-xs font-bold text-brand-600 uppercase tracking-widest">Parent Questions</h2>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+          Frequently Asked Questions
+        </h3>
+      </div>
+
+      <div class="space-y-5 text-sm">
+        
+        <div class="p-6 rounded-2xl bg-[#08090d] border border-white/[0.08] space-y-2">
+          <h4 class="font-bold text-white text-base">1. How do I view the camera feed and receive alerts while away at work?</h4>
+          <p class="text-white/70 leading-relaxed text-xs sm:text-sm">
+            Rất đơn giản! Toàn bộ cảnh báo bé lật úp, ngạt mặt, bé khóc hay nhịp thở bất thường đều được <strong>tự động gửi tức thì qua ứng dụng Telegram trên điện thoại của bạn</strong> kèm theo ảnh chụp thực tế. Bạn chỉ cần mở Telegram là nắm trọn tình hình của con mà không cần cài đặt phần mềm mạng phức tạp nào khác.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#08090d] border border-white/[0.08] space-y-2">
+          <h4 class="font-bold text-white text-base">2. Can BabyGuard AI run on an older laptop, PC, or basic USB webcam?</h4>
+          <p class="text-white/70 leading-relaxed text-xs sm:text-sm">
+            Absolutely! BabyGuard AI is optimized with lightweight quantized neural networks (YOLOv8 Nano, YuNet ONNX) running smoothly on older laptops, office PCs, or Mac minis. Simply plug in any standard USB webcam or use your laptop’s built-in camera.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#08090d] border border-white/[0.08] space-y-2">
+          <h4 class="font-bold text-white text-base">3. How does the 14-day free trial and the 49,000 VND fee work?</h4>
+          <p class="text-white/70 leading-relaxed text-xs sm:text-sm">
+            Ba mẹ được <strong>tải về và dùng thử hoàn toàn MIỄN PHÍ 100% trong 14 ngày đầu tiên</strong> để trải nghiệm chất lượng thực tế mà không cần nhập thẻ tín dụng hay trả trước bất kỳ chi phí nào. Sau 14 ngày, nếu thực sự thấy BabyGuard AI mang lại sự an tâm tuyệt đối cho giấc ngủ của con, ba mẹ chỉ cần thanh toán duy nhất 1 lần <strong>49.00$0 / mo</strong> để kích hoạt sở hữu vĩnh viễn trọn đời. Cam kết <strong>0đ phí thuê bao tháng, 0đ phí duy trì hàng năm</strong>!
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#08090d] border border-white/[0.08] space-y-2">
+          <h4 class="font-bold text-white text-base">4. Does video footage from our nursery bedroom ever get uploaded to the cloud?</h4>
+          <p class="text-white/70 leading-relaxed text-xs sm:text-sm">
+            Tuyệt đối không! Toàn bộ luồng video và âm thanh chỉ được phân tích trực tiếp tại chỗ trên máy tính gia đình bạn (100% On-Premise Edge AI). Not Supported bất kỳ video nào bị lưu trữ trên máy chủ của bên thứ ba, bảo vệ an toàn tối thượng cho không gian riêng tư của tổ ấm.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 10: TRUNG TÂM TẢI VỀ ĐA NỀN TẢNG (CALL TO ACTION) -->
+  <section id="download" class="py-12 sm:py-20 bg-[#08090d] text-white relative border-t border-white/[0.08]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="text-center space-y-4 max-w-3xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] text-white/70 text-[11px] font-mono border border-white/[0.08]">
+          Trung Tâm Tải Về
+        </div>
+        <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white tracking-tight leading-tight">
+          <span class="inline-block">Tải BabyGuard AI —</span>
+          <span class="text-white/90 inline-block">Chọn Bản Cài Đặt</span>
+          <span class="inline-block">Cho Thiết Bị Của Bạn</span>
+        </h3>
+        <p class="text-white/60 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+          Dùng thử trọn vẹn 14 ngày miễn phí. Tự động nhận diện camera gia đình, kết nối báo động Telegram tức thì và bảo mật 100% cục bộ tại nhà.
+        </p>
+      </div>
+
+      <!-- 3-PLATFORM DOWNLOAD CARDS GRID (WINDOWS, MAC, ANDROID) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        
+        <!-- CARD 1: WINDOWS -->
+        <div class="bg-[#0e1017] border border-white/[0.08] rounded-2xl p-6 flex flex-col justify-between transition-all hover:border-white/[0.2] relative">
+          <div class="absolute -top-3 right-6 px-3 py-0.5 bg-white/[0.08] border border-white/[0.12] text-white/80 text-[10px] font-mono rounded-full uppercase tracking-wider">
+            Windows
+          </div>
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center font-mono font-bold text-white text-sm">
+              WIN
+            </div>
+            <div>
+              <h4 class="text-base font-bold text-white">Windows PC (10 / 11)</h4>
+              <p class="text-xs text-white/50 font-mono mt-0.5">Windows 10 & 11 (64-bit)</p>
+            </div>
+            <p class="text-xs text-white/60 leading-relaxed">
+              Trạm AI giám sát đặt tại phòng bé. Tự động kiểm tra và khởi tạo toàn bộ môi trường chỉ với 1 cú nhấp chuột.
+            </p>
+            <div class="text-[11px] text-white/60 space-y-1 bg-white/[0.02] p-3 rounded-xl border border-white/[0.06]">
+              <div class="flex items-center gap-1.5 text-white/70">✓ Định dạng: <strong>Bản cài đặt nén (.ZIP)</strong></div>
+              <div class="flex items-center gap-1.5 text-white/70">✓ Khởi chạy: Giải nén ➔ Bấm <strong>Khoi_Dong_BabyGuard.bat</strong></div>
+            </div>
+          </div>
+          <div class="pt-6">
+            <a href="https://cam.babyguard.site/download/windows-app" class="w-full py-3 px-4 rounded-xl bg-white hover:bg-neutral-200 text-black font-semibold text-xs sm:text-sm text-center shadow flex items-center justify-center gap-2 active:scale-95 transition">
+              <span>DOWNLOAD WINDOWS (.ZIP)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 2: MACOS -->
+        <div class="bg-[#0e1017] border border-white/[0.08] rounded-2xl p-6 flex flex-col justify-between transition-all hover:border-white/[0.2] relative">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center font-mono font-bold text-white text-sm">
+              MAC
+            </div>
+            <div>
+              <h4 class="text-base font-bold text-white">MacBook & Mac mini (Apple Silicon / Intel)</h4>
+              <p class="text-xs text-white/50 font-mono mt-0.5">Apple Silicon M1-M4 & Intel</p>
+            </div>
+            <p class="text-xs text-white/60 leading-relaxed">
+              Tối ưu phần cứng Apple Metal GPU, siêu tiết kiệm pin, tự động cấp quyền camera và mở trạm giám sát.
+            </p>
+            <div class="text-[11px] text-white/60 space-y-1 bg-white/[0.02] p-3 rounded-xl border border-white/[0.06]">
+              <div class="flex items-center gap-1.5 text-white/70">✓ Định dạng: <strong>Gói Cài Đặt (.PKG)</strong></div>
+              <div class="flex items-center gap-1.5 text-white/70">✓ Tự kích hoạt 1-Click chuẩn macOS</div>
+            </div>
+          </div>
+          <div class="pt-6 space-y-2.5">
+            <a href="https://cam.babyguard.site/download/BabyGuard_Mac.pkg" onclick="try{navigator.clipboard.writeText('curl -fsSL https://babyguard.site/install-mac | bash');}catch(e){}" class="w-full py-3 px-4 rounded-xl bg-white hover:bg-neutral-200 text-black font-semibold text-xs sm:text-sm text-center shadow flex items-center justify-center gap-2 active:scale-95 transition">
+              <span>DOWNLOAD MACOS (.PKG)</span>
+            </a>
+            <div class="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-[10px] space-y-1.5">
+              <div class="flex items-center justify-between text-white/80 font-medium">
+                <span>Cài nhanh qua Terminal (1 lệnh):</span>
+                <button type="button" onclick="navigator.clipboard.writeText('curl -fsSL https://babyguard.site/install-mac | bash'); alert('Đã sao chép lệnh!');" class="px-2 py-0.5 rounded bg-white/[0.06] hover:bg-white/[0.12] text-white/80 text-[9px] font-mono cursor-pointer transition">Sao chép</button>
+              </div>
+              <div class="font-mono text-[10px] text-white/70 bg-[#08090d] p-2 rounded-lg border border-white/[0.06] flex items-center justify-between select-all">
+                <code>curl -fsSL https://babyguard.site/install-mac | bash</code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: ANDROID -->
+        <div class="bg-[#0e1017] border border-white/[0.08] rounded-2xl p-6 flex flex-col justify-between transition-all hover:border-white/[0.2] relative">
+          <div class="absolute -top-3 right-6 px-3 py-0.5 bg-white/[0.08] border border-white/[0.12] text-white/80 text-[10px] font-mono rounded-full uppercase tracking-wider">
+            2-Trong-1
+          </div>
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center font-mono font-bold text-white text-sm">
+              APK
+            </div>
+            <div>
+              <h4 class="text-base font-bold text-white">Android Smartphone App (.APK)</h4>
+              <p class="text-xs text-white/50 font-mono mt-0.5">Samsung, Xiaomi, Oppo...</p>
+            </div>
+            <p class="text-xs text-white/60 leading-relaxed">
+              Ứng dụng 2-trong-1 tiện lợi: Vừa là màn hình xem từ xa, vừa có thể biến điện thoại thành <b>Trạm AI Nôi Bé độc lập</b> khi gia đình không có máy tính.
+            </p>
+            <div class="text-[11px] text-white/60 space-y-1 bg-white/[0.02] p-3 rounded-xl border border-white/[0.06]">
+              <div class="flex items-center gap-1.5 text-white/70">✓ Làm Màn Hình Xem Từ Xa</div>
+              <div class="flex items-center gap-1.5 text-white/70">✓ Biến ĐT thành Camera Nôi Bé</div>
+            </div>
+          </div>
+          <div class="pt-6 space-y-2">
+            <a href="/download/app.apk" class="w-full py-3 px-4 rounded-xl bg-white hover:bg-neutral-200 text-black font-semibold text-xs sm:text-sm text-center shadow flex items-center justify-center gap-2 active:scale-95 transition">
+              <span>DOWNLOAD ANDROID (.APK)</span>
+            </a>
+            <a href="https://cam.babyguard.site/station" target="_blank" class="w-full py-2.5 px-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-white/80 font-medium text-xs text-center flex items-center justify-center gap-1.5 transition">
+              <span>Dùng Trực Tiếp Trạm Web (iOS & Android)</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- HƯỚNG DẪN CÀI ĐẶT 3 BƯỚC ĐƠN GIẢN CHO BA MẸ (MAC & WINDOWS) -->
+      <div class="max-w-4xl mx-auto space-y-6 pt-4">
+        <div class="text-center space-y-1">
+          <h4 class="text-lg sm:text-xl font-bold text-white tracking-tight">Hướng Dẫn Cài Đặt 3 Bước Cực Dễ (Dành Cho Mọi Dòng Máy)</h4>
+          <p class="text-xs text-white/70">Không cần biết kỹ thuật phức tạp, ba mẹ chỉ mất đúng 1 phút là có thể bắt đầu giám sát nôi bé.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          
+          <!-- HƯỚNG DẪN MAC -->
+          <div class="p-5 rounded-2xl bg-[#0e1017]/90 border border-white/[0.08] space-y-3">
+            <div class="flex items-center gap-2 font-bold text-white text-sm">
+              <span>🍏</span>
+              <span>Cài đặt trên MacBook & Mac mini (Apple Silicon / Intel):</span>
+            </div>
+            <ol class="space-y-2 text-white/60 leading-relaxed list-decimal list-inside text-[11.5px]">
+              <li><strong>Tải về:</strong> Nhấn nút tải bản <code>.pkg</code> ở trên (tệp chỉ khoảng 39 MB, tải mất 5 giây).</li>
+              <li><strong>Cài đặt tự động:</strong> Mở tệp vừa tải trong mục <em>Downloads</em> ➔ Bấm <strong>Tiếp tục (Continue)</strong> ➔ Nhập mật khẩu máy tính (hoặc chạm Touch ID) để hệ thống tự chép vào thư mục Applications.</li>
+              <li><strong>Mở ứng dụng:</strong> Vào <strong>Finder ➔ Applications (Ứng dụng)</strong> hoặc mở từ <em>Launchpad</em> ➔ Bấm mở <strong>BabyGuard AI</strong>. Khi máy hỏi cấp quyền Camera & Micro, bấm <strong>Cho phép (OK)</strong>.</li>
+            </ol>
+            <div class="p-2.5 rounded-xl bg-[#08090d] border border-white/[0.08] text-[10.5px] text-white/70 leading-normal">
+              💡 <em>Mẹo nhỏ nếu Mac hỏi quyền lần đầu:</em> Nhấn giữ phím <strong>Control + Click chuột phải</strong> vào app ➔ Chọn <strong>"Open" (Mở)</strong> ➔ Bấm <strong>Mở</strong> là dùng vĩnh viễn.
+            </div>
+          </div>
+
+          <!-- HƯỚNG DẪN WINDOWS -->
+          <div class="p-5 rounded-2xl bg-[#0e1017]/90 border border-white/[0.08] space-y-3">
+            <div class="flex items-center gap-2 font-bold text-white text-sm">
+              <span>💻</span>
+              <span>Cài đặt trên Laptop & PC Windows:</span>
+            </div>
+            <ol class="space-y-2 text-white/60 leading-relaxed list-decimal list-inside text-[11.5px]">
+              <li><strong>Tải về:</strong> Nhấn nút tải bản <code>BabyGuard_Windows.zip</code> ở trên.</li>
+              <li><strong>Giải nén:</strong> Nhấp chuột phải vào tệp vừa tải về ➔ Chọn <strong>Extract All... (Giải nén tất cả)</strong>.</li>
+              <li><strong>Khởi động:</strong> Mở thư mục vừa giải nén ➔ Nhấp đúp vào tệp <strong>Khoi_Dong_BabyGuard.bat</strong>. Ứng dụng sẽ tự động kích hoạt và mở màn hình giám sát nôi.</li>
+            </ol>
+            <div class="p-2.5 rounded-xl bg-[#08090d] border border-white/[0.08] text-[10.5px] text-white/70 leading-normal">
+              💡 <em>Tự động:</em> Phần mềm đã tích hợp sẵn môi trường xử lý, không yêu cầu cài thêm Python hay driver phụ trợ.
+            </div>
+          </div>
+
+        </div>
+
+        <!-- MÀN HÌNH SAU KHI MỞ SẼ NHƯ THẾ NÀO -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-[#08090d]/80 border border-white/[0.08] text-xs text-white/60 space-y-2">
+          <div class="font-bold text-white flex items-center gap-2 text-xs uppercase tracking-wider">
+            <span>✨</span>
+            <span>Khi Mở Ứng Dụng Lần Đầu Tiên, Màn Hình Sẽ Thế Nào?</span>
+          </div>
+          <p class="leading-relaxed text-white/60 text-[11.5px]">
+            Phần mềm sẽ tự động mở trình duyệt web của bạn lên màn hình <strong>Thiết Lập 4 Bước Nhanh</strong>:
+            Điền tên bé ➔ Nhập Telegram Chat ID của ba mẹ (có nút <em>Bấm Gửi Thử Chuông Báo</em> ngay trên điện thoại) ➔ Kiểm tra góc soi camera nôi ➔ Nhấn <strong>"Bắt Đầu Giám Sát"</strong> là xong! Khách hàng hoàn toàn không cần thao tác kỹ thuật phức tạp nào.
+          </p>
+        </div>
+      </div>
+
+      <!-- BOTTOM TRUST BAR -->
+      <div class="text-xs text-white/60 flex flex-wrap items-center justify-center gap-4 sm:gap-6 pt-6 border-t border-white/[0.08] font-medium">
+        <span class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Bản quyền trọn đời <strong class="text-white font-bold">49.00$0 / mo</strong></span>
+        <span class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Dùng thử 14 ngày <strong class="text-white font-bold">miễn phí 100%</strong></span>
+        <span class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> <strong class="text-white font-bold">100% Bảo mật</strong> dữ liệu tại chỗ</span>
+        <span class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Hỗ trợ cài đặt từ xa <strong class="text-white font-bold">Telegram / Zalo 24/7</strong></span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MEDICAL & SAFETY DISCLAIMER BANNER (CHUẨN QUỐC TẾ AAP, FDA & NGHỊ ĐỊNH 98/2021) -->
+  <section class="bg-[#0e1017]/90 border-t border-b border-white/[0.08] py-8 text-xs text-white/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="p-5 rounded-2xl bg-[#08090d]/80 border border-amber-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-xl">
+        <div class="space-y-1.5 max-w-4xl">
+          <div class="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase tracking-wider">
+            <span>🩺</span>
+            <span>Tuyên Bố Miễn Trừ Trách Nhiệm Y Tế (Medical Disclaimer)</span>
+          </div>
+          <p class="text-white/60 text-xs leading-relaxed">
+            Hệ thống <b>BabyGuard AI</b> là phần mềm hỗ trợ giám sát an toàn và theo dõi thói quen sinh hoạt của trẻ (Wellness & Safety Monitor), <b>không phải thiết bị y tế chẩn đoán chuyên dụng</b> và không thay thế cho sự giám sát, chăm sóc trực tiếp của cha mẹ hay người giám hộ. Các chỉ số nhịp thở quang học, phân tích tiếng khóc, cơn ho và chu kỳ giấc ngủ mang tính chất hỗ trợ tham khảo thói quen theo các khuyến cáo y khoa quốc tế (AAP, AASM, WHO).
+          </p>
+        </div>
+        <a href="babyguard-policy#medical-disclaimer" class="whitespace-nowrap px-4 py-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-white/80 border border-white/[0.08] text-xs font-medium transition flex items-center gap-1.5 self-start md:self-auto">
+          <span>Xem Chính Sách Đầy Đủ</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#08090d] text-white/60 py-14 border-t border-white/[0.08] text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+        
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-white/[0.05] border border-white/[0.1] flex items-center justify-center font-mono font-bold text-white text-xs">
+              BG
+            </div>
+            <div>
+              <span class="text-white font-bold text-base tracking-tight">BabyGuard AI</span>
+              <p class="text-[10px] text-white/50 font-mono uppercase tracking-wider">Hệ Sinh Thái Bảo Vệ & Nuôi Dạy Con</p>
+            </div>
+          </div>
+          <p class="text-white/60 text-xs leading-relaxed max-w-sm">
+            Được phát triển từ tình yêu thương và sự thấu hiểu sâu sắc của người làm cha mẹ. Sứ mệnh mang công nghệ AI y tế cao cấp đến từng gia đình với chi phí bình dân nhất.
+          </p>
+          <div class="inline-block px-3 py-1 rounded bg-white/[0.03] border border-white/[0.08] text-[11px] text-white/70 font-mono">
+            "Rather warn by mistake than overlook an infant hazard."
+          </div>
+        </div>
+
+        <div class="md:col-span-3 space-y-3">
+          <h5 class="text-white font-bold text-sm">Core Capabilities</h5>
+          <ul class="space-y-2 text-white/60">
+            <li><a href="#author-story" class="hover:text-white transition">Tâm sự người ba sáng lập</a></li>
+            <li><a href="#daily-stories" class="hover:text-white transition">Chuyện dạy con mỗi ngày</a></li>
+            <li><a href="#features" class="hover:text-white transition">Chống nằm sấp & ngạt thở</a></li>
+            <li><a href="#features" class="hover:text-white transition">Contactless Respiration Tracking (DSP)</a></li>
+            <li><a href="#features" class="hover:text-white transition">Theo dõi giấc ngủ chuẩn AAP</a></li>
+            <li><a href="#features" class="hover:text-white transition">Tự động canh nôi 3D thông minh</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4 space-y-3">
+          <h5 class="text-white font-bold text-sm">Policies & Legal</h5>
+          <ul class="space-y-2 text-white/60">
+            <li><a href="babyguard-policy#medical-disclaimer" class="hover:text-white transition">Khuyến Cáo Y Tế & Miễn Trừ Trách Nhiệm</a></li>
+            <li><a href="babyguard-policy#privacy-policy" class="hover:text-white transition">Pediatric Privacy Policy (COPPA)</a></li>
+            <li><a href="babyguard-policy#terms-of-service" class="hover:text-white transition">Terms of Service & Bản Quyền</a></li>
+            <li><a href="babyguard-policy#refund-support" class="hover:text-white transition">Chính Sách Dùng Thử 14 Ngày & Hoàn Tiền</a></li>
+            <li><a href="babyguard-policy#system-requirements" class="hover:text-white transition">Yêu Cầu System Specs Thiết Bị Tối Thiểu</a></li>
+            <li><a href="https://t.me/nvtthanh11" target="_blank" class="hover:text-white transition">Kênh hỗ trợ kỹ thuật Telegram 24/7</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-white/70 text-xs">
+        <div>
+          Copyright © 2026 BabyGuard AI by ShareThings. Engineered with dedication for infant safety worldwide.
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <a href="babyguard-policy#medical-disclaimer" class="hover:text-white/70 transition">Medical Disclaimer</a>
+          <a href="babyguard-policy#privacy-policy" class="hover:text-white/70 transition">Privacy Policy</a>
+          <a href="babyguard-policy#terms-of-service" class="hover:text-white/70 transition">Điều Khoản</a>
+          <a href="babyguard-policy#refund-support" class="hover:text-white/70 transition">Hoàn Tiền</a>
+          <a href="babyguard-policy#system-requirements" class="hover:text-white/70 transition">System Specs Tối Thiểu</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- SCRIPT FOR MOBILE NAV & 5S CIRCULAR FEATURE ROTATION -->
+  <script>
+    function toggleMobileNav() {
+      const menu = document.getElementById('mobile-menu');
+      if (menu) {
+        menu.classList.toggle('hidden');
+      }
+    }
+
+    // 8 Core Features Data for 5s Circular Carousel
+    const featuresData = [
+      {
+        id: 0,
+        shortTitle: "AAP Sleep Sentry",
+        tag: "AAP & AASM PEDIATRIC STANDARD",
+        icon: "🛌",
+        title: "AAP Pediatric Sleep Analytics & 07:00 AM Pinned Summary",
+        desc: "Far more than a simple sleep counter! Integrates pediatric clinical research on REM sleep cycles, deep restorative sleep, and Wake Windows. Promptly at 07:00 AM daily, it generates an end-of-night summary and pins it directly to your family Telegram group against AAP & WHO benchmarks.",
+        bullets: [
+          "Accurately measures sleep latency, sleep cycles, and nighttime awakenings",
+          "Calculates optimal next nap window based on age-adjusted Wake Windows",
+          "Includes instant one-tap encrypted link to view live nursery stream"
+        ],
+        badgeColor: "bg-amber-100 text-amber-800 border-amber-300",
+        glowColor: "rgba(245, 158, 11, 0.15)",
+        previewMetric: "Last Night: 10h 15m Sleep • 65% Deep • 32 BPM"
+      },
+      {
+        id: 1,
+        shortTitle: "Adaptive 3D Crib Zone",
+        tag: "SPATIAL 3D COMPUTER VISION",
+        icon: "📐",
+        title: "Intelligent Adaptive 3D Perspective Crib Boundary",
+        desc: "Eliminates rigid 2D rectangular bounding boxes that trigger constant false alarms! BabyGuard AI projects an adaptive 4-point polygon matching your camera angle and crib mattress plane. It dynamically accommodates safe sleep movements and only sounds alarms when baby crawls dangerously close to crib edges.",
+        bullets: [
+          "Distinguishes infant lying down from parent holding or rocking baby",
+          "Adapts flexibly to any camera mount height, pitch, or room orientation",
+          "Reduces 98% of false alarms caused by normal limb flutters during sleep"
+        ],
+        badgeColor: "bg-indigo-100 text-indigo-800 border-indigo-300",
+        glowColor: "rgba(99, 102, 241, 0.15)",
+        previewMetric: "Dynamic 3D polygon contour hugs mattress boundary"
+      },
+      {
+        id: 2,
+        shortTitle: "Prone Sleep Sentry",
+        tag: "DUAL-LAYER AIRWAY SENTRY",
+        icon: "🛡️",
+        title: "Prone Sleeping & Airway Obstruction Sentry: Dual-Layer Verification",
+        desc: "Infant respiratory safety is paramount. When Edge AI detects signs of prone sleeping or face-covering blankets/pillows, the Sentinel pipeline verifies across 4 consecutive video frames with 100% airway crop zoom. Following our motto: 'Better safe than sorry' — immediately notifying parents.",
+        bullets: [
+          "Dual-checks 4 consecutive video frames to prevent airway occlusion",
+          "Dispatches 100% crop-zoom photo of baby’s face to Telegram in under 2s",
+          "Triggers gentle nursery chime if obstruction continues past threshold"
+        ],
+        badgeColor: "bg-rose-100 text-rose-800 border-rose-300",
+        glowColor: "rgba(244, 63, 94, 0.15)",
+        previewMetric: "4 Consecutive Frames • 100% Airway Crop Zoom"
+      },
+      {
+        id: 3,
+        shortTitle: "Contactless Respiration",
+        tag: "OPTICAL THORACIC DSP SENSING",
+        icon: "🫁",
+        title: "Contactless Optical Thoracic Respiration Sensing (28 - 75 BPM)",
+        desc: "No wearable socks, straps, or intrusive battery-powered hardware on your baby’s delicate skin. BabyGuard AI tracks subtle thoracic displacements using clinical-grade digital Butterworth DSP bandpass filtering. Alerts instantly if breathing stops or becomes abnormal for > 15 seconds.",
+        bullets: [
+          "Zero touch, zero RF radiation, completely safe for baby’s sensitive skin",
+          "Accurate measurement range from 28 to 75 breaths/min per pediatric charts",
+          "Renders real-time breathing waveform on live dashboard"
+        ],
+        badgeColor: "bg-teal-100 text-teal-800 border-teal-300",
+        glowColor: "rgba(20, 184, 166, 0.15)",
+        previewMetric: "Respiration: 32 - 36 BPM • Clinical Butterworth Filter"
+      },
+      {
+        id: 4,
+        shortTitle: "Acoustic Cry & Choke",
+        tag: "AHA PEDIATRIC FIRST-AID PROTOCOL",
+        icon: "🥛",
+        title: "Acoustic Cry, Cough & Choking Detection with AHA First-Aid Protocol",
+        desc: "Acoustic neural network classifying hunger cries, tired fussiness, dry coughs, and liquid choking. When fussiness occurs, it automatically plays soothing pink/white noise lullabies. If choking is detected, Telegram dispatches instant AHA back blows & chest thrusts first-aid guidelines.",
+        bullets: [
+          "Classifies distinct acoustic signatures of coughs and post-feeding regurgitation",
+          "Plays adaptive pink/white noise automatically to soothe infant back to sleep",
+          "Sends American Heart Association (AHA) choking first-aid reference protocol"
+        ],
+        badgeColor: "bg-amber-100 text-amber-800 border-amber-300",
+        glowColor: "rgba(245, 158, 11, 0.15)",
+        previewMetric: "Auto White Noise • Instant AHA First-Aid Protocols"
+      },
+      {
+        id: 5,
+        shortTitle: "2-Way Realtime Audio",
+        tag: "ZERO-LATENCY NURSERY AUDIO",
+        icon: "🔊",
+        title: "Real-Time 16kHz Audio & Two-Way Nursery Talkback",
+        desc: "Whether at the office or on business trips, open the dashboard to hear your baby’s delicate breathing and soft coos with zero-latency 16kHz audio. Push to talk with two-way nursery talkback to soothe your child with familiar, loving parental voices.",
+        bullets: [
+          "Crystal-clear 16kHz nursery audio stream with minimal buffer delay",
+          "Two-way talkback: Speak directly from phone or browser to nursery speaker",
+          "Soothe baby remotely the moment gentle awakening stirrings begin"
+        ],
+        badgeColor: "bg-sky-100 text-sky-800 border-sky-300",
+        glowColor: "rgba(14, 165, 233, 0.15)",
+        previewMetric: "16kHz Studio Audio • Push-to-Talk Nursery Speaker"
+      },
+      {
+        id: 6,
+        shortTitle: "Cute Moments Album",
+        tag: "AI PRIVACY-FIRST PHOTO CRITIC",
+        icon: "📸",
+        title: "Curated 10 Best Moments Daily & Monthly Growth Timelapse",
+        desc: "Preserves natural, distortion-free nursery portraits. An AI aesthetic critic filters out poorly-lit or blurry frames to curate the top 10 precious baby moments daily (yawns, smiles, playful stretches), automatically compiling them into monthly growth timelapses.",
+        bullets: [
+          "Captures widescreen uncropped high-resolution nursery photographs",
+          "Curates 10 natural, heartwarming milestones daily with AI quality filtering",
+          "Generates smooth monthly milestone timelapse video for family archives"
+        ],
+        badgeColor: "bg-purple-100 text-purple-800 border-purple-300",
+        glowColor: "rgba(168, 85, 247, 0.15)",
+        previewMetric: "10 Daily Keepsakes • Auto Monthly Milestone Video"
+      },
+      {
+        id: 7,
+        shortTitle: "Daily Bedtime Story",
+        tag: "CHARACTER & EMOTIONAL GROWTH",
+        icon: "📖",
+        title: "Moral Character Library & Daily Bedtime Story Whispers",
+        desc: "Relieves the evening anxiety of not knowing how to engage meaningfully with your infant. Every morning at 07:00 AM, parents receive a timeless Aesop or Andersen classic tale highlighting virtues like gratitude, courage, and perseverance.",
+        bullets: [
+          "Library of 365 classic moral stories curated for developing childhood minds",
+          "Fosters emotional intelligence (EQ) and positive character from infancy",
+          "Cultivates a warm, loving evening storytelling ritual between parents and baby"
+        ],
+        badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-300",
+        glowColor: "rgba(16, 185, 129, 0.15)",
+        previewMetric: "365 World Classics • Nurturing Nightly Bonds"
+      }
+    ];
+
+    let currentFeatureIndex = 0;
+    let featureTimer = null;
+    let isFeaturePaused = false;
+    let timerElapsedMs = 0;
+    const FEATURE_INTERVAL_MS = 5000;
+    const TIMER_TICK_MS = 100;
+
+    const spotlightContainer = document.getElementById('feature-spotlight-box');
+    const spotlightContent = document.getElementById('feature-spotlight-content');
+    const thumbsGrid = document.getElementById('feature-thumbs-grid');
+    const timerBar = document.getElementById('feature-timer-bar');
+
+    // Build the bottom thumbnail icons grid
+    function buildThumbnailStrip() {
+      thumbsGrid.innerHTML = '';
+      featuresData.forEach((feat, idx) => {
+        const thumb = document.createElement('div');
+        thumb.className = `feature-thumb-card cursor-pointer py-3.5 px-2 rounded-2xl border text-center transition-all duration-300 relative select-none flex flex-col items-center justify-center min-h-[78px] ${
+          idx === currentFeatureIndex 
+            ? 'bg-white text-black border-white shadow-[0_0_25px_rgba(255,255,255,0.3)] scale-105 font-bold' 
+            : 'bg-[#0e1017] text-white/70 border-white/[0.08] hover:border-white/30 hover:bg-white/[0.04] shadow-sm'
+        }`;
+        thumb.dataset.index = idx;
+        
+        thumb.innerHTML = `
+          <div class="text-2xl mb-1 filter drop-shadow-sm">${feat.icon}</div>
+          <div class="text-[11px] font-bold leading-tight text-center ${idx === currentFeatureIndex ? 'text-black' : 'text-white/80'}">${feat.shortTitle || feat.title.split('&')[0].replace('AI', '').trim()}</div>
+        `;
+
+        // User requirement: When user hovers on thumbnail icon, zoom 130% and hold until mouse leave!
+        // Also pause auto rotation
+        thumb.addEventListener('mouseenter', () => {
+          isFeaturePaused = true;
+        });
+
+        thumb.addEventListener('mouseleave', () => {
+          isFeaturePaused = false;
+        });
+
+        // Click selects feature instantly
+        thumb.addEventListener('click', () => {
+          currentFeatureIndex = idx;
+          timerElapsedMs = 0;
+          renderActiveFeature();
+        });
+
+        thumbsGrid.appendChild(thumb);
+      });
+    }
+
+    // Render active feature into the top spotlight card
+    function renderActiveFeature() {
+      const feat = featuresData[currentFeatureIndex];
+      
+      // Update spotlight content with upward transition animation
+      spotlightContent.classList.remove('feature-spotlight-active');
+      void spotlightContent.offsetWidth; // trigger reflow
+      spotlightContent.classList.add('feature-spotlight-active');
+
+      spotlightContent.innerHTML = `
+        <!-- Left: Details -->
+        <div class="lg:col-span-7 space-y-4 text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider border ${feat.badgeColor}">
+            <span>${feat.icon}</span>
+            <span>${feat.tag}</span>
+          </div>
+
+          <h3 class="text-2xl sm:text-3xl font-black text-white leading-tight">
+            ${feat.title}
+          </h3>
+
+          <p class="text-white/80 text-xs sm:text-sm leading-relaxed">
+            ${feat.desc}
+          </p>
+
+          <ul class="text-xs text-white/80 space-y-2 pt-2 border-t border-white/[0.08]/80">
+            ${feat.bullets.map(b => `<li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> ${b}</li>`).join('')}
+          </ul>
+        </div>
+
+        <!-- Right: Visual Badge / Simulation card -->
+        <div class="lg:col-span-5 flex flex-col items-center justify-center">
+          <div class="w-full bg-[#08090d] text-white rounded-3xl p-6 border border-white/[0.08] shadow-2xl relative overflow-hidden group">
+            <div class="absolute -right-8 -top-8 w-32 h-32 rounded-full blur-2xl opacity-40" style="background: ${feat.glowColor}"></div>
+            
+            <div class="flex items-center justify-between pb-3 border-b border-white/[0.08] text-[11px] text-white/70">
+              <span class="font-bold text-white/90 font-mono tracking-wider">BabyGuard AI Core</span>
+              <span class="px-2 py-0.5 rounded-full bg-[#0e1017] text-emerald-400 border border-emerald-500/30 font-mono text-[10px]">● Active</span>
+            </div>
+
+            <div class="py-6 text-center space-y-2">
+              <div class="text-5xl filter drop-shadow-md">${feat.icon}</div>
+              <div class="text-sm font-bold text-white">${feat.title.split('&')[0]}</div>
+              <div class="text-xs text-white/60 font-mono bg-[#0e1017]/90 py-1.5 px-3 rounded-xl border border-white/[0.08] inline-block">
+                ${feat.previewMetric}
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-white/[0.08]/80 flex items-center justify-between text-[10px] text-white/70">
+              <span>5s Auto Cycle</span>
+              <span class="text-amber-300 font-bold">Feature ${currentFeatureIndex + 1} / 8</span>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Update active thumbnail styling (clean, without any small numbers)
+      const thumbs = thumbsGrid.querySelectorAll('.feature-thumb-card');
+      thumbs.forEach((th, idx) => {
+        if (idx === currentFeatureIndex) {
+          th.className = 'feature-thumb-card cursor-pointer py-3.5 px-2 rounded-2xl border text-center transition-all duration-300 relative select-none flex flex-col items-center justify-center min-h-[78px] bg-white text-black border-white shadow-[0_0_25px_rgba(255,255,255,0.3)] scale-105 font-bold';
+          const label = th.querySelector('.text-\\[11px\\]');
+          if (label) { label.classList.remove('text-white/80'); label.classList.add('text-black'); }
+        } else {
+          th.className = 'feature-thumb-card cursor-pointer py-3.5 px-2 rounded-2xl border text-center transition-all duration-300 relative select-none flex flex-col items-center justify-center min-h-[78px] bg-[#0e1017] text-white/70 border-white/[0.08] hover:border-white/30 hover:bg-white/[0.04] shadow-sm';
+          const label = th.querySelector('.text-\\[11px\\]');
+          if (label) { label.classList.remove('text-black'); label.classList.add('text-white/80'); }
+        }
+      });
+    }
+
+    // 5s Timer Loop with Smooth Progress Bar
+    function startFeatureRotation() {
+      if (featureTimer) clearInterval(featureTimer);
+
+      featureTimer = setInterval(() => {
+        if (!isFeaturePaused) {
+          timerElapsedMs += TIMER_TICK_MS;
+          const progressPercent = Math.min((timerElapsedMs / FEATURE_INTERVAL_MS) * 100, 100);
+          if (timerBar) timerBar.style.width = progressPercent + '%';
+
+          if (timerElapsedMs >= FEATURE_INTERVAL_MS) {
+            timerElapsedMs = 0;
+            currentFeatureIndex = (currentFeatureIndex + 1) % featuresData.length;
+            renderActiveFeature();
+          }
+        }
+      }, TIMER_TICK_MS);
+    }
+
+    // User requirement: When customer hovers to read, pause rotation completely!
+    spotlightContainer.addEventListener('mouseenter', () => {
+      isFeaturePaused = true;
+    });
+
+    spotlightContainer.addEventListener('mouseleave', () => {
+      isFeaturePaused = false;
+    });
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      buildThumbnailStrip();
+      renderActiveFeature();
+      startFeatureRotation();
+      initCribCarousel();
+    });
+
+    // =========================================================================
+    // BABY CRIB ROTATING SLIDESHOW (HERO TELEGRAM MOCKUP)
+    // =========================================================================
+    const cribSlidesData = [
+      {
+        badge: "🫁 32 BPM • Safe Supine Posture",
+        time: "14:25 • Sent to Telegram",
+        title: "<span>✅</span> <span>[DUAL CHECK: SAFE]</span>",
+        desc: "Baby Siu sleeping peacefully. Body fully within crib mattress boundary, nasal airway 100% unobstructed.",
+        vital: 'Thoracic Respiration: <strong class="text-white">32 BPM</strong>'
+      },
+      {
+        badge: "🫁 30 BPM • Smooth Regular Respiration",
+        time: "14:28 • Đã gửi",
+        title: "<span>🛡️</span> <span>[KHUNG NÔI AN TOÀN: 100%]</span>",
+        desc: "Bé say giấc trong túi ngủ êm ái. AI xác nhận không có dị vật, chăn phủ ngực an toàn cạnh sườn.",
+        vital: 'Nhịp thở lồng ngực: <strong class="text-white">30 BPM</strong>'
+      },
+      {
+        badge: "🫁 29 BPM • Deep Restorative Sleep",
+        time: "14:31 • Đã gửi",
+        title: "<span>✨</span> <span>[GIẤC NGỦ HOÀN HẢO: REM]</span>",
+        desc: "Bé ngủ tư thế sao biển dang tay thư giãn. Lồng ngực phập phồng đều đặn, đường thở thông thoáng.",
+        vital: 'Nhịp thở lồng ngực: <strong class="text-white">29 BPM</strong>'
+      },
+      {
+        badge: "🫁 31 BPM • 100% Clear",
+        time: "14:35 • Đã gửi",
+        title: "<span>💤</span> <span>[CLEAR AIRWAY CONFIRMED]</span>",
+        desc: "Baby wrapped in breathable muslin swaddle, AAP compliant posture. 24/7 sentry active.",
+        vital: 'Nhịp thở lồng ngực: <strong class="text-white">31 BPM</strong>'
+      }
+    ];
+
+    let curCribSlide = 0;
+    let cribSlideTimer = null;
+
+    function showCribSlide(idx) {
+      const slides = document.querySelectorAll('.baby-crib-slide');
+      const dots = document.querySelectorAll('.crib-dot');
+      if (!slides.length) return;
+
+      curCribSlide = (idx + slides.length) % slides.length;
+
+      slides.forEach((sl, i) => {
+        if (i === curCribSlide) {
+          sl.classList.remove('opacity-0', 'pointer-events-none');
+          sl.classList.add('opacity-100');
+        } else {
+          sl.classList.remove('opacity-100');
+          sl.classList.add('opacity-0', 'pointer-events-none');
+        }
+      });
+
+      dots.forEach((dot, i) => {
+        if (i === curCribSlide) {
+          dot.className = 'crib-dot w-3.5 h-1 rounded-full bg-emerald-400 transition-all duration-300';
+        } else {
+          dot.className = 'crib-dot w-1.5 h-1 rounded-full bg-[#0e1017]/40 hover:bg-[#0e1017]/80 transition-all duration-300';
+        }
+      });
+
+      const data = cribSlidesData[curCribSlide];
+      if (data) {
+        const badgeEl = document.getElementById('crib-status-text');
+        const timeEl = document.getElementById('crib-time-badge');
+        const titleEl = document.getElementById('crib-msg-title');
+        const descEl = document.getElementById('crib-msg-desc');
+        const vitalEl = document.getElementById('crib-msg-vital');
+
+        if (badgeEl) badgeEl.innerText = data.badge;
+        if (timeEl) timeEl.innerText = data.time;
+        if (titleEl) titleEl.innerHTML = data.title;
+        if (descEl) descEl.innerText = data.desc;
+        if (vitalEl) vitalEl.innerHTML = data.vital;
+      }
+    }
+
+    function nextCribSlide() {
+      showCribSlide(curCribSlide + 1);
+      resetCribTimer();
+    }
+
+    function goToCribSlide(idx) {
+      showCribSlide(idx);
+      resetCribTimer();
+    }
+
+    function resetCribTimer() {
+      if (cribSlideTimer) clearInterval(cribSlideTimer);
+      cribSlideTimer = setInterval(() => {
+        showCribSlide(curCribSlide + 1);
+      }, 3500);
+    }
+
+    function initCribCarousel() {
+      resetCribTimer();
+      const carouselEl = document.getElementById('baby-crib-carousel');
+      if (carouselEl) {
+        carouselEl.addEventListener('mouseenter', () => {
+          if (cribSlideTimer) clearInterval(cribSlideTimer);
+        });
+        carouselEl.addEventListener('mouseleave', () => {
+          resetCribTimer();
+        });
+      }
+    }
+
+    // =========================================================================
+    // UNIVERSAL DOWNLOAD MODAL & IOS GUIDE MODAL
+    // =========================================================================
+    function openDownloadModal() {
+      const modal = document.getElementById('download-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeDownloadModal() {
+      const modal = document.getElementById('download-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function openIosGuideModal() {
+      closeDownloadModal();
+      const modal = document.getElementById('ios-guide-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeIosGuideModal() {
+      const modal = document.getElementById('ios-guide-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // =========================================================================
+    // SMART MOBILE BOTTOM BAR: AUTO-HIDE ON SCROLL DOWN, REVEAL ON SCROLL UP
+    // =========================================================================
+    function dismissMobileBottomBar() {
+      const bar = document.getElementById('mobile-sticky-bottom-bar');
+      if (bar) bar.style.display = 'none';
+    }
+
+    let _lastScrollY = window.scrollY;
+    window.addEventListener('scroll', () => {
+      const bar = document.getElementById('mobile-sticky-bottom-bar');
+      if (!bar || bar.style.display === 'none') return;
+      const currentScrollY = window.scrollY;
+      // Khi vuốt xuống để đọc bài: tự động trượt thanh xuống ẩn đi để mở rộng tầm nhìn
+      if (currentScrollY > _lastScrollY && currentScrollY > 150) {
+        bar.style.transform = 'translateY(180%)';
+      } else {
+        // Khi vuốt lên hoặc dừng lại: hiện lại thanh mượt mà
+        bar.style.transform = 'translateY(0)';
+      }
+      _lastScrollY = currentScrollY;
+    }, { passive: true });
+
+    // =========================================================================
+    // CHECKOUT MODAL LOGIC (SEPAY VIETQR / INTERNATIONAL CHECKOUT)
+    // =========================================================================
+    function openCheckoutModal() {
+      const modal = document.getElementById('checkout-modal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeCheckoutModal() {
+      const modal = document.getElementById('checkout-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    // =========================================================================
+    // CHECKOUT MODAL: 100% AUTOMATED VIETQR & INSTANT ACTIVATION POLLING
+    // =========================================================================
+    let checkoutPollTimer = null;
+    let currentOrderCode = '';
+
+    function openCheckoutModal() {
+      const modal = document.getElementById('checkout-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+
+      // Sinh mã đơn hàng duy nhất 5 chữ số (VD: BG85219) nếu chưa có trong phiên
+      let savedCode = sessionStorage.getItem('bg_checkout_code');
+      if (!savedCode) {
+        const randNum = Math.floor(10000 + Math.random() * 90000);
+        savedCode = 'BG' + randNum;
+        sessionStorage.setItem('bg_checkout_code', savedCode);
+      }
+      currentOrderCode = savedCode;
+
+      // Cập nhật giao diện thanh toán với mã đơn duy nhất
+      const memoEl = document.getElementById('checkout-memo');
+      if (memoEl) memoEl.innerText = currentOrderCode;
+
+      const qrImg = document.getElementById('checkout-vietqr-img');
+      if (qrImg) {
+        const qrUrl = `https://img.vietqr.io/image/970422-1550107316004-compact2.png?amount=49000&addInfo=${encodeURIComponent(currentOrderCode)}&accountName=Nguyen%20Vu%20Truong%20Thanh`;
+        qrImg.src = qrUrl;
+      }
+
+      // Khởi động lắng nghe SePay Webhook tự động (Auto-Poll mỗi 2.5 giây)
+      startCheckoutPolling(currentOrderCode);
+    }
+
+    function closeCheckoutModal() {
+      const modal = document.getElementById('checkout-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+      stopCheckoutPolling();
+    }
+
+    function stopCheckoutPolling() {
+      if (checkoutPollTimer) {
+        clearInterval(checkoutPollTimer);
+        checkoutPollTimer = null;
+      }
+    }
+
+    function startCheckoutPolling(orderCode) {
+      stopCheckoutPolling();
+      const cleanShort = orderCode.replace('BG', '').trim();
+      
+      checkoutPollTimer = setInterval(async () => {
+        try {
+          // Thử gọi cloud-verify cục bộ hoặc qua domain chính
+          const apiUrl = `/api/license/cloud-verify?short_id=${cleanShort}`;
+          const res = await fetch(apiUrl, { cache: 'no-store' });
+          if (res.ok) {
+            const data = await res.json();
+            if (data.valid && data.is_lifetime) {
+              stopCheckoutPolling();
+              handlePaymentSuccess(data);
+            }
+          }
+        } catch (err) {
+          // Bỏ qua lỗi mạng tạm thời trong lúc poll
+        }
+      }, 2500);
+    }
+
+    function handlePaymentSuccess(data) {
+      const key = data.license_key || 'BG-LFT-ACTIVE-OK';
+      const safeKey = String(key).replace(/[^a-zA-Z0-9_-]/g, '');
+      localStorage.setItem('babyguard_paid_license', safeKey);
+
+      const contentBox = document.getElementById('checkout-content-vietqr');
+      if (!contentBox) return;
+
+      contentBox.innerHTML = `
+        <div class="p-6 rounded-2xl bg-gradient-to-b from-emerald-950/80 to-slate-900 border-2 border-emerald-500 text-center space-y-4 animate-fade-in shadow-2xl">
+          <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 text-3xl mx-auto flex items-center justify-center border border-emerald-400/40">
+            🎉
+          </div>
+          <div class="space-y-1">
+            <h4 class="text-xl font-black text-white">PAYMENT CONFIRMED!</h4>
+            <p class="text-xs text-emerald-300 font-semibold">Payment of 49,000 VND confirmed via SePay!</p>
+          </div>
+          
+          <div class="p-4 rounded-xl bg-[#08090d] border border-emerald-500/30 text-left space-y-2">
+            <div class="text-[10px] text-white/70 font-bold uppercase tracking-wider">Your Permanent Lifetime License Key:</div>
+            <div class="flex items-center justify-between gap-2 bg-[#0e1017] p-2.5 rounded-lg border border-white/[0.08] font-mono text-emerald-300 font-black text-xs sm:text-sm select-all">
+              <span id="paid-key-text">${safeKey}</span>
+              <button onclick="navigator.clipboard.writeText('${safeKey}'); alert('Copied License Key to clipboard!');" class="px-2.5 py-1 bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold rounded-md transition shrink-0">
+                Copy
+              </button>
+            </div>
+            <p class="text-[10px] text-white/70">💡 Khi mở ứng dụng trên máy tính, app sẽ tự động nhận diện bản quyền này mà không cần gõ lại!</p>
+          </div>
+
+          <div class="space-y-2 pt-2">
+            <div class="text-xs font-bold text-white">Download Installer for Your System:</div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <a href="https://cam.babyguard.site/download/windows-app" class="py-3 px-3 rounded-xl bg-blue-600 hover:bg-blue-500 shadow-md shadow-blue-900/30 hover:from-blue-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow transition">
+                <span>🪟 Windows Installer (.ZIP)</span>
+              </a>
+              <a href="https://cam.babyguard.site/download/BabyGuard_Mac.pkg" class="py-3 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 shadow-md shadow-emerald-900/30 hover:from-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow transition">
+                <span>🍏 macOS Installer (.PKG)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function switchCheckoutTab(tab) {
+      const btnVietQR = document.getElementById('tab-checkout-vietqr');
+      const btnIntl = document.getElementById('tab-checkout-intl');
+      const contentVietQR = document.getElementById('checkout-content-vietqr');
+      const contentIntl = document.getElementById('checkout-content-intl');
+
+      if (tab === 'vietqr') {
+        if (btnVietQR) btnVietQR.className = 'flex-1 py-2.5 px-3 rounded-xl font-bold transition flex items-center justify-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 shadow-md shadow-emerald-900/30 text-white shadow-md';
+        if (btnIntl) btnIntl.className = 'flex-1 py-2.5 px-3 rounded-xl font-semibold text-white/70 hover:text-white transition flex items-center justify-center gap-1.5';
+        if (contentVietQR) contentVietQR.classList.remove('hidden');
+        if (contentIntl) contentIntl.classList.add('hidden');
+      } else {
+        if (btnVietQR) btnVietQR.className = 'flex-1 py-2.5 px-3 rounded-xl font-semibold text-white/70 hover:text-white transition flex items-center justify-center gap-1.5';
+        if (btnIntl) btnIntl.className = 'flex-1 py-2.5 px-3 rounded-xl font-bold transition flex items-center justify-center gap-1.5 bg-blue-600 hover:bg-blue-500 shadow-md shadow-blue-900/30 text-white shadow-md';
+        if (contentVietQR) contentVietQR.classList.add('hidden');
+        if (contentIntl) contentIntl.classList.remove('hidden');
+      }
+    }
+
+    function copyCheckoutMemo() {
+      const memo = document.getElementById('checkout-memo');
+      const txt = memo ? memo.innerText.trim() : (currentOrderCode || 'BG68821');
+      navigator.clipboard.writeText(txt).then(() => {
+        alert('Copied payment transfer memo: ' + txt);
+      });
+    }
+  </script>
+
+  <!-- CHECKOUT MODAL: 100% AUTOMATED PAYMENT VIA VIETQR / SEPAY -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 bg-[#08090d]/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="bg-[#0e1017] border border-white/[0.08] w-full max-w-lg rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      
+      <!-- Close button -->
+      <button onclick="closeCheckoutModal()" class="absolute top-5 right-5 text-white/70 hover:text-white text-xl p-1">✕</button>
+
+      <!-- Header -->
+      <div class="space-y-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold">
+          <span>🛡️</span> BabyGuard AI Perpetual Lifetime License
+        </div>
+        <h3 class="text-xl sm:text-2xl font-black text-white leading-tight">
+          <span class="inline-block">Lifetime License —</span>
+          <span class="text-emerald-400 inline-block">49.00$0 / mo</span>
+        </h3>
+        <p class="text-xs text-white/60 leading-relaxed">
+          Single one-time payment. Zero monthly fees. Instant automated activation 24/7.
+        </p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="flex items-center gap-1.5 p-1 bg-[#08090d] rounded-2xl border border-white/[0.08] text-xs">
+        <button onclick="switchCheckoutTab('vietqr')" id="tab-checkout-vietqr" class="flex-1 py-2.5 px-3 rounded-xl font-bold transition flex items-center justify-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 shadow-md shadow-emerald-900/30 text-white shadow-md">
+          <span>🇻🇳</span>
+          <span>VietQR Bank Transfer (49k VND)</span>
+        </button>
+        <button onclick="switchCheckoutTab('intl')" id="tab-checkout-intl" class="flex-1 py-2.5 px-3 rounded-xl font-semibold text-white/70 hover:text-white transition flex items-center justify-center gap-1.5">
+          <span>🌍</span>
+          <span>International Card ($29)</span>
+        </button>
+      </div>
+
+      <!-- Tab Content: VietQR -->
+      <div id="checkout-content-vietqr" class="space-y-4 text-xs">
+        <div class="bg-[#08090d]/80 p-4 sm:p-5 rounded-2xl border border-white/[0.08] flex flex-col md:flex-row items-center gap-5">
+          <div class="bg-[#0e1017] p-3 rounded-2xl shadow-2xl flex-shrink-0 text-center border-2 border-emerald-500/40">
+            <img id="checkout-vietqr-img" src="https://img.vietqr.io/image/970422-1550107316004-compact2.png?amount=49000&addInfo=BG%20LIFETIME&accountName=Nguyen%20Vu%20Truong%20Thanh" alt="VietQR 49k BabyGuard AI" class="w-52 h-52 sm:w-60 sm:h-60 object-contain rounded-xl mx-auto">
+            <div class="text-[10px] text-white/70 font-black mt-1.5 flex items-center justify-center gap-1">
+              <span>🏦 MBBank</span>
+              <span>•</span>
+              <span class="text-emerald-700">24/7 Automated Verification</span>
+            </div>
+          </div>
+
+          <div class="space-y-3 flex-1 w-full text-left">
+            <div>
+              <span class="text-white/60 text-[11px] font-medium block">Total Amount:</span>
+              <div class="flex items-baseline gap-2">
+                <span class="text-2xl font-black text-emerald-400">49.00$0 / mo</span>
+                <span class="text-xs text-white/70 line-through">990.000đ</span>
+                <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold">Lifetime</span>
+              </div>
+            </div>
+
+            <div class="space-y-0.5 text-xs text-white/70 bg-[#0e1017]/80 p-2.5 rounded-xl border border-white/[0.08]">
+              <span class="text-white/70 text-[10px] font-medium block">Beneficiary Account:</span>
+              <div class="font-bold text-white text-sm">MBBank - 1550107316004</div>
+              <div class="text-[11px] text-emerald-400 font-semibold">NGUYEN VU TRUONG THANH</div>
+            </div>
+
+            <div class="space-y-1">
+              <span class="text-white/60 text-[11px] font-medium block">Payment Transfer Memo (Auto-Detected)::</span>
+              <div class="flex items-center justify-between bg-[#0e1017] px-3.5 py-2.5 rounded-xl border border-emerald-500/50 font-mono text-emerald-300 font-black text-sm shadow-inner">
+                <span id="checkout-memo">BG88219</span>
+                <button onclick="copyCheckoutMemo()" class="px-2.5 py-1 bg-emerald-500/20 hover:bg-emerald-500/40 text-emerald-300 rounded-lg text-xs font-bold transition flex items-center gap-1" title="Sao chép cú pháp">
+                  <span>📋</span>
+                  <span>Copy</span>
+                </button>
+              </div>
+              <p class="text-[10.5px] text-amber-300 leading-relaxed pt-0.5">
+                ⚡ <strong>Không cần nhập số điện thoại hay nickname!</strong> Mở app ngân hàng bất kỳ quét mã QR ở trên, hệ thống ngân hàng sẽ tự điền sẵn toàn bộ. Bạn chỉ cần bấm <strong>Xác nhận</strong>!
+              </p>
+            </div>
+
+            <!-- Live Polling Status indicator -->
+            <div class="flex items-center gap-2 pt-1 text-white/60 text-[11px]">
+              <span class="relative flex h-2.5 w-2.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              </span>
+              <span class="text-emerald-400 font-semibold">Real-time Payment Gateway:</span>
+              <span class="text-white/70">Instant automatic license unlock upon receipt</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-indigo-500/10 border border-indigo-500/20 p-3.5 rounded-2xl space-y-2 text-[11px] text-white/60">
+          <div class="font-bold text-indigo-300 flex items-center gap-1.5">
+            <span>⚡</span> 100% Instant Automated Activation
+          </div>
+          <ul class="space-y-1 text-white/60 text-[11px]">
+            <li>✓ Upon payment completion, automated webhook verifies transaction in 3 seconds.</li>
+            <li>✓ Màn hình này sẽ <strong>tự động đổi sang màu xanh chúc mừng và cấp mã bản quyền vĩnh viễn</strong> ngay lập tức.</li>
+            <li>✓ 100% money-back guarantee within 30 days if not completely satisfied.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tab Content: International -->
+      <div id="checkout-content-intl" class="space-y-4 text-xs hidden">
+        <div class="p-5 rounded-2xl bg-[#08090d]/80 border border-white/[0.08] space-y-3">
+          <div class="flex items-center justify-between">
+            <div>
+              <h4 class="font-bold text-white text-sm">International License (Lifetime)</h4>
+              <p class="text-[11px] text-white/70">Pay with Visa, Mastercard, Apple Pay, Google Pay</p>
+            </div>
+            <div class="text-right">
+              <span class="text-2xl font-black text-brand-400">$29</span>
+              <span class="text-[10px] text-white/70 block">One-time payment</span>
+            </div>
+          </div>
+
+          <p class="text-white/60 text-xs leading-relaxed">
+            Secure international checkout via Lemon Squeezy / Stripe. Your universal commercial license key will be delivered instantly to your email inbox!
+          </p>
+
+          <a href="https://buy.stripe.com/test_babyguard_lifetime" target="_blank" class="w-full py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 shadow-md shadow-blue-900/30 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-center text-sm shadow-lg flex items-center justify-center gap-2">
+            <span>💳</span>
+            <span>Pay with Card / Apple Pay ($29)</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-white/[0.08] text-[11px] text-white/70">
+        <div class="flex items-center gap-1.5">
+          <span>Need live support?</span>
+          <a href="https://t.me/Nvtthanh11" target="_blank" class="text-sky-400 hover:text-sky-300 font-bold underline inline-flex items-center gap-1">
+            <span>💬 Telegram:</span>
+            <strong>@Nvtthanh11</strong>
+            <span>(Father of Baby Siu)</span>
+          </a>
+        </div>
+        <button onclick="closeCheckoutModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white/60 font-semibold transition">
+          Close
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- STICKY MOBILE DOWNLOAD BAR (SMART AUTO-HIDE ON SCROLL DOWN) -->
+  <div id="mobile-sticky-bottom-bar" class="lg:hidden fixed bottom-3 inset-x-3 z-40 transition-transform duration-300" style="bottom: max(0.75rem, env(safe-area-inset-bottom, 12px));">
+    <div class="bg-[#0e1017]/95 backdrop-blur-xl border border-white/[0.08] rounded-2xl p-2.5 shadow-2xl flex items-center justify-between gap-3 relative">
+      <button onclick="dismissMobileBottomBar()" class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-slate-800 border border-white/[0.08] text-white/60 hover:text-white text-xs flex items-center justify-center shadow-md active:scale-90 transition" title="Close thanh này">
+        ✕
+      </button>
+      <div class="pl-2">
+        <div class="text-[10px] text-white/60 font-mono flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          <span>14-Day Free Trial (49k Lifetime)</span>
+        </div>
+        <div class="text-xs text-white font-bold">24/7 Infant Sleep & Safety Sentry</div>
+      </div>
+      <button onclick="openDownloadModal()" class="px-3.5 py-2 sm:px-4 sm:py-2 rounded-xl bg-white hover:bg-neutral-200 text-black font-semibold text-xs shadow active:scale-95 transition flex items-center gap-1.5 shrink-0">
+        <span>Download Free</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- UNIVERSAL DOWNLOAD MODAL: CHỌN BẢN CÀI ĐẶT THEO THIẾT BỊ -->
+  <div id="download-modal" class="fixed inset-0 z-50 bg-[#08090d]/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="bg-[#0e1017] border border-white/[0.08] w-full max-w-2xl rounded-2xl p-6 sm:p-8 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      
+      <!-- Close button -->
+      <button onclick="closeDownloadModal()" class="absolute top-5 right-5 text-white/70 hover:text-white text-xl p-1">✕</button>
+
+      <!-- Header -->
+      <div class="space-y-1.5 text-center sm:text-left pr-8">
+        <div class="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/80 font-mono text-[10px]">
+          Download BabyGuard AI Software
+        </div>
+        <h3 class="text-xl sm:text-2xl font-black text-white leading-tight">
+          <span class="inline-block">Chọn Bản Cài Đặt</span>
+          <span class="inline-block">Cho Thiết Bị Của Bạn</span>
+        </h3>
+        <p class="text-xs text-white/60 leading-relaxed">
+          Experience 14 days unrestricted free trial. One-time payment of 49k VND (~$2 USD) for permanent lifetime ownership.
+        </p>
+      </div>
+
+      <!-- 3 Cards in Grid (Windows, Mac, Android) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        
+        <!-- CARD: WINDOWS -->
+        <div class="bg-[#08090d]/80 border border-white/[0.08] hover:border-blue-500/50 rounded-2xl p-4.5 space-y-3 flex flex-col justify-between">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-2xl">🪟</span>
+              <span class="px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300 text-[10px] font-bold">Windows 10/11</span>
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-sm">Windows PC & Laptop (10 / 11)</h4>
+              <p class="text-[11px] text-white/70">Dell, HP, Asus, Lenovo, Acer...</p>
+            </div>
+            <p class="text-[11px] text-white/60">
+              Nursery AI sentry station detecting prone rolls, cries, and breathing obstacles. Auto-configures all libraries.
+            </p>
+            <div class="text-[10px] text-white/70 bg-[#0e1017]/80 p-2 rounded-lg">
+              📦 Complete Installer • Double click .bat
+            </div>
+          </div>
+          <a href="https://cam.babyguard.site/download/windows-app" class="w-full py-2.5 px-3 rounded-xl bg-blue-600 hover:bg-blue-500 shadow-md shadow-blue-900/30 hover:from-blue-500 text-white font-bold text-xs text-center shadow flex items-center justify-center gap-1.5 transition active:scale-95">
+            <span>⬇️ DOWNLOAD WINDOWS (.ZIP)</span>
+          </a>
+        </div>
+
+        <!-- CARD: MACOS -->
+        <div class="bg-[#08090d]/80 border border-white/[0.08] hover:border-slate-500/50 rounded-2xl p-4.5 space-y-3 flex flex-col justify-between">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-2xl">🍏</span>
+              <span class="px-2 py-0.5 rounded-full bg-slate-700 text-white/70 text-[10px] font-bold">macOS M1-M4 & Intel</span>
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-sm">MacBook & Mac mini (Apple Silicon / Intel)</h4>
+              <p class="text-[11px] text-white/70">MacBook Air, Pro, iMac, Mac mini</p>
+            </div>
+            <p class="text-[11px] text-white/60">
+              Optimized for Apple Silicon, ultra-low power consumption, one-click installer.
+            </p>
+            <div class="text-[10px] text-white/70 bg-[#0e1017]/80 p-2 rounded-lg">
+              📦 macOS .PKG • One-click automated launch
+            </div>
+          </div>
+          <div class="space-y-1.5">
+            <a href="https://cam.babyguard.site/download/BabyGuard_Mac.pkg" class="w-full py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 shadow-md shadow-emerald-900/30 hover:from-emerald-500 text-white font-bold text-xs text-center shadow flex items-center justify-center gap-1.5 border border-emerald-500/40 transition active:scale-95">
+              <span>🍏 DOWNLOAD MACOS INSTALLER (.PKG)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD: ANDROID -->
+        <div class="bg-[#08090d]/80 border border-white/[0.08] hover:border-emerald-500/50 rounded-2xl p-4.5 space-y-3 flex flex-col justify-between">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-2xl">🤖</span>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-bold">2-Trong-1 (1.2MB)</span>
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-sm">Android Smartphone App (.APK)</h4>
+              <p class="text-[11px] text-white/70">Samsung, Xiaomi, Oppo, Vivo...</p>
+            </div>
+            <p class="text-[11px] text-white/60">
+              Vừa xem từ xa, vừa làm Trạm AI nôi bé độc lập (tự phát hiện khóc/chuyển động, phát tiếng ồn trắng dỗ bé, gửi chuông báo Telegram) khi không có máy tính.
+            </p>
+            <div class="text-[10px] text-white/70 bg-[#0e1017]/80 p-2 rounded-lg">
+              📦 Size: 1.2 MB • Instant lightweight installation
+            </div>
+          </div>
+          <a href="/download/app.apk" class="w-full py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 shadow-md shadow-emerald-900/30 hover:from-emerald-500 text-white font-bold text-xs text-center shadow flex items-center justify-center gap-1.5 transition active:scale-95">
+            <span>⬇️ DOWNLOAD APK (ANDROID)</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Quick Chrome Tip in Modal -->
+      <div class="p-3.5 rounded-xl bg-[#0e1017]/90 border border-white/[0.08] text-[11px] text-white/60 flex items-center gap-2.5">
+        <span class="text-base shrink-0">💡</span>
+        <span>Nếu Chrome hiện thông báo <em>"This file isn't commonly downloaded..."</em>, ba mẹ bấm nút tím <strong>[Download suspicious file]</strong> (hoặc <strong>[Vẫn tải xuống]</strong>) là xong nhé!</span>
+      </div>
+
+      <!-- Footer -->
+      <div class="flex items-center justify-between pt-2 border-t border-white/[0.08] text-[11px] text-white/70">
+        <span>Need setup assistance? <a href="https://t.me/nvtthanh11" target="_blank" class="text-brand-400 underline font-bold">Nhắn tin Telegram</a></span>
+        <button onclick="closeDownloadModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white/60 font-semibold transition">
+          Close
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
